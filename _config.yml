@@ -1,0 +1,4 @@
+server: true
+auto: true
+exclude: docs README Gemfile Gemfile.lock CNAME
+permalink:  :pretty
