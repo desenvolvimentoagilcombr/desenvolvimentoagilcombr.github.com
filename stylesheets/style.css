@@ -1,0 +1,180 @@
+/*/*====================*/
+/*=== Reset Styles ===*/
+/*====================*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*/*====================*/
+/*=== Base Styles ===*/
+/*====================*/
+
+
+/*/*====================*/
+/*=== Modules Styles ===*/
+/*====================*/
+
+/*/*====================*/
+/*=== Layout Styles ===*/
+/*====================*/
+
+.center {
+  width: 980px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#header {
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+#masthead {
+  background: #D01A17;
+  padding: 15px;
+  overflow: hidden;
+}
+
+#main-navigation {
+  float: right;
+}
+
+#main-navigation li {
+  float: left;
+  margin-right: 5px;
+}
+
+#main-navigation a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#logo {
+  float: left;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#content-table-link {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  height: 20px;
+  font-size: 12px;
+  position: absolute;
+  left: 420px;
+  top: 3px;
+}
+
+#content-table-link span {
+  text-indent: -999em;
+  background: url("/images/icon-menu.png") no-repeat;
+  width: 20px;
+  height: 18px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+}
+
+#content-table {
+  background: #1E1E1E;
+  color: #fff;
+  display: none;
+}
+
+#content-table .center {
+  padding: 15px;
+}
+
+#content-table h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#content-navigation {
+  margin: 10px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#content-navigation .topic {
+  margin: 0 0 15px 0;
+  float: left;
+}
+
+#content-navigation a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#content-navigation a:hover {
+  text-decoration: underline;
+}
+
+#content-navigation h3 {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#content-navigation h4 {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+#content-navigation ul {
+  float: left;
+  margin: 5px 25px 0 0;
+  letter-spacing: -1px;
+  max-width: 124px;
+}
+
+#content-navigation li {
+  line-height: 20px;
+}
+
+
+

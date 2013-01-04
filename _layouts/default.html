@@ -1,13 +1,131 @@
 <!DOCTYPE html>
 <html lang='pt'>
-
+  {% include head.html %}
   <body>
+    <header id="header">
+      <div id="masthead">
+        <div class="center">
+          <h1><a href="/" id="logo" title="DesenvolvimentoÁgil.com.br">DesenvolvimentoÁgil.com.br</a></h1>
+          <nav id="main-navigation">
+            <ul>
+              <li><a href="/xp" title="XP">XP</a></li>
+              <li><a href="/scrum" title="Scrum">Scrum</a></li>
+            </ul>
+          </nav>
+          <a href="#" id="content-table-link"><span>≡</span> Tabela de Conteúdo</a>
+        </div>
+      </div>
+      <div id="content-table">
+        <div class="center">
+          <h2>XP</h2>
+          <nav id="content-navigation">
 
-  <header class="default">
+            <div class="topic">
+              <h3><a href="/xp/valores">Valores</a></h3>
+              <ul>
+                <li><a href="/xp/valores/comunicacao">Comunicação</a></li>
+                <li><a href="/xp/valores/coragem">Coragem</a></li>
+                <li><a href="/xp/valores/feedback">Feedback</a></li>
+                <li><a href="/xp/valores/respeito">Respeito</a></li>
+                <li><a href="/xp/valores/simplicidade">Simplicidade</a></li>
+              </ul>
+            </div>
 
-  </header>
+            <div class="topic">
+              <h3><a href="/xp/principios">Princípios</a></h3>
+              <ul>
+                <li><a href="/xp/principios/auto_semelhanca">Auto-semelhança</a></li>
+                <li><a href="/xp/principios/beneficio_mutuo">Benefício Mútuo</a></li>
+                <li><a href="/xp/principios/diversidade">Diversidade</a></li>
+                <li><a href="/xp/principios/economia">Economia</a></li>
+                <li><a href="/xp/principios/falha">Falha</a></li>
+                <li><a href="/xp/principios/fluidez">Fluidez</a></li>
+                <li><a href="/xp/principios/humanismo">Humanismo</a></li>
+                <li><a href="/xp/principios/melhoria">Melhoria</a></li>
+                <li><a href="/xp/principios/oportunidade">Oportunidade</a></li>
+                <li><a href="/xp/principios/passos_bebe">Passos de Bebê</a></li>
+                <li><a href="/xp/principios/qualidade">Qualidade</a></li>
+                <li><a href="/xp/principios/redundancia">Redundância</a></li>
+                <li><a href="/xp/principios/reflexao">Reflexão</a></li>
+                <li><a href="/xp/principios/responsabilidade_aceita">Responsabilidade Aceita</a></li>
+              </ul>
+            </div>
 
-  {{ content }}
+            <div class="topic">
+              <h3><a href="/xp/papeis">Papéis</a></h3>
+              <ul>
+                <li><a href="/xp/papeis/analistas_teste">Analistas de Teste</a></li>
+                <li><a href="/xp/papeis/arquitetos">Arquitetos</a></li>
+                <li><a href="/xp/papeis/designers_interacao">Designers de Interação</a></li>
+                <li><a href="/xp/papeis/executivos">Executivos</a></li>
+                <li><a href="/xp/papeis/gerentes_projetos">Gerentes de Projeto</a></li>
+                <li><a href="/xp/papeis/gerentes_produto">Gerentes de Produto</a></li>
+                <li><a href="/xp/papeis/programadores">Programadores</a></li>
+                <li><a href="/xp/papeis/rh">Recursos Humanos</a></li>
+                <li><a href="/xp/papeis/redatores_tecnicos">Redatores Técnicos</a></li>
+                <li><a href="/xp/papeis/usuarios">Usuários</a></li>
+              </ul>
+            </div>
 
+            <div class="topic">
+              <h3><a href="/xp/praticas">Práticas</a></h3>
+              <ul>
+                <li><h4><a href="/xp/praticas#primarias">Práticas Primárias</a></h4></li>
+                <li><a href="/xp/praticas/ambiente_informativo">Ambiente Informativo</a></li>
+                <li><a href="/xp/praticas/build_dez">Build de Dez Minutos</a></li>
+                <li><a href="/xp/praticas/ciclo_semanal">Ciclo Semanal</a></li>
+                <li><a href="/xp/praticas/ciclo_trimestral">Ciclo Trimestral</a></li>
+                <li><a href="/xp/praticas/tdd">Desenvolvimento Orientado a Testes</a></li>
+                <li><a href="/xp/praticas/design_incremental">Design Incremental</a></li>
+                <li><a href="/xp/praticas/equipe_integral">Equipe Integral</a></li>
+                <li><a href="/xp/praticas/folga">Folga</a></li>
+                <li><a href="/xp/praticas/historias">Histórias</a></li>
+                <li><a href="/xp/praticas/integracao">Integração Contínua</a></li>
+                <li><a href="/xp/praticas/programacao_par">Programação em Par</a></li>
+                <li><a href="/xp/praticas/sentar_junto">Sentar-se Junto</a></li>
+                <li><a href="/xp/praticas/trabalho_energizado">Trabalho Energizado</a></li>
+              </ul>
+
+              <ul>
+                <li><h4><a href="/xp/praticas#corolarias">Práticas Corolárias</a></h4></li>
+                <li><a href="/xp/praticas/raiz_problema">Análise da Raiz do Problema</a></li>
+                <li><a href="/xp/praticas/codigo_unificado">Base de Código Unificada</a></li>
+                <li><a href="/xp/praticas/codigo_coletivo">Código Coletivo</a></li>
+                <li><a href="/xp/praticas/codigo_testes">Código e Testes</a></li>
+                <li><a href="/xp/praticas/continuidade_equipe">Continuidade da Equipe</a></li>
+                <li><a href="/xp/praticas/contrato">Contrato de Escopo Negociável</a></li>
+                <li><a href="/xp/praticas/cliente_real">Envolvimento do Cliente Real</a></li>
+                <li><a href="/xp/praticas/equipes_encolhem">Equipes que Encolhem</a></li>
+                <li><a href="/xp/praticas/implantacao_diaria">Implantação Diária</a></li>
+                <li><a href="/xp/praticas/implantacao_incremental">Implantação Incremental</a></li>
+                <li><a href="/xp/praticas/pagar_por_uso">Pagar Por Uso</a></li>
+              </ul>
+
+              <ul>
+                <li><h4>Outras Práticas</h4></li>
+                <li><a href="/xp/praticas/reuniao_pe">Reunião em Pé</a></li>
+                <li><a href="/xp/praticas/refatoracao">Refatoração</a></li>
+                <li><a href="/xp/praticas/metafora">Metáfora</a></li>
+              </ul>
+            </div>
+
+            <div class="topic">
+              <h3>Outros Recursos</h3>
+              <ul>
+                <li><a href="/xp/dissertacaoXP.pdf">Dissertação de Mestrado sobre XP</a></li>
+                <li><a href="/podcast">Podcast</a></li>
+                <li><a href="/xp/livros">Livros Recomendados</a></li>
+                <li><a href="/xp/listas">Listas de Discussão</a></li>
+                <li><a href="/palestra">Palestra</a></li>
+                <li><a href="/xp/praticas/tdd/mock_objects">Testes Automatizados com Mock Objects</a></li>
+                <li><a href="/xp/praticas/tdd/emma">Análise de cobertura de testes automatizados usando Emma</a></li>
+                <li><a href="/xp/praticas/tdd/rcov">Análise de cobertura de testes automatizados usando Rcov</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    {{ content }}
   </body>
 </html>
