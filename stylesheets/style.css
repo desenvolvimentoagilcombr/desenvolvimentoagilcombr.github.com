@@ -55,6 +55,10 @@ table {
 /*=== Modules Styles ===*/
 /*====================*/
 
+.presentation-link {
+  text-align: center;
+}
+
 /*/*====================*/
 /*=== Layout Styles ===*/
 /*====================*/
@@ -177,5 +181,34 @@ table {
   margin: 9px 0 0 0;
 }
 
+#content {
+  font-family: Georgia, "Times New Roman";
+  margin-top: 5px;
+  padding: 15px;
+}
 
+#content h2 {
+  text-align: center;
+  font-size: 40px;
+  color: #333;
+  margin: 0 0 10px 0;
+}
 
+#content p {
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0 0px 15px 0;
+}
+
+#content object {
+  display: block;
+  margin: 0 auto;
+}
+
+#content a {
+  color: #477B96;
+}
+
+#content a:hover {
+  text-decoration: none;
+}
