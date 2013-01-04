@@ -74,6 +74,7 @@ table {
   background: #D01A17;
   padding: 15px;
   overflow: hidden;
+  box-shadow: inset 0px -1px 1px rgba(255,255,255,0.2);
 }
 
 #main-navigation {
@@ -167,13 +168,13 @@ table {
 
 #content-navigation ul {
   float: left;
-  margin: 5px 25px 0 0;
+  margin: 5px 15px 0 0;
   letter-spacing: -1px;
-  max-width: 124px;
+  max-width: 140px;
 }
 
 #content-navigation li {
-  line-height: 20px;
+  margin: 9px 0 0 0;
 }
 
 
