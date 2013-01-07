@@ -197,7 +197,8 @@ blockquote li {
 }
 
 #content h2 {
-  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 1px #333 solid;
   font-size: 40px;
   color: #333;
   margin: 0 0 10px 0;
