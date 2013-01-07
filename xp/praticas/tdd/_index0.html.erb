@@ -1,0 +1,365 @@
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="8"><b>Listagem 8</b></a>: lança exceção quando o valor máximo é inválido.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo"><b>public String gerarPrimosAte(int valorMaximo)</b></td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;<b>throws ValorMaximoInvalidoException {</b></td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;if (valorMaximo &lt; MENOR_PRIMO)</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;throw new ValorMaximoInvalidoException();</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;if (valorMaximo == MENOR_PRIMO)</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;return "2";</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;else</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "2, 3";</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    <i>
+        Refatorando os testes
+    </i>
+</p>
+
+<p>
+    O novo teste, introduzido na <%= link_to 'Listagem 7', '/xp/praticas/tdd#7' %>,
+    <%= link_to 'duplicou', 'http://c2.com/cgi/wiki?DuplicatedCode' %> a instanciação da variável
+    <span class="tec">geradorPrimos</span>. Para evitar esse problema,
+    <%= link_to 'refatoramos', '/xp/praticas/refatoracao' %> o teste, tornando a variável
+    um atributo da classe. Veja a <%= link_to 'Listagem 9', '/xp/praticas/tdd#9' %>
+    e compare-a com os métodos apresentados
+    nas Listagens <%= link_to '5', '/xp/praticas/tdd#5' %> e <%= link_to '7', '/xp/praticas/tdd#7' %>.
+</p>
+
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="9"><b>Listagem 9</b></a>: elimina
+            <%= link_to 'duplicação', 'http://c2.com/cgi/wiki?DuplicatedCode' %> da
+            instanciação da variável <span class="tec">geradorPrimos</span> introduzindo um atributo na classe.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">import junit.framework.TestCase;</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">public class GeradorPrimosTeste extends TestCase {</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>GeradorPrimos geradorPrimos = new GeradorPrimos();</b></td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;public void testePrimosGeradosAteNumeroDois() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;verificaPrimosGerados("2", 2);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;public void testePrimosGeradosAteNumeroTres() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;verificaPrimosGerados("2, 3", 3);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;private void verificaPrimosGerados(String listaEsperada, int numeroMaximo) throws
+        Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;GeradorPrimos geradorPrimos = new GeradorPrimos();</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;assertEquals(listaEsperada,
+        geradorPrimos.gerarPrimosAte(numeroMaximo));</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;public void testeSeRejeitaValorMaximoUm() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;try {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geradorPrimos.gerarPrimosAte(1);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fail("Deveria ter lancado
+        ValorMaximoInvalidoException");</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;} catch (ValorMaximoInvalidoException e) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assertTrue(true);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Analisando a classe <span class="tec">GeradorPrimos</span>, notamos que a legibilidade do método
+    <span class="tec">gerarPrimosAte()</span> foi prejudicada, porque ele cuida primeiro da exceção
+    e depois se preocupa com o processamento do roteiro que seria natural caso
+    o parâmetro de entrada tivesse sido válido. É recomendável que os métodos
+    primeiro cuidem do roteiro natural de processamento e depois tratem os casos
+    excepcionais. Resolvemos isso com a <%= link_to 'refatoração', '/xp/praticas/refatoracao' %>
+    apresentada na <%= link_to 'Listagem 10', '/xp/praticas/tdd#10' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="10"><b>Listagem 10</b></a>: <%= link_to 'refatoração', '/xp/praticas/refatoracao' %>
+            para tratar a exceção após o
+            roteiro natural de execução do método.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public String gerarPrimosAte(int valorMaximo)</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;throws ValorMaximoInvalidoException {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>if (valorMaximo &gt; MENOR_PRIMO) {</b></td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (valorMaximo == MENOR_PRIMO)</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "2";</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;else</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "2, 3";</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>} else {</b></td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;<b>throw new ValorMaximoInvalidoException();</b></td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>}</b></td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Ao fazer <%= link_to 'refatorações', '/xp/praticas/refatoracao' %>,
+    devemos sair de um estado no qual todos os testes estão
+    passando para outro no qual os testes continuem funcionando. Para verificar isso,
+    sempre executamos todos os testes após <%= link_to 'refatorar', '/xp/praticas/refatoracao' %>
+    o código. Fazendo isso obtemos a resposta abaixo:
+</p>
+
+<p class="codigo">
+    <b>testePrimosGeradosAteNumeroDois()</b><br/>
+    Error:<br/>
+    &nbsp;&nbsp;ValorMaximoInvalidoException: O valor maximo deve ser maior ou igual a 2
+</p>
+
+<p>
+    Opa! Ao <%= link_to 'refatorar', '/xp/praticas/refatoracao' %>, o
+    código deixou de funcionar. Sorte nossa termos um
+    teste para apontar o problema imediatamente! Aparentemente, o método não
+    consegue mais gerar primos até <span class="tec">2</span>. Analisando melhor o que foi feito,
+    podemos notar o uso de <span class="tec">if (valorMaximo &gt; MENOR_PRIMO)</span>, enquanto o correto
+    teria sido <span class="tec">if (valorMaximo &gt;= MENOR_PRIMO)</span>, um erro
+    comum fruto de falta de
+    atenção. Fazendo-se essa pequena correção, todos os testes voltaram a funcionar.
+</p>
+
+<p>
+    Chegamos até aqui para assegurar que o gerador
+    de <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %> rejeita números menores
+    que <span class="tec">2</span> como entrada. Acabamos de verificar que isso já está
+    sendo feito para o
+    caso do número <span class="tec">1</span>.
+    Mas, será que o mesmo acontece para zero e números negativos?
+    A melhor forma de saber é escrevendo mais um teste, como o apresentado na
+    <%= link_to 'Listagem 11', '/xp/praticas/tdd#11' %>. Esse teste funciona de primeira, mas para isso,
+    <%= link_to 'duplicamos', 'http://c2.com/cgi/wiki?DuplicatedCode' %> muito
+    código. Podemos solucionar isso rapidamente
+    <%= link_to 'extraindo um método', 'http://www.refactoring.com/catalog/extractMethod.html' %>,
+    como o mostrado na <%= link_to 'Listagem 12', '/xp/praticas/tdd#12' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="11"><b>Listagem 11</b></a>: testa se lança exceção
+            quando se tenta gerar
+            <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %> até o valor máximo zero.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public void testeSeRejeitaValorMaximo<b>Zero</b>() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;GeradorPrimos geradorPrimos = new GeradorPrimos();</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;try {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;geradorPrimos.gerarPrimosAte(<b>0</b>);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;fail("Deveria ter lancado ValorMaximoInvalidoException");</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;} catch (ValorMaximoInvalidoException e) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;assertTrue(true);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    &nbsp;
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="12"><b>Listagem 12</b></a>: <%= link_to 'refatoração', '/xp/praticas/refatoracao' %>
+            para eliminar a
+            <%= link_to 'duplicação', 'http://c2.com/cgi/wiki?DuplicatedCode' %> no método
+            que testa a rejeição de valores máximos inválidos.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public void testeSeRejeitaValorMaximoZero() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>verificaSeRejeitaNumerosMenoresQueDois(0);</b></td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">public void testeSeRejeitaValorMaximoUm() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>verificaSeRejeitaNumerosMenoresQueDois(1);</b></td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">private void <b>verificaSeRejeitaNumerosMenoresQueDois(int valorMaximo)</b> {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;try {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;geradorPrimos.gerarPrimosAte(<b>valorMaximo</b>);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;fail("Deveria ter lancado ValorMaximoInvalidoException");</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;} catch (ValorMaximoInvalidoException e) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;assertTrue(true);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Continuando com os testes, devemos verificar também se o programa rejeita
+    números negativos. Para isso, adicionamos um teste para verificar o caso
+    do <span class="tec">-1</span>. Agora, que já
+    fizemos uma <%= link_to 'refatoração', '/xp/praticas/refatoracao' %> que deu origem ao método
+    <span class="tec">verificaSeRejeitaNumerosMenoresQueDois()</span> começamos a colher frutos, já
+    que esse novo teste se revela trivial:
+</p>
+
+<p class="codigo">
+    public void testeSeRejeitaValorMaximoNegativo() throws Exception {<br/>
+    &nbsp;&nbsp;verificaSeRejeitaNumerosMenoresQueDois(-1);<br/>
+    }
+</p>
+
+<p>
+    O tempo investido <%= link_to 'refatorando', '/xp/praticas/refatoracao' %>
+    permitiu adicionar outro teste de maneira
+    mais rápida, mantendo o código organizado. Como se vê, a
+    <%= link_to 'refatoração', '/xp/praticas/refatoracao' %>
+    normalmente demanda um pequeno investimento inicial, porém gera economia
+    de tempo futura, mantendo o código organizado. É comum ocorrer situações
+    em que
+    <%= link_to 'extraímos métodos', 'http://www.refactoring.com/catalog/extractMethod.html' %>
+    como o
+    <span class="tec">verificaSeRejeitaNumerosMenoresQueDois()</span>,
+    que são então utilizados inúmeras vezes em uma mesma classe de teste.
+    Nestes casos, especialmente, deixar de <%= link_to 'refatorar', '/xp/praticas/refatoracao' %>
+    é mais custoso e o código
+    fica mais difícil de compreender e
+    <%= link_to 'manter', 'http://en.wikipedia.org/wiki/Software_maintenance' %>.
+</p>
+
+<p>
+    Poderíamos adicionar outros testes para números negativos, mas não parece
+    que sejam necessários. Iremos inferir que o que temos até o momento é
+    suficiente para cuidar dos casos em que o valor máximo informado tenha
+    que ser rejeitado.
+</p>
+
+<p>
+    <i>
+        Até onde testar?
+    </i>
+</p>
+
+<p>
+    Podemos prosseguir com o desenvolvimento do gerador de
+    <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>, tentando fazer com
+    que ele gere números além do valor máximo <span class="tec">3</span>.
+    Para isso, criamos um novo teste
+    verificando se o programa funciona para o valor máximo <span class="tec">4</span>:
+</p>
+
+<p class="codigo">
+    public void testePrimosGeradosAteNumeroQuatro() throws Exception {<br/>
+    &nbsp;&nbsp;verificaPrimosGerados("2, 3", 4);<br/>
+    }
+</p>
+
+<p>
+    Mais uma vez, colhemos os frutos da refatoração, pois o método
+    <span class="tec">verificaPrimosGerados()</span>, extraído mais cedo,
+    nos ajudou a criar esse novo método de teste mais facilmente.
+    Poderíamos esperar que o teste falhasse, porque a classe ainda não
+    estava preparada para gerar <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>
+    até <span class="tec">4</span>, mas o teste funcionou. Olhando melhor o código,
+    observa-se que isso faz sentido, embora o caso não tivesse sido previsto.
+    De qualquer forma, será difícil passar no teste a seguir:
+</p>
+
+<p class="codigo">
+    public void testePrimosGeradosAteNumeroCinco() throws Exception {<br/>
+    &nbsp;&nbsp;verificaPrimosGerados("2, 3, 5", 5);<br/>
+    }
+</p>
+
+<p>
+    O teste falha com a seguinte mensagem:
+</p>
+
+<p class="codigo">
+    <b>testePrimosGeradosAteNumeroCinco()</b><br/>
+    &nbsp;&nbsp;junit.framework.ComparisonFailure: expected:&lt;..., 5&gt; but was:&lt;...&gt;
+</p>
+
+<p>
+    Agora é hora de implementar o
+    <%= link_to 'Crivo de Eratóstenes', 'http://www.numaboa.com.br/criptologia/matematica/testRapid.php' %>.
+    Começamos isolando o código que irá gerar
+    os <%= link_to 'números primos', 'http://pt.wikipedia.org/wiki/Números_primos' %> em um novo método
+    chamado <span class="tec">numerosPrimos()</span>, conforme a
+    <%= link_to 'Listagem 13', '/xp/praticas/tdd#13' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="13"><b>Listagem 13</b></a>: <%= link_to 'refatoração', '/xp/praticas/refatoracao' %>
+            para isolar o método que acomodará a parte principal
+            do <%= link_to 'Algoritmo de Eratóstenes', 'http://www.numaboa.com.br/criptologia/matematica/testRapid.php' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public String gerarPrimosAte(int valorMaximo) throws ValorMaximoInvalidoException {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;if (valorMaximo &gt;= MENOR_PRIMO) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;return <b>numerosPrimos(valorMaximo)</b>;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;} else {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;throw new ValorMaximoInvalidoException();</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">private String <b>numerosPrimos(int valorMaximo)</b> {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] candidatos = <b>inicializaListaCandidatos(valorMaximo)</b>;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;if (valorMaximo == MENOR_PRIMO)</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;return "2";</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;else</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;return "2, 3";</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Vamos precisar de uma lista representando possíveis candidatos
+    de <%= link_to 'números primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>. Usamos um
+    vetor de booleanos, no qual <span class="tec">true</span> indica que o número
+    é <%= link_to 'primo', 'http://pt.wikipedia.org/wiki/Números_primos' %>. Por exemplo,
+    <span class="tec">candidatos[3] = true</span> indica que o número três é
+    um <%= link_to 'primo', 'http://pt.wikipedia.org/wiki/Números_primos' %>. Para inicializar esse vetor,
+    criamos o método <span class="tec">inicializaListaCanditados()</span>, que retorna o vetor
+    preenchido com <span class="tec">true</span> em todas as suas posições, exceto às
+    referentes ao número zero e um, números que já sabemos antecipadamente que não são
+    <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>. Seguindo
+    o TDD, começamos a
+    implementação do método a partir de um teste.
+</p>
+
+<p>
+    Há um pequeno inconveniente. O método deveria ser privado, pois não há necessidade de
+    torná-lo público; também não seria bom fazê-lo apenas para torná-lo testável. Entretanto,
+    se for mantido privado, será difícil testá-lo a partir da classe de teste. É possível
+    resolver esse problema flexibilizando as restrições. Ao invés de mantê-lo privado, faremos
+    com que tenha visibilidade de pacote. Assim, se a classe de teste for colocada no mesmo
+    pacote da classe que desejamos testar, será possível acessar o método através do teste,
+    sem a necessidade de torná-lo público.
+    A <%= link_to 'Listagem 14', '/xp/praticas/tdd#14' %> apresenta o teste escrito para esse método.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="14"><b>Listagem 14</b></a>: testa a inicialização do array de números candidatos a
+            <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public void testeInicializacaoListaCandidatos() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;int valorMaximo = 5;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] candidatos =
+        geradorPrimos.inicializaListaCandidatos(valorMaximo);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;assertFalse(candidatos[0]);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;assertFalse(candidatos[1]);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = GeradorPrimos.MENOR_PRIMO; i &lt;= valorMaximo; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;assertTrue(candidatos[i]);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<jsp:include page="null" flush="true"/>

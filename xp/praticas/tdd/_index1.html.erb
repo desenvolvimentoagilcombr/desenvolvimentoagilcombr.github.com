@@ -1,0 +1,608 @@
+<p>
+    Nossa implementação inicial do método <span class="tec">inicializaListaCandidatos()</span>
+    é apresentada abaixo:
+</p>
+
+<p class="codigo">
+    boolean[] inicializaListaCandidatos(int valorMaximo) {<br/>
+    &nbsp;&nbsp;return null;<br/>
+    }
+</p>
+
+<p>
+    O código compila, mas o teste não passa, como era de se esperar inicialmente.
+    O <%= link_to 'JUnit', 'http://www.junit.org' %> gera uma barra vermelha com a seguinte mensagem:
+</p>
+
+<p class="codigo">
+    <b>testeInicializacaoListaCandidatos()</b><br/>
+    Error:<br/>
+    &nbsp;&nbsp;java.lang.NullPointerException
+</p>
+
+<p>
+    Lembre-se que a primeira coisa que buscamos quando criamos um novo método de teste é
+    assegurar que ele gere uma barra vermelha, introduzindo um erro proposital na classe
+    que estamos testando. Isso foi feito neste caso quando fizemos o método
+    <span class="tec">inicializaListaCandidatos()</span> retornar <span class="tec">null</span>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <b>Localização de Classes</b>
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0">
+    <tr>
+        <td>
+            <p>
+                É possível colocar classes de testes no mesmo pacote no qual se encontra
+                a classe a ser testada, permitindo acessar métodos e atributos com visibilidade
+                de pacote. Entretanto, há o inconveniente de misturar classes da aplicação e de
+                teste no mesmo pacote.
+            </p>
+
+            <p>
+                Normalmente é preferível manter as classes separadas e utilizar uma técnica para
+                continuar se beneficiando da visibilidade de pacote. Basta adotar duas raízes
+                de código fonte, com a mesma estrutura, fazendo com que o código gerado por ambas
+                seja direcionado para uma mesma raiz de
+                <%= link_to 'bytecodes', 'http://pt.wikipedia.org/wiki/Bytecode' %> (.class). Veja, por exemplo, a
+                organização dos arquivos deste projeto no <%= link_to 'Eclipse', 'http://www.eclipse.org' %>,
+                na <%= link_to 'Figura 5', '/xp/praticas/tdd#figura5' %>.
+            </p>
+        </td>
+    </tr>
+</table>
+<p>
+    &nbsp;
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="figura5"><b>Figura 5</b></a>: organização dos arquivos
+            no <%= link_to 'Eclipse', 'http://www.eclipse.org' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadroImagem" cellspacing="0">
+    <tr>
+        <td><%= image_tag 'pacotes.gif', :alt=>'Organização de pacotes no Eclipse' %></td>
+    </tr>
+</table>
+<p>
+    Depois de assegurar que o teste é capaz de detectar um erro proposital, queremos que
+    ele passe quando retornamos a resposta esperada da forma mais óbvia possível:
+</p>
+
+<p class="codigo">
+    boolean[] inicializaListaCandidatos(int valorMaximo) {<br/>
+    &nbsp;&nbsp;return new boolean[] {false, false, true, true, true, true};<br/>
+    }
+</p>
+
+<p>
+    O teste passou como esperado. Agora que temos confiança de que o teste está correto,
+    é hora de implementar o método <span class="tec">inicializaListaCandidatos()</span>.
+    A <%= link_to 'Listagem 15', '/xp/praticas/tdd#15' %> mostra a implementação
+    que criamos, que, a princípio, parece estar
+    correta. Vejamos se o teste confirma isso. Infelizmente ele falhou com uma mensagem enigmática:
+</p>
+
+<p class="codigo">
+    <b>testeInicializacaoListaCandidatos()</b><br/>
+    &nbsp;&nbsp;junit.framework.AssertionFailedError
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="15"><b>Listagem 15</b></a>: inicializa vetor com candidatos a
+            <%= link_to 'número primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">boolean[] inicializaListaCandidatos(int valorMaximo) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] resultado = new boolean[valorMaximo];</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;resultado[0] = resultado [1] = false;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = 0; i &lt; resultado.length; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;resultado[i] = true;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return resultado;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Erramos no código da classe e felizmente o teste detectou isso. Porém, a mensagem que o
+    <%= link_to 'JUnit', 'http://www.junit.org' %> forneceu nos dá poucas pistas
+    sobre o que deu errado. Podemos melhorar o teste
+    para tentar identificar a causa do erro mais facilmente. Veja as mudanças
+    que fizemos no teste mostradas na <%= link_to 'Listagem 16', '/xp/praticas/tdd#16' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="16"><b>Listagem 16</b></a>: adiciona mensagem ao <span class="tec">assert</span>
+            para facilitar a <%= link_to 'depuração de erros', 'http://en.wikipedia.org/wiki/Debug' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public void testeInicializacaoListaCandidatos() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;int valorMaximo = 5;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] candidatos =
+        geradorPrimos.inicializaListaCandidatos(valorMaximo);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;assertEquals("candidatos[0]", false, candidatos[0]);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;assertEquals("candidatos[1]", false, candidatos[1]);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = GeradorPrimos.MENOR_PRIMO; i &lt;= valorMaximo; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;assertEquals("candidatos[" + i + "]:", true, candidatos[i]);</td>
+    </tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    <i>
+        Melhorando o feedback de falhas em testes
+    </i>
+</p>
+
+<p>
+    O <%= link_to 'JUnit', 'http://www.junit.org' %> permite especificar uma mensagem a ser
+    exibida quando ocorre uma falha, para facilitar a
+    <%= link_to 'depuração', 'http://en.wikipedia.org/wiki/Debug' %>. No caso do
+    <span class="tec">assertFalse()</span>, por exemplo, existem duas sobrecargas:
+</p>
+
+<p class="codigo">
+    assertFalse(boolean condição)<br/>
+    assertFalse(String mensagem, boolean condição)
+</p>
+
+<p>
+    Isso também ocorre com o método <span class="tec">assertEquals()</span>.
+</p>
+
+<p class="codigo">
+    assertEquals(Object valorEsperado, Object valorObtido)<br/>
+    assertEquals(String mensagem, Object valorEsperado, Object valorObtido)
+</p>
+
+<p>
+    Na primeira versão do teste de inicialização, na <%= link_to 'Listagem 14', '/xp/praticas/tdd#14' %>,
+    foi usada a forma mais simples do <span class="tec">assertFalse()</span>,
+    mas ela não ajudou muito na <%= link_to 'depuração', 'http://en.wikipedia.org/wiki/Debug' %>.
+    Para melhorar o feedback do código, substituiremos o <span class="tec">assertFalse()</span>
+    por <span class="tec">assertEquals(String mensage, Object valorEsperado, Object valorObtido)</span>.
+    Executando o teste com a nova implementação, apresentada
+    na <%= link_to 'Listagem 16', '/xp/praticas/tdd#16' %>,
+    o <%= link_to 'JUnit', 'http://www.junit.org' %> informa:
+</p>
+
+<p class="codigo">
+    testeInicializacaoListaCandidatos()
+    &nbsp;&nbsp;junit.framework.AssertionFailedError: candidatos[0] expected:&lt;false&gt; but was:&lt;true&gt;
+</p>
+
+<p>
+    Agora está mais fácil identificar o problema, sabemos exatamente a posição do vetor preenchida
+    com o valor incorreto. De alguma forma, estamos inicializando a
+    posição <span class="tec">[0]</span> com <span class="tec">true</span>, quando
+    deveria ser <span class="tec">false</span>. Analisando o código da classe
+    <span class="tec">GeradorPrimos</span>, observamos que foi utilizada uma instrução
+    <span class="tec">for</span> cuja variável <span class="tec">i</span> começa
+    assumindo o valor <span class="tec">0</span>. O correto seria ela começar
+    com o valor <span class="tec">2</span>, que representa o menor
+    <%= link_to 'número primo', 'http://pt.wikipedia.org/wiki/Números_primos' %>.
+    A correção é apresentada na <%= link_to 'Listagem 17', '/xp/praticas/tdd#17' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="17"><b>Listagem 17</b></a>: corrige inicialização do método
+            <span class="tec">inicializaListaCandidatos()</span>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">boolean[] inicializaListaCandidatos(int valorMaximo) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] resultado = new boolean[valorMaximo];</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;resultado[0] = resultado [1] = false;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int <b>i = MENOR_PRIMO</b>; i &lt; resultado.length; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;resultado[i] = true;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return resultado;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Executando o teste novamente, ainda encontramos um erro:
+</p>
+
+<p class="codigo">
+    <b>testeInicializacaoListaCandidatos()</b><br/>
+    &nbsp;&nbsp;java.lang.ArrayIndexOutOfBoundsException: 5
+</p>
+
+<p>
+    Inicializamos o vetor com menos posições do que o necessário. Precisamos lembrar que
+    a contagem começa em zero e termina no valor máximo. Portanto, o número de posições
+    no vetor tem que ser o valor máximo + 1. A correção apresentada
+    na <%= link_to 'Listagem 18', '/xp/praticas/tdd#18' %> resolve
+    essa questão fazendo o código passar no teste.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="18"><b>Listagem 18</b></a>: corrige tamanho do vetor de candidatos a
+            <%= link_to 'número primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">boolean[] inicializaListaCandidatos(int valorMaximo) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] resultado = new boolean[<b>valorMaximo + 1</b>];</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;resultado[0] = resultado [1] = false;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = 0; i &lt; resultado.length; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;resultado[i] = true;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return resultado;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Embora a modificação no teste tenha ajudado, o código de teste
+    ainda tem <%= link_to 'duplicações', 'http://c2.com/cgi/wiki?DuplicatedCode' %>.
+    <%= link_to 'Refatorando', '/xp/praticas/refatoracao' %> rapidamente, chegamos
+    ao código da <%= link_to 'Listagem 19', '/xp/praticas/tdd#19' %>. Assim está melhor.
+    Agora, se tivermos que fazer qualquer alteração na mensagem utilizada
+    para <%= link_to 'depuração', 'http://en.wikipedia.org/wiki/Debug' %>,
+    por exemplo, teremos de mudar apenas no método
+    <span class="tec">verificaSeCandidatoTemValorEsperado()</span>
+    (isso de fato acabará acontecendo mais adiante e
+    a <%= link_to 'refatoração', '/xp/praticas/refatoracao' %> se
+    mostrará benéfica mais uma vez). Da forma como estava antes, seria necessário
+    alterar em três lugares diferentes.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="19"><b>Listagem 19</b></a>: <%= link_to 'refatoração', '/xp/praticas/refatoracao' %>
+            para retirar <%= link_to 'duplicação', 'http://c2.com/cgi/wiki?DuplicatedCode' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public void testeInicializacaoListaCandidatos() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;int valorMaximo = 5;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] candidatos =
+        geradorPrimos.inicializaListaCandidatos(valorMaximo);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>verificaSeCandidatoTemValorEsperado</b>(0, false, candidatos[0]);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>verificaSeCandidatoTemValorEsperado</b>(1, false, candidatos[1]);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = GeradorPrimos.MENOR_PRIMO; i &lt;= valorMaximo; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;<b>verificaSeCandidatoTemValorEsperado</b>(i, true, candidatos[i]);
+    </td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">private void <b>verificaSeCandidatoTemValorEsperado</b>(int i,</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean valorEsperado, boolean candidato) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;assertEquals("candidatos[" + i + "]:", valorEsperado, candidato);</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Para que o programa fique completo, só falta terminar de implementar o método
+    de geração de <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>,
+    o que é feito na <%= link_to 'Listagem 20', '/xp/praticas/tdd#20' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="20"><b>Listagem 20</b></a>: implementação do
+            <%= link_to 'Algoritmo de Eratóstenes', 'http://www.numaboa.com.br/criptologia/matematica/testRapid.php' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">private String numerosPrimos(int valorMaximo) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] candidatos = inicializaListaCandidatos(valorMaximo);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int valor = MENOR_PRIMO; valor &lt; valorMaximo; valor++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (candidatos[valor]) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int naoPrimos = MENOR_PRIMO * valor;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;naoPrimos &lt; valorMaximo; naoPrimos +=
+        valor) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;candidatos[naoPrimos] = false;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;String resultado = String.valueOf(MENOR_PRIMO);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = MENOR_PRIMO + 1; i &lt; valorMaximo; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (candidatos[i]) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado += ", " + i;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return resultado;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    <i>
+        Finalizando o
+        <%= link_to 'Crivo de Eratóstenes', 'http://www.numaboa.com.br/criptologia/matematica/testRapid.php' %>
+    </i>
+</p>
+
+<p>
+    O resultado não agrada. O métodop parece correto, mas está grande demais e poderia se beneficiar
+    de uma boa <%= link_to 'refatoração', '/xp/praticas/refatoracao' %>. Em todo o caso, vejamos se o
+    <%= link_to 'JUnit', 'http://www.junit.org' %> realmente considera o método correto:
+</p>
+
+<p class="codigo">
+    <b>testePrimosGeradosAteNumeroTres()</b><br/>
+    &nbsp;&nbsp;junit.framework.ComparisonFailure: expected:&lt;..., 3&gt; but was:&lt;...&gt;
+</p>
+
+<p class="codigo">
+    <b>testPrimosGeradosAteNumeroCinco()</b><br/>
+    &nbsp;&nbsp;junit.framework.ComparisonFailure: expected:&lt;..., 5&gt; but was:&lt;...&gt;
+</p>
+
+<p>
+    Ele apresentou duas falhas. O problema é que em todas as instruções <span class="tec">for</span>,
+    foi usado como limite superior do loop expressões do
+    tipo <span class="tec">valor &lt; valorMaximo</span>. Deveria ter sido
+    <span class="tec">valor &lt;= valorMaximo</span>. Sendo assim, chegamos ao
+    código apresentado na <%= link_to 'Listagem 21', '/xp/praticas/tdd#21' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="21"><b>Listagem 21</b></a>: correção do
+            <%= link_to 'Algoritmo de Eratóstenes', 'http://www.numaboa.com.br/criptologia/matematica/testRapid.php' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">private String numerosPrimos(int valorMaximo) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] candidatos = inicializaListaCandidatos(valorMaximo);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int valor = MENOR_PRIMO; <b>valor &lt;= valorMaximo</b>; valor++) {</td>
+    </tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (candidatos[valor]) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int naoPrimos = MENOR_PRIMO * valor;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>naoPrimos &lt;= valorMaximo</b>; naoPrimos
+        += valor) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;candidatos[naoPrimos] = false;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;String resultado = String.valueOf(MENOR_PRIMO);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = MENOR_PRIMO + 1; <b>i &lt;= valorMaximo</b>; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (candidatos[i]) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado += ", " + i;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return resultado;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Finalmente todos os testes passam. Já sabemos que o programa funciona bem para gerar
+    <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>
+    até o número cinco. Não temos, é claro, como testar todos os possíveis
+    <%= link_to 'primos', 'http://pt.wikipedia.org/wiki/Números_primos' %>, mas podemos
+    testar para mais alguns, o suficiente para nos deixar mais tranqüilos. Sendo assim,
+    acrescentamos os novos testes indicados na <%= link_to 'Listagem 22', '/xp/praticas/tdd#22' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="22"><b>Listagem 22</b></a>: novos cenários de testes.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public void testePrimosGeradosAteNumeroDez() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;verificaPrimosGerados(<b>"2, 3, 5, 7", 10</b>);</td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">public void testePrimosGeradosAteNumeroVinteDois() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;verificaPrimosGerados(<b>"2, 3, 5, 7, 11, 13, 17, 19", 22</b>);</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Esses testes também passaram. Podemos inferir que continuará funcionando para números
+    maiores. Mas há uma última questão: o método <span class="tec">numerosPrimos()</span>
+    está muito grande. Ele tem mais responsabilidades do que deveria. Além disso,
+    algumas das variáveis têm nomes que dificultam o entendimento.
+</p>
+
+<p>
+    Algumas <%= link_to 'refatorações', '/xp/praticas/refatoracao' %> devem resolver o problema.
+    Podemos fazê-las tranquilamente, pois se errarmos, os testes nos informarão. Como primeiro
+    passo, movemos a responsabilidade de formatar o resultado para outro método, como
+    mostrado na <%= link_to 'Listagem 23', '/xp/praticas/tdd#23' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="23"><b>Listagem 23</b></a>: <%= link_to 'refatoração', '/xp/praticas/refatoracao' %>
+            para melhorar a legibilidade do
+            <%= link_to 'Algoritmo de Eratóstenes', 'http://www.numaboa.com.br/criptologia/matematica/testRapid.php' %>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">private String numerosPrimos(int valorMaximo) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] candidatos = inicializaListaCandidatos(valorMaximo);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int valor = MENOR_PRIMO; valor &lt;= valorMaximo; valor++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (candidatos[valor]) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int naoPrimos = MENOR_PRIMO * valor;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;naoPrimos &lt;= valorMaximo; naoPrimos +=
+        valor) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;candidatos[naoPrimos] = false;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return <b>apresentaResultado(valorMaximo, candidatos)</b>;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">private String <b>apresentaResultado(int valorMaximo, </b></td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>boolean[] candidatos)</b> {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;String resultado = String.valueOf(MENOR_PRIMO);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = MENOR_PRIMO + 1; i &lt;= valorMaximo; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (candidatos[i]) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado += ", " + i;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return resultado;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Todos os testes continuam funcionando. Agora é preciso dar um jeito na variável
+    <span class="tec">candidatos[]</span>. Esse nome agora parece inadequado.
+    Como se trata de um vetor de booleanos, seria melhor um nome do tipo
+    <span class="tec">ehPrimo[]</span>, como usado na
+    <%= link_to 'Listagem 24', '/xp/praticas/tdd#24' %>. Note como
+    fica mais fácil compreender o código depois dessa mudança.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="24"><b>Listagem 24</b></a>: o vetor <span class="tec">candidatos[]</span> foi renomeado
+            para <span class="tec">ehPrimo[]</span>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">private String numerosPrimos(int valorMaximo) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] <b>ehPrimo</b> = inicializaListaCandidatos(valorMaximo);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int valor = MENOR_PRIMO; valor &lt;= valorMaximo; valor++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (<b>ehPrimo</b>[valor]) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int naoPrimos = MENOR_PRIMO * valor;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;naoPrimos &lt;= valorMaximo; naoPrimos +=
+        valor) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ehPrimo</b>[naoPrimos] = false;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return apresentaResultado(valorMaximo, <b>ehPrimo</b>);</td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">private String apresentaResultado(int valorMaximo, boolean[] <b>ehPrimo</b>) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;String resultado = String.valueOf(MENOR_PRIMO);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = MENOR_PRIMO + 1; i &lt;= valorMaximo; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;if (<b>ehPrimo</b>[i]) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado += ", " + i;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return resultado;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">boolean[] <b>inicializaListaDePrimosPotenciais</b>(int valorMaximo) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] resultado = new boolean[valorMaximo + 1];</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;resultado[0] = resultado [1] = false;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = MENOR_PRIMO; i &lt; resultado.length; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;resultado[i] = true;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;return resultado;</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    Ao mudar o nome do método <span class="tec">inicializaListaCandidatos()</span> para
+    <span class="tec">inicializaListaDePrimosPotenciais()</span>, naturalmente um ou mais
+    métodos de teste também tiveram que ser atualizados para utilizar o novo nome.
+</p>
+
+<p>
+    O código está mais legível e os testes continuam funcionando. Podemos fazer a última
+    <%= link_to 'refatoração', '/xp/praticas/refatoracao' %> em um método de teste para levar
+    em conta a mudança no nome do vetor <span class="tec">candidatos[]</span> para
+    <span class="tec">ehPrimo[]</span>. Veja a <%= link_to 'Listagem 25', '/xp/praticas/tdd#25' %>.
+</p>
+<table class="tituloQuadro" cellspacing="0">
+    <tr>
+        <td>
+            <a name="25"><b>Listagem 25</b></a>: o vetor <span class="tec">candidatos[]</span>
+            foi renomeado para <span class="tec">ehPrimo[]</span>.
+        </td>
+    </tr>
+</table>
+<table class="quadro" cellspacing="0" width="100%">
+    <tr><td class="codigo">public void <b>testInicializacaoListaDePrimosPotenciais</b>() throws Exception {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;int valorMaximo = 5;</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;boolean [] <b>ehPrimo</b> = </td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;geradorPrimos.inicializaListaCandidatos(valorMaximo);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>verificaSeEhPrimo</b>(0, false, <b>ehPrimo[0]</b>);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;<b>verificaSeEhPrimo</b>(1, false, <b>ehPrimo[1]</b>);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;for (int i = GeradorPrimos.MENOR_PRIMO; i &lt;= valorMaximo; i++) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;&nbsp;&nbsp;verificaSeEhPrimo(i, true, <b>ehPrimo[i]</b>);</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;}</td></tr>
+    <tr><td class="codigo">}</td></tr>
+    <tr><td class="codigo">&nbsp;</td></tr>
+    <tr><td class="codigo">private void <b>verificaSeEhPrimo</b>(int i, boolean esperado, boolean numero) {</td></tr>
+    <tr><td class="codigo">&nbsp;&nbsp;assertEquals("<b>ehPrimo</b>[" + i + "]:", esperado, numero);</td></tr>
+    <tr><td class="codigo">}</td></tr>
+</table>
+<p>
+    <i>
+        Conclusões
+    </i>
+</p>
+
+<p>
+    Assim encerramos a implementação do
+    <%= link_to 'Crivo de Eratóstenes', 'http://www.numaboa.com.br/criptologia/matematica/testRapid.php' %>.
+    O processo de criação e uso dos testes é mais rápido do que aparenta. Cada passo foi muito
+    simples e levou poucos segundos para ser executado ou no máximo poucos minutos.
+</p>
+
+<p>
+    Usando TDD, quando acabamos,
+    realmente acabamos. Ou seja, dificilmente temos que retornar ao código futuramente para corrigir
+    falhas, pois possíveis falhas já foram detectadas e corrigidas durante a confecção dos testes.
+    Além disso, se alguém alterar esse código no futuro, os testes irão dizer se a mudança
+    foi bem sucedida ou não. O processo não é infalível, mas códigos gerados assim raramente
+    apresentam problemas.
+</p>
+
+<p>
+    Lembre-se sempre dos três passos básicos do desenvolvimento orientado a testes:
+</p>
+
+<p>
+    <ol>
+        <li>
+            Escrever um teste e assegurar que ele não funcione introduzindo um erro óbvio no
+            código sendo testado.
+        </li>
+        <li>
+            Fazer o teste funcionar com a implementação mais óbvia possível.
+        </li>
+        <li>
+            <%= link_to 'Refatorar', '/xp/praticas/refatoracao' %> o método
+            sendo testado e o próprio método de teste.
+            O primeiro, para colocar a implementação desejada para a aplicação e o
+            segundo para eliminar <%= link_to 'duplicações', 'http://c2.com/cgi/wiki?DuplicatedCode' %> e
+            melhorar a legibilidade.
+        </li>
+    </ol>
+</p>
+
+<p>
+    No início, trabalhar com TDD
+    pode parecer um pouco doloroso, pois temos que fazer o
+    inverso do que estamos acostumados. Mas, como em todo aprendizado, a dificuldade vem
+    apenas no começo e nos tornamos melhores à medida que praticamos.
+    Pelos problemas que foram descritos no início e o impacto negativo que eles
+    trazem para nós, para nossa indústria e nossos clientes, o esforço certamente é válido!
+</p>
+<p>
+	Desenvolvimento orientado a testes pode se tornar excessivamente trabalhoso devido a dependências entre classes da aplicação. Para lidar com elas, é importante dominar o conceito de <%= link_to 'mock objects', '/xp/praticas/tdd/mock_objects' %>.
+</p>
+<p>
+	<i>Veja Também</i>
+</p>
+<p>
+	<%= link_to 'Testes de unidade com Mock Objects', '/xp/praticas/tdd/mock_objects' %><br/>
+	<%= link_to 'Análise de cobertura de testes usando Emma', '/xp/praticas/tdd/emma' %><br/>
+	<%= link_to 'Artigos sobre JUnit', 'http://www.junit.org/news/article/index.htm' %><br/>
+	<%= link_to 'Artigos relacionados na Agile Alliance', 'http://agilealliancebeta.org/article/articles_by_category/31' %><br/>
+	<%= link_to 'TestDriven.com', 'http://www.testdriven.com' %><br/>
+	<%= link_to 'Test-Driven Development - Wikipedia', 'http://en.wikipedia.org/wiki/Test_driven_development' %><br/>
+	<%= link_to 'Teste de Software - Wikipedia', 'http://pt.wikipedia.org/wiki/Teste_de_software' %><br/>
+</p>

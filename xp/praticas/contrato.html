@@ -1,0 +1,583 @@
+---
+layout: default
+title: Contrato de Escopo Negociável
+keywords: contrato escopo negociável prática extreme programming xp extrema
+description: 'Contrato Escopo Negociável: Prática do Extreme Programming (XP)'
+heading: Contrato de Escopo Negociável
+---
+
+<p>
+    Modelo para download: <a href="/xp/contrato_escopo_negociavel.doc">contrato_escopo_negociavel.doc</a> <span class="new">Novo!</span>
+</p>
+<p>
+    Projetos <a href="/xp">XP</a>, como quaisquer outros na área de software,
+    possuem um escopo que define o que
+    deve ser feito. Tal escopo existe antes de o projeto ser iniciado e continua a existir ao longo
+    do projeto até que ele seja encerrado. Entretanto, ao contrário do que é usual, este escopo não é
+    fixado em contrato. Ou seja, caso o <a href="/xp/praticas/equipe_integral">cliente</a>
+    perceba a necessidade de fazer ajustes no escopo
+    para que o software leve em conta seu aprendizado ao longo do projeto, ou mudanças nas
+    circunstâncias, ele pode. Em projetos <a href="/xp">XP</a>, o
+    escopo é revisado freqüentemente para
+    garantir que equipe dedique seus esforços ao que é mais prioritário em cada etapa do projeto.
+</p>
+
+<p>
+    Como o escopo não é fixo, como o
+    <a href="/xp/praticas/equipe_integral">cliente</a> pode saber o que será entregue ao final do projeto,
+    quanto será gasto e qual será o tempo total consumido?
+    Para compreendermos essa questão, vamos começar tratando de um assunto
+    fundamental: <b>previsibilidade</b>.
+</p>
+
+<p>
+    <i>
+        A ilusão da previsibilidade
+    </i>
+</p>
+
+<p>
+    O que torna o contrato tradicional, de escopo fixo, tão atraente
+    para o <a href="/xp/praticas/equipe_integral">cliente</a>? Ele acredita que contará com:
+</p>
+
+<p>
+    <ul>
+        <li>Custo previsível</li>
+        <li>Prazo previsível</li>
+        <li>Escopo previsível</li>
+    </ul>
+</p>
+
+<p>
+    Ou seja, acredita que sabe exatamente o que receberá, quando e por que preço. Coloque-se no
+    lugar do <a href="/xp/praticas/equipe_integral">cliente</a>. Saber de antemão todas estas informações não parece
+    extremamente atrativo?
+</p>
+
+<p>
+    Além do mais, olhando pelo lado da empresa que prestará o serviço de desenvolvimento,
+    as perspectivas também são interessantes:
+</p>
+
+<p>
+    <ul>
+        <li>Receita previsível</li>
+        <li>Prazo previsível</li>
+        <li>Demanda previsível</li>
+    </ul>
+</p>
+
+<p>
+    Em teoria, a empresa que fará o serviço de desenvolvimento também tem uma situação confortável,
+    pois sabe o que precisa
+    ser feito, quanto irá ganhar e quando estará livre para alocar a equipe em outro projeto. Se é bom
+    para o <a href="/xp/praticas/equipe_integral">cliente</a> e é bom para a empresa que desenvolverá o sistema,
+    então onde está o problema?
+    Está na premissa da previsibilidade, que se divide em duas:
+</p>
+
+<p>
+    <ol>
+        <li><a href="/xp/praticas/equipe_integral">Cliente</a> sabe exatamente o que deseja no início do projeto</li>
+        <li>Equipe é capaz de estimar com perfeição e entregar o sistema no dia combinado</li>
+    </ol>
+</p>
+
+<p>
+    Vejamos cada uma delas separadamente:
+</p>
+
+<p>
+    1. Nos projetos de software, o <a href="/xp/praticas/equipe_integral">cliente</a> tipicamente não sabe com
+    exatidão o que deseja que o
+    software faça. O que ele costuma saber é o problema que tem em
+    seu dia-a-dia, o qual espera que seja solucionado com a ajuda do software. Durante o projeto,
+    é comum o problema de negócio permanecer basicamente o mesmo, com pouca ou nenhuma alteração.
+    Por outro lado, para qualquer desafio que
+    uma empresa vivencie, existem inúmeras maneiras de solucioná-lo.
+</p>
+
+<p>
+    Por exemplo, uma grande empresa, com mais de 10 mil funcionários, gostaria de avaliar seus
+    funcionários anualmente para que pudesse identificar deficiências de formação e solucioná-las
+    através de treinamentos apropriados. Avaliar essa quantidade de pessoas leva à necessidade de
+    construir um sistema e a empresa investe na contratação de uma software house para desenvolvê-lo.
+    Existem inúmeras formas e tecnologias que poderiam ser empregadas para construir um sistema
+    desse gênero. <a href="/xp/praticas/equipe_integral">Cliente</a> e fornecedor podem acordar uma abordagem,
+    traçando um escopo inicial e, ao
+    longo do projeto, descobrir a possibilidade de simplificar ou facilitar partes do sistema fazendo
+    algo que não havia sido previsto originalmente. Note que, neste caso, altera-se a forma de resolver o
+    problema, mas este permanece inalterado ao longo de todo o projeto. Esperar que o problema se
+    mantenha estável é algo razoável, pois é comum acontecer, mas esperar que a solução necessariamente
+    seja a mesma imaginada originalmente é pouco produtivo, porque raramente acontece. A
+    possibilidade de aprender e aprimorar a solução não é algo ruim. Pelo contrário, é extremamente
+    positivo, podendo significar economia de dinheiro e tempo tanto para o <a href="/xp/praticas/equipe_integral">cliente</a>,
+    quanto para a
+    empresa que faz o desenvolvimento.
+</p>
+
+<p>
+    Como se pode notar pelo exemplo, no início do projeto de software, o <a href="/xp/praticas/equipe_integral">cliente</a>
+    e a
+    equipe visualizam soluções que representam o escopo inicial
+    do projeto. Ao longo do tempo, à medida que aprendem mais e avançam, é comum surgirem formas
+    alternativas de resolver o problema, às vezes mais simples, mais rápidas de implementar ou com
+    resultados mais expressivos. Se tais alternativas já fossem conhecidas desde o início do projeto,
+    poderiam fazer parte do escopo original, mas como é comum que elas só sejam descobertas ao longo do
+    projeto, é importante que possam ser incorporadas.
+</p>
+
+<p>
+    Como o <a href="/xp/praticas/equipe_integral">cliente</a> aprende ao longo do projeto, ele naturalmente reavalia
+    suas necessidades e
+    prioridades e, portanto, altera o escopo para incorporar seu aprendizado.
+    Quando isso acontece, e quase sempre acontece, a previsibilidade sobre o escopo perde o sentido. Note
+    que, como explicado antes, o problema costuma permanecer basicamente o mesmo ao longo de todo o
+    projeto, portanto é relativamente previsível. A forma de resolvê-lo, ou seja, o escopo da solução
+    pode e normalmente muda ao longo do tempo. Por isso o escopo não é previsível e fixá-lo freqüentemente
+    se revela uma má idéia.
+</p>
+
+<p>
+    2. Supondo que o <a href="/xp/praticas/equipe_integral">cliente</a> realmente soubesse tudo o que quisesse e não
+    mudasse uma vírgula ao
+    longo do desenvolvimento, bataria que a equipe fizesse uma boa estimativa para que a
+    previsibilidade sobre o escopo e as demais variáveis do projeto fosse viável. Entretanto,
+    para que a estimativa fosse minimamente acertada,
+    seria preciso que o <a href="/xp/praticas/equipe_integral">cliente</a> <a href="/xp/valores/comunicacao">comunicasse</a> todos os detalhes do sistema para a equipe e
+    que esta compreendesse
+    tudo perfeitamente. Isso é difícil devido a pelo menos dois problemas sérios:
+</p>
+
+<p>
+    * O <a href="/xp/praticas/equipe_integral">cliente</a> normalmente não conta todos os detalhes, até porque não os
+    conhece. Em qualquer
+    sistema que tenha mais que uma meia dúzia de funcionalidades, a
+    quantidade de detalhes tende a ser extremamente elevada. Sistemas são complexos,
+    porque existem muitas
+    combinações que podem gerar os mais diversos tipos de comportamentos, muitos dos quais
+    inesperados. Estes detalhes, inúmeros dos quais não serão ditos pelo <a href="/xp/praticas/equipe_integral">cliente</a>,
+    fazem
+    grande diferença no custo e no prazo do desenvolvimento. Portanto, não sabê-los antecipadamente
+    torna o esforço de estimar o sistema bastante limitado.
+</p>
+
+<p>
+    * Ainda que o <a href="/xp/praticas/equipe_integral">cliente</a> apresentasse todos os detalhes seria preciso que
+    a equipe compreendesse
+    tudo corretamente. Como as especificações dos projetos costumam ser expressas de forma escrita,
+    a equipe pode interpretar o que lê das mais diversas formas, o que dá margem para que ela erre
+    feio na estimativa simplesmente por ter interpretado incorretamente os requisitos.
+</p>
+
+<p>
+    Por tudo o que foi dito, e ao contrário do que muitos gostariam de acreditar, previsibilidade 
+    normalmente não passa de uma ilusão na área de software. O <a href="/xp/praticas/equipe_integral">cliente</a>
+    finge que
+    acredita e o fornecedor também finge que acredita naquilo que está propondo. Todos
+    estamos habituados a ver que os projetos simplesmente não saem como o previsto e estatísticas,
+    como as produzidas pelo <a href="http://www.standishgroup.com/">Standish Group</a>, vêm confirmando isso há décadas.
+    Então, o que fazer?
+</p>
+
+<p>
+    <i>
+        Que tipo de previsibilidade podemos esperar?
+    </i>
+</p>
+
+<p>
+    Em desenvolvimento de software, é importante que <a href="/xp/praticas/equipe_integral">clientes</a> e
+    desenvolvedores compreendam que:
+</p>
+
+<p>
+    <ol type="a">
+        <li>Previsibilidade de escopo é inviável na maior parte dos casos</li>
+        <li>Escopo fixo, ao invés de representar previsibilidade, prejudica os envolvidos, especialmente o <a href="/xp/praticas/equipe_integral">cliente</a></li>
+    </ol>
+</p>
+
+<p>
+    Sobre a. eu já comentei, portanto, passemos para o item b.
+</p>
+
+<p>
+    Quando o <a href="/xp/praticas/equipe_integral">cliente</a> opta por um escopo fixo, está apostando que não
+    aprenderá nada ao
+    longo do projeto e que nada diferente ocorrerá em seus processos de negócio. Raramente
+    isso é verdade. O <a href="/xp/praticas/equipe_integral">cliente</a> aprende e as empresas convivem cada vez mais
+    com ambientes de
+    negócio que avançam com rapidez e demandam mudanças em seus projetos de software.
+    Portanto, optar por um escopo fixo significa correr um risco, bem elevado, de
+    que o software final não atenda às reais necessidades do <a href="/xp/praticas/equipe_integral">cliente</a>.
+     Embora isso já seja
+    suficientemente grave, não é tudo.
+</p>
+
+<p>
+    Segundo as <a href="/xp">estatísticas</a>, mais de 60% das
+    funcionalidades de um software comercial típico jamais são
+    utilizadas quando colocadas em produção. Ou seja, se a
+    equipe de desenvolvimento produzir exatamente o que está no escopo original,
+    ela provavelmente
+    estará produzindo uma grande quantidade de funcionalidades que jamais serão usadas. Em outras palavras,
+    mais de 60% do investimento poderá parar na lata-de-lixo porque não
+    irá gerar nenhum valor para o <a href="/xp/praticas/equipe_integral">cliente</a>, por não ser usado.
+</p>
+
+<p>
+    De fato, a melhor forma de administrar um projeto de software é rever permanentemente
+    as prioridades do <a href="/xp/praticas/equipe_integral">cliente</a> e assegurar que apenas funcionalidades
+    essenciais, isto é, que
+    serão usadas de verdade, sejam colocadas no sistema. Só é possível saber quais são estas
+    funcionalidades ao longo do desenvolvimento, enquanto o <a href="/xp/praticas/equipe_integral">cliente</a>
+    aprende com o software
+    que está sendo construído, especialmente quando o desenvolvimento é 
+    <a href="/xp/praticas/ciclo_semana">iterativo</a>, como no
+    caso do <a href="/xp">Extreme Programming</a>. Ser <a href="/xp/praticas/ciclo_semana">iterativo</a> significa receber software funcionando a cada
+    final
+    de <a href="/xp/praticas/ciclo_semanal">iteração</a>, o que permite utilizar as funcionalidades,
+    aprender com elas e rever que funcionalidades
+    ainda poderão trazer valor para o projeto com base no <a href="/xp/valores/feedback">feedback</a>
+    concreto daquelas já implementadas.
+    Perder essa oportunidade, fixando um escopo no início, é extremamente prejudicial
+    para o próprio <a href="/xp/praticas/equipe_integral">cliente</a>.
+</p>
+
+<p>
+    <i>
+        O que é um contrato de escopo negociável?
+    </i>
+</p>
+
+<p>
+    É um contrato que se baseia na premissa (bastante realista) de que
+    não existe previsibilidade sobre o que será feito no software. Embora seja possível haver
+    previsibilidade em relação aos gastos e ao tempo. Como se poderá observar, é também
+    uma forma de alinhar os interesses do <a href="/xp/praticas/equipe_integral">cliente</a> e da empresa que irá
+    desenvolver o software.
+</p>
+
+<p>
+    Existem quatro variáveis essenciais que precisam ser abordadas em qualquer contrato de desenvolvimento:
+</p>
+
+<p>
+    <ul>
+        <li>Custo</li>
+        <li>Prazo</li>
+        <li>Escopo</li>
+        <li>Qualidade</li>
+    </ul>
+</p>
+
+<p>
+    O tradicional contrato de escopo fixo determina claramente qual será o custo, o prazo e o escopo.
+    A qualidade pode até ser abordada, mas normalmente é sacrificada assim que o prazo aperta.
+    Já o contrato de escopo negociável segue outro caminho. Visto que as quatro variáveis são
+    conflitantes até certo ponto, não é possível fixar todas elas. Uma alternativa é fixar:
+</p>
+
+<p>
+    <ul>
+        <li>Custo</li>
+        <li>Prazo</li>
+        <li>Qualidade</li>
+    </ul>
+</p>
+
+<p>
+    Assim, permite-se que o escopo absorva as incertezas do projeto.
+    Neste caso, o <a href="/xp/praticas/equipe_integral">cliente</a> continua sabendo o
+    quanto irá gastar, bem como quanto tempo o projeto irá durar. O que ele não sabe com exatidão é
+    o que irá receber. Mas, na verdade, ele não sabia disso no caso do contrato de escopo fixo,
+    ele apenas tinha a ilusão de saber, a ilusão da previsibilidade do escopo. Portanto, ele
+    não perdeu absolutamente nada, apenas estamos assumindo uma relação contratual
+    mais honesta e realista.
+</p>
+
+<p>
+    Por sua vez, a qualidade pode ser tratada no
+    contrato determinando que o projeto seja desenvolvido utilizando práticas
+    que assegurem elevados padrões de qualidade, tais como:
+</p>
+
+<p>
+    <ul>
+        <li><a href="/xp/praticas/tdd">Desenvolvimento Orientado a Testes</a></li>
+        <li><a href="/xp/praticas/programacao_par">Programação em Par</a></li>
+        <li><a href="/xp/praticas/refatoracao">Refatoração</a></li>
+        <li><a href="/xp/praticas/codigo_coletivo">Código Coletivo</a></li>
+        <li><a href="/xp/praticas/ciclo_semanal">Desenvolvimento Iterativo</a></li>
+        <li><a href="/xp/praticas/integracao">Integração Contínua</a></li>
+    </ul>
+</p>
+
+<p>
+    As práticas do <a href="/xp">XP</a> são organizadas de
+    modo a assegurar que as prioridades sejam respeitadas e revistas periodicamente, bem como
+    altos padrões de qualidade sejam mantidos. Desenvolvendo software de forma <a href="/xp/praticas/ciclo_semanal">iterativa</a>,
+    ou seja, entregando mais
+    funcionalidades a cada <a href="/xp/praticas/ciclo_semanal">iteração</a> semanal, o <a href="/xp/praticas/equipe_integral">cliente</a> tem inúmeras oportunidades de rever
+    as prioridades, bem como avaliar o trabalho da equipe. Isso permite que ele aprenda ao
+    longo do projeto, incorpore o seu aprendizado ao sistema e decida o que tem valor ou não
+    e, portanto, deve ser implementado ou não.
+</p>
+
+<p>
+    Esta decisão é o que permite que ele atinja
+    a data alvo com um software que tenha, no mínimo, as funcionalidades que mais irão gerar
+    valor para ele. Isto é, se não for possível desenvolver todas as funcionalidades,
+    queremos assegurar que as funcionalidades que ficarem de fora do sistema sejam aquelas que
+    produziriam menos valor, porque as mais valiosas já são implementadas no início do projeto.
+    Esta filosofia costuma ser mais valiosa para o <a href="/xp/praticas/equipe_integral">cliente</a>, porque ao
+    final ele tem um
+    software que atende as suas necessidades e prioridades reais e não às que ele achava que tinha no
+    início do projeto.
+</p>
+
+<p>
+    <i>
+        O que fazer se o <a href="/xp/praticas/equipe_integral">cliente</a> contratar uma equipe inadequada para o
+        projeto?
+    </i>
+</p>
+
+<p>
+    Em qualquer contrato, independente do tipo, existe o risco de que a equipe não corresponda
+    às expectativas do <a href="/xp/praticas/equipe_integral">cliente</a>. É importante que o <a href="/xp/praticas/equipe_integral">cliente</a> conheça a capacidade real da equipe
+    o quanto antes e, com base na sua observação, possa decidir se deseja ou não continuar com
+    ela. Em contratos de escopo fixo, especialmente em projetos tradicionais com
+    desenvolvimento sequencial, o
+    <a href="/xp/praticas/equipe_integral">cliente</a> só saberá se fez uma boa escolha após o projeto já ter
+    avançado muito, pois
+    o código demora a ser produzido, portanto, o <a href="/xp/valores/feedback">feedback</a> demora a
+    aparecer.
+</p>
+
+<p>
+    No <a href="/xp">XP</a>, o <a href="/xp/praticas/equipe_integral">cliente</a> começa a
+    receber funcionalidades
+    prontas e pode utilizá-las já ao final da primeira semana.
+    E terá ainda mais funcionalidades, na semana seguinte e assim sucessivamente. Isto fornece inúmeras
+    oportunidades para avaliar e decidir se deseja ou não continuar com a equipe, o que
+    ajuda a administrar o risco do projeto. Então, na prática, como seria o texto de um contrato
+    de escopo negociável?
+</p>
+
+<p>
+    Primeiramente, ainda antes de o projeto começar, é preciso estimar o tempo
+    necessário e a quantidade de pessoas a serem alocadas
+    na equipe. Para isso, pode-se fazer um levantamento inicial de funcionalidades
+    como em qualquer projeto. Não existe mágica neste sentido. A empresa que fará o desenvolvimento
+    e o <a href="/xp/praticas/equipe_integral">cliente</a> terão que
+    conversar sobre a visão do que o futuro sistema deverá fazer e quais serão suas funcionalidades.
+    Com base nisso, pode-se estimar o número de pessoas recomendável, bem como o prazo desejado.
+</p>
+
+<p>
+    O custo do projeto naturalmente é proporcional à quantidade de tempo e pessoas alocadas ao projeto.
+    Será que todas as
+    funcionalidades imaginadas no escopo original estarão prontas no prazo combinado?
+    A equipe de desenvolvimento não sabe, assim como o <a href="/xp/praticas/equipe_integral">cliente</a> também
+    não sabe. Alías, ele nem sabe se serão estas as funcionalidades ou se elas serão modificadas
+    ao longo do tempo. Ao invés de buscar previsibilidade e uma estimativa perfeita, o que se espera neste
+    momento é identificar valores que sejam razoáveis, tanto para o tempo,
+    quanto para o custo e o número de pessoas. Feito isso, o contrato pode seguir o exemplo abaixo.
+</p>
+
+<p>
+    <b>"O projeto terá a duração de oito meses com <a href="/xp/praticas/ciclo_semanal">iterações</a>
+        semanais. A equipe terá seis desenvolvedores
+        ao custo de R$ 60 mil/mês. <a href="/xp/praticas/equipe_integral">Cliente</a> e equipe devem discutir as
+        funcionalidades a serem desenvolvidas
+        a cada início de <a href="/xp/praticas/ciclo_semanal">iteração</a>. Caberá à equipe de
+        desenvolvimento indicar o número de funcionalidades possível de
+        serem entregues por <a href="/xp/praticas/ciclo_semanal">iteração</a>. Os pagamentos serão
+        mensais e o contrato é revisado a cada dois meses,
+        quando o <a href="/xp/praticas/equipe_integral">cliente</a> tem a opção de permanecer com a equipe de
+        desenvolvimento ou encerrar o projeto sem ônus."</b>
+</p>
+
+<p>
+    <i>
+        E se os desenvolvedores fizerem corpo mole?
+    </i>
+</p>
+
+<p>
+    O contrato é simples. Indica quantas pessoas serão alocadas, por quanto tempo e qual o
+    custo delas por mês. Parece ser basicamente um contrato de locação de mão-de-obra
+    com pagamento baseado em utilização de horas.
+    Mas não é, pois há um detalhe fundamental para se compreender a filosofia deste modelo de contratação:
+    o <a href="/xp/praticas/equipe_integral">cliente</a> tem opções de saída. Isto é, de tempos em tempos, o <a href="/xp/praticas/equipe_integral">cliente</a> pode cancelar o
+    contrato sem nenhum ônus, ou seja, sem ter que pagar multas contratuais.</p>
+
+<p>
+    Neste exemplo, ao final dos primeiros dois meses, o <a href="/xp/praticas/equipe_integral">cliente</a> já terá
+    recebido software relativo a oito <a href="/xp/praticas/ciclo_semanal">iterações</a> semanais. Ou
+    seja, terá tido oito oportunidade de
+    utilizar o trabalho concreto produzido pelos desenvolvedores. Isso representa informação suficiente
+    para saber se a equipe está caminhando com um ritmo adequado ou não. Ao longo de todo o projeto,
+    a cada dois meses, o <a href="/xp/praticas/equipe_integral">cliente</a> pode decidir se mantém ou troca a equipe
+    de desenvolvimento.
+</p>
+
+<p>
+    Errar na contratação de uma equipe é mais comum do que se imagina. Entretanto, infelizmente estes
+    erros são descobertos tardiamente, quando o custo de repará-los é muito elevado. Errar é natural
+    e não devemos temer isso, pois aprendemos e evoluímos com os erros. O que devemos temer é levar
+    tempo demais para descobrir que erramos. Isso é o que o <a href="/xp">XP</a> e o contrato de
+    escopo negociável procuram
+    evitar. <a href="/xp/praticas/ciclo_semanal">Iterações</a> semanais permitem descobrir cedo se
+    erramos na contratação. Contratos de escopo
+    negociável permitem reverter uma contratação inadequada cedo, ainda no início do projeto, quando
+    poucos recursos foram investidos. Assim ajuda a administrar o risco do <a href="/xp/praticas/equipe_integral">cliente</a>,
+    além de
+    alinhar objetivos.
+</p>
+
+<p>
+    <i>
+        Alinhando interesses
+    </i>
+</p>
+
+<p>
+    No exemplo de contrato apresentado, ao começar um projeto,
+    a equipe de desenvolvimento só terá garantia do faturamento
+    dos primeiros dois meses, pois ao final desse tempo o <a href="/xp/praticas/equipe_integral">cliente</a> pode
+    mandá-la para casa
+    se não estiver satisfeito. Entretanto, ela naturalmente deseja participar do projeto
+    nos outros seis meses subseqüentes, de modo que possa elevar seu faturamento.
+    Sendo assim, ela tem razões para querer fazer um execelente trabalho e com agilidade, para que o
+    <a href="/xp/praticas/equipe_integral">cliente</a> queira renovar o contrato a cada dois meses. Por outro lado,
+    ela não
+    tem nenhuma razão para rejeitar
+    as mudanças propostas pelo <a href="/xp/praticas/equipe_integral">cliente</a>, porque o escopo não está fixado e
+    o pagamento não está
+    atrelado a ele. Sendo assim, o <a href="/xp/praticas/equipe_integral">cliente</a> pode alterar funcionalidades ao
+    longo do projeto
+    sem que isso afete a capacidade da equipe de cumprir o contrato. Os interesses
+    ficam alinhados. Todos querem um trabalho que atenda da melhor forma possível às necessidades
+    do <a href="/xp/praticas/equipe_integral">cliente</a> porque isso beneficiará tanto a equipe de desenvolvimento
+    quanto o <a href="/xp/praticas/equipe_integral">cliente</a>.
+</p>
+
+<p>
+    No modelo de contrato tradicional, onde o escopo é fixado, alterações sugeridas pelo <a href="/xp/praticas/equipe_integral">cliente</a>
+    tendem a ser rejeitadas pela equipe de desenvolvimento ou cobradas com valores elevados. Afinal,
+    como o escopo é fixado no contrato, mudanças efetuadas nele afetam a capacidade da equipe de
+    cumprir o contrato. Sendo assim, contratos deste tipo naturalmente levam <a href="/xp/praticas/equipe_integral">cliente</a>
+    e desenvolvedores
+    a se tornarem adversários em um jogo no qual o <a href="/xp/praticas/equipe_integral">cliente</a> tenta maximizar
+    a quantidade de funcionalidades
+    que recebe e os desenvolvedores tentam minimizar o esforço e as funcionalidades. Além disso,
+    tais contratos são mais caros, pois as equipes de desenvolvimento prevêem que os <a href="/xp/praticas/equipe_integral">clientes</a> farão
+    alterações no escopo e, por isso, cobram mais que o necessário, de modo a cobrir esse risco.
+</p>
+
+<p>
+    No contrato de escopo negociável, no pior dos casos,
+    se o <a href="/xp/praticas/equipe_integral">cliente</a> não gostar do trabalho, poderá interrompê-lo
+    sem maiores problemas. Neste caso, ele pode ter perdido tempo e dinheiro, mas
+    a perda é limitada a dois meses de trabalho (no exemplo apresentado). Em contratos tradicionais, com
+    desenvolvimento seqüencial, onde as funcionalidades demoram para aparecer,
+    o <a href="/xp/praticas/equipe_integral">cliente</a> normalmente só descobre que a equipe está fazendo um
+    trabalho ruim próximo ao fim do contrato, quando o custo (direto ou indireto) de interromper
+    já é muito maior.
+</p>
+
+<p>
+    <i>
+        A questão da confiaça
+    </i>
+</p>
+
+<p>
+    No contrato de escopo negociável a empresa que faz o desenvolvimento
+    fica relativamente vulnerável pelo fato de o <a href="/xp/praticas/equipe_integral">cliente</a>
+    poder suspender o contrato após os primeiros dois meses se não estiver gostando do trabalho
+    ou não tiver confiança na equipe. O grande problema neste caso é a questão da confiança.
+    Quanto mais confiança o <a href="/xp/praticas/equipe_integral">cliente</a> tiver, menor serão as chances de ele
+    interromper.
+    O que se pode fazer para alcançar uma confiança elevada? Criar um histórico de
+    credibilidade e aproximar o <a href="/xp/praticas/equipe_integral">cliente</a> ao
+    máximo dos desenvolvedores.
+</p>
+
+<p>
+    O <a href="/xp">XP</a> recomenda que o <a href="/xp/praticas/equipe_integral">cliente</a>
+    participe do
+    desenvolvimento e isso é essencial. Se estiver envolvido no dia-a-dia do
+    projeto, conhecerá melhor o trabalho da equipe, seu ritmo, suas deficiências,
+    seus pontos fortes, seu empenho e comprometimento. Ou seja, se a equipe estiver realmente
+    dedicada a fazer um bom trabalho ele conseguirá notar isso. Não existe nada mais
+    poderoso para estabelecer uma relação de confiança entre <a href="/xp/praticas/equipe_integral">cliente</a> e
+    desenvolvedores que aproximar
+    ambas as partes tanto quanto possível e criar um histórico de credibilidade. Isso ocorre
+    naturalmente quando a equipe de desenvolvimento entrega consistentemente as funcionalidades acordadas em
+    cada <a href="/xp/praticas/ciclo_semanal">iteração</a>, o que é possível utilizando-se as práticas do
+    <a href="/xp">XP</a> que, entre outras coisas,
+    ajudam a criar um ritmo de trabalho ágil e impõem inúmeras proteções ao software, de modo a evitar
+    perdas de tempo com correções desnecessárias ou excessivamente demoradas.
+</p>
+
+<p>
+    <i>
+        O custo reduzido dos contratos de escopo negociável
+    </i>
+</p>
+
+<p>
+    Contratos de escopo negociável são,
+    por definição, mais baratos que contratos de escopo fixo. Por que? Porque a software house
+    que oferece um contrato de escopo fixo precisa incorporar o risco de que a equipe tenha
+    interpretado o escopo de forma incorreta, ou que o <a href="/xp/praticas/equipe_integral">cliente</a> altere o
+    escopo,
+    o que pode levar a necessidade de mais pessoas ou mais tempo de
+    desenvolvimento. Em ambos os casos, o fornecedor tem uma perda financeiro. Para cobrir
+    este risco, o fornecedor cobra um valor acima do seu custo real para cobrir os custos que
+    surgirão caso os riscos se materializem. No caso do contrato de escopo negociável,
+    não é necessário cobrar por este risco, porque o escopo é negociado e discutido diversas
+    vezes ao longo do projeto. O escopo não está vinculado ao contrato, portanto, não há
+    risco de o fornecedor deixar de cumprir com o contrato por um erro de interpretação da equipe ou
+    alterações no escopo efetuadas pelo <a href="/xp/praticas/equipe_integral">cliente</a> ao longo do projeto.
+    Por essa razão tais contratos podem e
+    devem ser mais baratos.
+</p>
+
+<p>
+    <i>
+        Adoção
+    </i>
+</p>
+
+<p>
+    Aqui na Improve It, já utilizamos contratos de escopo negociável com alguns <a href="/xp/praticas/equipe_integral">clientes</a> e eles
+    representam uma grande vantagem competitiva. Se a sua empresa é uma software house,
+    provavelmente também poderá se beneficiar deste modelo de contrato. Basta compreendê-lo e
+    propô-lo aos <a href="/xp/praticas/equipe_integral">clientes</a>. Não será necessariamente fácil, mas pode ser um
+    caminho interessante
+    para reduzir custos, riscos e criar um relacionamento mais harmonioso com os <a href="/xp/praticas/equipe_integral">clientes</a>.
+</p>
+
+<p>
+    Contratos de escopo negociável representam uma mudança cultural. Ao vendê-los, é
+    necessário expor todas as questões abordadas anteriormente, em especial a falta de
+    previsibilidade e o aprendizado do <a href="/xp/praticas/equipe_integral">cliente</a> ao longo do projeto. Estas
+    informações servem para
+    justificar a necessidade de uma mudança no modelo de contrato. Se o <a href="/xp/praticas/equipe_integral">cliente</a>
+    perceber esta
+    necessidade, fica mais fácil introduzir o contrato de escopo negociável como uma alternativa
+    que resolva o problema. Por fim, apresentar o custo do contrato de escopo negociável e
+    compará-lo com o custo de um contrato de escopo fixo ajuda a convencer o <a href="/xp/praticas/equipe_integral">cliente</a>
+    de que
+    esta é uma boa alternativa. Se precisar de ajuda, fale conosco. Temos satisfação em trabalhar
+    com esse modelo de contrato e ajudar outras empresas a adotá-lo.
+</p>
+<p>
+    Modelo para download: <a href="/xp/contrato_escopo_negociavel.doc">contrato_escopo_negociavel.doc</a> <span class="new">Novo!</span>
+</p>

@@ -1,0 +1,532 @@
+---
+layout: default
+title: 'Programação em Par'
+keywords: 'programação em par prática extreme programming xp programação extrema'
+description: 'Programação em Par: Prática do Extreme Programming (XP)'
+heading: 'Programação em Par'
+---
+
+<p>
+    Programação em par é uma das práticas mais conhecidas e mais polêmicas utilizadas pelos
+    que adotam o <a href="/xp">Extreme Programming</a>.
+    Ela sugere que todo e qualquer código produzido no
+    projeto seja sempre implementado por duas pessoas juntas, diante do mesmo computador,
+    revezando-se no teclado.
+</p>
+<p>
+    À primeira vista, a programação em par parece ser uma prática fadada ao fracasso e ao
+    desperdício. Afinal, embora possa haver benefícios, temos a impressão de que ela irá
+    consumir mais recursos ou irá elevar o tempo do desenvolvimento. Entretanto, não é
+    exatamente isso o que ocorre.
+</p>
+<p>
+    <i>O par</i>
+</p>
+<p>
+    Você embarcaria em um avião que não tivesse um co-piloto? Provavelmente não, porque mesmo
+    que você não ligasse para isso, a companhia aérea se preocupa (e muito) com essa questão, de
+    modo que ela nem cogita permitir uma coisa dessas. Mas, para que serve um co-piloto se, na
+    prática, seria perfeitamente possível pilotar um avião com uma única pessoa? Aliás, cada vez
+    mais, é o próprio computador de bordo quem faz a maior parte do trabalho. Então, porque as
+    companhias aéreas fazem questão de ter piloto e co-piloto em 100% dos vôos?
+</p>
+<p>
+    O que aconteceria se o piloto tivesse uma dor de barriga exatamente na hora do pouso,
+    por exemplo? Havendo um co-piloto, isso não seria um problema (a propósito, tomara que
+    eles não tenham almoçado no mesmo restaurante). Acredita-se (e as estatistísticas confirmam)
+    que a chance de duas pessoas errarem seja significativamente menor que a chance de uma única
+    pessoa se equivocar. No caso da aviação, falhas humanas podem ter consequências drásticas.
+    Os custos materiais podem ser elevados e o custo humano pode ser impagável. Por essa razão,
+    entre outras, companhias aéreas colocam dois profissionais (exaustivamente treinados e
+    relativamente caros) para fazer o trabalho que um só poderia fazer tranquilamente.
+</p>
+<p>
+    Isso não é suficiente para garantir a segurança de um vôo, outros mecanismos também são usados e
+    representam papéis essenciais. Porém a utilização de um co-piloto é uma das práticas que colaboram
+    para elevar a segurança dos vôos. Embora pareça inconcebível colocar dois profissionais para fazer
+    o trabalho que apenas um poderia fazer sozinho, como a programação em par sugere, as práticas da
+    aviação são um exemplo de que a utilização de pares também é adotada em outras áreas, nas quais são,
+    inclusive, bastante valorizadas.
+</p>
+<p>
+    <i>A indústria de software</i>
+</p>
+<p>
+    O <a href="http://www.standishgroup.com/sample_research/PDFpages/extreme_chaos.pdf">Chaos Report</a> do ano 2000, produzido pelo
+    <a href="http://www.standishgroup.com/">Standish Group</a>, que pesquisou 280 mil
+    projetos de software nos EUA, revelou que 72% dos projetos falham devido a um dos seguintes fatores:
+</p>
+<p>
+    a) Consomem mais recursos que o orçado<br>
+    b) Consomem mais tempo que o estimado<br>
+    c) Não entregam o que foi combinado<br>
+    d) Todas as alternativas acima em conjunto
+</p>
+<p>
+    Infelizmente a letra d) é a regra geral. Além disso, os atrasos normalmente representam 63% mais
+    tempo que o estimado, os gastos normalmente são 45% maiores que o orçado e no geral apenas 67% das
+    funcionalidades prometidas são efetivamente entregues. Destes 280 mil projetos, 23% deles
+    fracassaram tão vigorosamente que chegaram a ser cancelados (são "apenas" 64.400 projetos).
+</p>
+<p>
+    Estamos falando de uma indústria na qual 72% do que se produz falha! Se fôssemos fazer uma
+    comparação grosseira com a aviação, é como se disséssemos que a cada 100 aviões que sobem,
+    100 descem (um tanto inevitável), porém 72 deles não levantam vôo nunca mais (só uma maneira
+    light de dizer que você iria preferir não estar em um destes vôos). Se olharmos software como
+    um investimento, que é exatamente o que ele representa para a empresa que decide contratar seu
+    desenvolvimento, é como se estivéssemos olhando para uma ação na bolsa de valores que tem 72% de
+    chances de dar prejuízo. Imagine você comprando uma ação com essa característica. Pois isso é o
+    que uma empresa faz atualmente quando decide contratar um projeto de desenvolvimento. Feliz dela,
+    pois só estamos nesse pé porque as coisas andam melhorando. Em 1994, a taxa de fracassos era de 84%.
+</p>
+<p>
+    No ano passado, a <a href="http://portalexame.abril.com.br/">Revista Exame</a> mostrou uma
+    reportagem trazendo números do <a href="http://www.sei.cmu.edu">Software Engineering Institute</a>
+    na qual comentava
+    exaustivamente sobre a enorme quantidade de erros cometidos pelos desenvolvedores e a quantidade
+    monumental de dinheiro que as economias de todo o mundo acabam desperdiçando por conta destes erros.
+    A reportagem trazia resultados de pesquisas que indicavam que um programador experiente normalmente
+    insere um erro a cada 10 linhas de código. Eu costumo brincar com isso e dizer que, sendo assim, um
+    programador mais lento é menos arriscado do que um apressadinho. Pois esse último tem uma taxa de
+    inserção de bugs maior.
+</p>
+<p>
+    Estes números demonstram que a indústria de software poderia fazer bom uso de práticas inovadoras
+    que possam ajudar a eliminar tais problemas de maneiras mais eficazes do que se tem observado até
+    hoje. As <a href="/xp/metodologia">metodologias ágeis</a> surgiram há poucos anos como uma alternativa a
+    formas mais tradicionais
+    de desenvolvimento de software. Baseadas em práticas que se assemelham muito com as usadas nos
+    processos <a href="http://en.wikipedia.org/wiki/Just_in_time">Just in Time</a>
+    criados na <a href="http://en.wikipedia.org/wiki/Toyota">Toyota</a>, na
+    década de 50, <a href="/xp/metodologia">metodologias ágeis</a> como o
+    <a href="/xp">Extreme Programming</a> se
+    baseiam em um conjunto de práticas coeso que pode ser eficaz em inúmeros
+    projetos. A programação em par é uma destas práticas e tem grande potencial para resolver
+    diversos problemas que afetam os projetos de software, embora não todos, naturalmente. Um dos
+    principais benefícios da programação em par é a permanente inspeção de código que ocorre durante seu
+    uso.
+</p>
+<p>
+    <i>Detecção de bugs</i>
+</p>
+<p>
+    A programação em par é uma forma eficaz de reduzir a incidência de bugs em um sistema. Isso se
+    deve em grande parte às visões complementares que atuam durante o uso dessa prática. Quando dois
+    desenvolvedores estão programando em par, um deles está com as mãos no teclado e no mouse. O outro
+    está sentado ao lado, olhando para a mesma tela e preocupado em resolver o mesmo problema. Ambos
+    estão trabalhando juntos na solução, embora apenas um esteja com as mãos no teclado. Eles
+    conversam o tempo todo e trocam idéias sobre a solução.
+</p>
+<p>
+    A pessoa que está conduzindo o teclado (condutor) tem um campo de observação diferente do
+    seu parceiro. Quem digita normalmente está olhando sobretudo para a linha que está editando e
+    adjacências. O navegador, por sua vez, tem uma visão mais ampla e olha não apenas a linha que
+    está sendo editada, mas também o restante do código que aparece na tela. Ao fazer isso, ele
+    acaba tendo uma visão complementar que freqüentemente revela problemas que o condutor não
+    percebe com a mesma rapidez. Usando uma metáfora para ilustrar essa questão, imagine que uma
+    pessoa está dirigindo um carro, enquanto outra está no carona. A pessoa que dirige tem uma
+    visão geral das redondezas, mas foca a maior parte do tempo no carro adiante. Existe uma
+    preocupação constante em não deixar o carro atingir o que está à frente, e isso exige atenção
+    constante. Já a pessoa que está no carona, também observa que há um carro adiante, mas
+    tem menos preocupação com essa questão. Por isso, acaba olhando mais para as redondezas,
+    vê a paisagem com mais tranqüilidade e tem condições de sinalizar problemas que o motorista
+    só detectaria mais adiante. Por exemplo, em função de sua visão complementar, o carona pode
+    alertar o motorista para que mude para outra faixa, visto que aquela na qual se encontram
+    está fechada algumas centenas de metros à frente e o condutor ainda não teve condições de
+    notar isso. Essa visão complementar, quando trazida para o código, permite que o navegador
+    atue mais como um estrategista, olhando para o código como um todo e identificando problemas
+    que passam despercebidos para quem está mais preocupado com a linha que está sendo digitada.
+</p>
+<p>
+    Em 1971, em um livro chamado
+    <a href="http://www.geraldmweinberg.com/Bookstuff/Each_Book/Psychology.html">The Psychology of Computer Programming</a>,
+    <a href="http://www.geraldmweinberg.com/BIOStuff/EachBIO/bio.Jerry.html">Gerald Weinberg</a>
+    mostrou
+    que o olho humano tem uma incrível capacidade de só enxergar aquilo que deseja e, naturalmente,
+    ignorar aquilo que não quer ver. Ele diz o seguinte: "programadores, se deixados por conta própria,
+    ignoram os erros mais gritantes, os quais qualquer pessoa seria capaz de detectar instantaneamente".
+    Isso se deve a um princípio bastante estudado na psicologia chamado dissonância cognitiva. Temos a
+    tendência natural, como programadores, de acreditar que aquilo que escrevemos está certo. Inclusive,
+    somos capazes de reler uma linha de código, que contém um erro de digitação e não enxergá-lo, mesmo
+    depois de ler a mesma linha inúmeras vezes. Trata-se de uma pequena (e desagradável) peça que o
+    cérebro nos prega. Contudo, um pequeno erro que passe despercebido para o condutor normalmente é
+    notado pelo navegador por ter uma visão complementar e não ser afetado pela dissonância cognitiva
+    de seu colega.
+</p>
+<p>
+    Quem trabalha continuamente com programação em par se habitua a corrigir e ter seu trabalho
+    corrigido dezenas de vezes ao dia. A incidência de erros identificados pelo colega costuma ser
+    tão elevada que surpreende quem não está acostumado ao uso da técnica. Depois de um dia ou dois
+    experimentando a programação em par, muitas pessoas se perguntam como alguém as permite trabalhar
+    sozinhas. É o tipo de coisa que não é intuitivo, mas acontece e só é claramente perceptível quando
+    se experimenta a técnica.
+</p>
+<p>
+    Equipes que trabalham em par conseguem reduzir drasticamente a inserção de defeitos em seus
+    códigos. Isso é uma mensagem compartilhada e repetida por todos que estão habituados a essa
+    técnica. Atualmente, existem diversas pesquisas demonstrando este fato, tais como a reportada
+    no artigo da IEEE Software
+  <a href="http://collaboration.csc.ncsu.edu/laurie/Papers/ieeeSoftware.PDF">Strengthening the case for pair programming</a>.
+    Isso isoladamente já é um ponto
+    positivo em favor da utilização da programação em par, especialmente se levarmos em conta os
+    números apresentados anteriormente sobre a indústria de software. Mas, essa é uma daquelas
+    técnicas simples, porém com resultados positivos em inúmeros aspectos e a detecção de bugs
+    é apenas um deles. Esse aspecto, inclusive, não chega a ser novidade. Há muito tempo se
+    pesquisa sobre técnicas de inspeção de código e já se sabe que elas são muito eficazes na
+    redução de bugs. Atualmente, isso já não é mais assunto passível de grandes discussões, pois
+    existe material de sobra mostrando isso. Nesse sentido, a programação em par nada mais é do que
+    a incorporação da técnica de inspeção de código a tudo o que é produzido no projeto, o tempo todo.
+    Ou seja, é apenas uma técnica comprovadamente eficaz (a inspeção de código) que passa a ser
+    utilizada em seu grau mais elevado, isto é, o tempo todo.
+</p>
+<p>
+    <i>Simplicidade</i>
+</p>
+<p>
+    A programação em par ajuda os desenvolvedores a criarem soluções mais simples, mais rápidas de
+    implementar e mais fáceis de manter. Isso ocorre em grande parte devido à oportunidade de
+    dialogar e trocar idéias sobre programas que estejam sendo desenvolvidos. Quando nos deparamos
+    com um problema, buscamos uma solução usando todo e qualquer recurso que esteja a nossa disposição.
+    E, assim que encontramos uma solução, encerramos a busca e a utilizamos. O detalhe é que existem
+    duas grandes categorias de problemas: os convergentes e os divergentes. Os convergentes são
+    aqueles que aceitam uma única resposta certa. Os divergentes são aqueles que aceitam várias
+    soluções. Problemas convergentes são raros. Normalmente são vivenciados pelas crianças no
+    jardim de infância. São fáceis de resolver porque só há uma resposta certa. Os divergentes,
+    por sua vez, são os mais comuns e estão ao nosso redor o tempo todo. Eles aceitam inúmeras
+    soluções, algumas mais eficazes, outras menos.
+</p>
+<p>
+    Quando tentamos resolver um problema sozinhos, normalmente adotamos a primeira solução que
+    encontrarmos, pois isso trata-se de uma característica psicológica conhecida como "tunelamento".
+    Uma vez identificada uma solução, é como se entrássemos em um túnel e não enxergássemos mais nada
+    além daquele caminho. Essa característica é ruim porque a primeira solução encontrada nem sempre
+    é a melhor, a mais eficiente, mais simples ou mais rápida de implementar. Mas, como seres humanos,
+    somos assim e se nos deixarem sozinhos, é exatamente isso que tenderemos a fazer.
+</p>
+<p>
+    A programação em par elimina esse problema. Quando o par se depara com um problema, cada
+    programador começa a imaginar individualmente uma solução para ele. Depois, eles começam a
+    discutir as soluções imaginadas. A partir desse diálogo é comum surgir uma terceira alternativa
+    contendo características das duas anteriores. A conversa continua e de repente têm-se quatro, cinco,
+    seis caminhos diferentes a serem escolhidos. Eventualmente, um deles acaba se revelando mais simples,
+    ou mais rápido ou mais eficiente ou tudo isso em conjunto. Isso é bastante comum quando se programa
+    em par e o efeito é bem perceptível: o par consegue executar a atividade mais rapidamente do que se
+    um desenvolvedor estivesse programando sozinho. Além disso, a solução frequentemente é mais simples
+    e mais fácil de ser compreendida por outras pessoas. A programação em par explora a diversidade de
+    idéias que é rara de ser observada quando se programa sozinho.
+</p>
+<p>
+    <i>Pressão do par</i>
+</p>
+<p>
+    Se um desenvolver trabalha oito horas por dia, engana-se quem pensa que ele realmente produza
+    durante essas oito horas. De modo geral, o aproveitamento de um programador trabalhando sozinho
+    raramente chega sequer a 50% do tempo que passa na frente do computador. Ao longo do dia, ele
+    lida com seu programa, bem como inúmeros emails, instant messages, telefonemas, pessoas
+    interrompendo-o para comentar sobre o jogo do dia anterior e assim por diante. Além disso,
+    mesmo que não houvesse nenhum agente externo para tirar a sua atenção, ele normalmente se
+    dispersa de tempos em tempos por uma razão simples. Programar é uma atividade complexa, que
+    exige muita atenção e lida com uma grande quantidade de variáveis que, com freqüência, se
+    comportam de maneiras indesejáveis. De tempos em tempos o programador precisa descansar e refrescar
+    o pensamento pra ser capaz de continuar. Isso por si só já seria suficiente para fazê-lo dispersar-se
+    várias vezes ao dia. Somando-se às inúmeras interrupções por que costuma passar, o desenvolvedor
+    acaba dedicando menos tempo do que se imagina produzindo funcionalidades. Ainda assim, uma boa
+    dose do tempo que consegue dedicar à programação acaba sendo consumido em depuração de erros que ele
+    próprio produziu.
+</p>
+<p>
+    A programação em par produz um efeito conhecido como pressão do par que faz com que os
+    desenvolvedores tenham maior foco na atividade e faz com que isso se mantenha por mais tempo.
+    Imagine que você esteja programando em par e, de repente, resolva olhar seus emails. Trata-se
+    de uma situação embaraçosa. Primeiro, porque há uma pessoa ao seu lado que poderá acabar lendo
+    seus emails (e dependendo do que você ande trocando por aí, isso pode ser bastante constrangedor).
+    Segundo porque você estará interrompendo o seu trabalho e o do seu amigo. Ou seja, há uma
+    responsabilidade compartilhada. Quando um pára, o outro também acaba sendo prejudicado.
+    Normalmente, não gostamos de decepcionar nossos colegas, portanto, quando programamos em par
+    procuramos manter o maior foco possível na atividade para não atrapalhar ninguém. A
+    responsabilidade é maior e isso faz com que o foco também o seja.
+</p>
+<p>
+    Maior foco significa menos dispersões ao longo do dia, o que por sua vez significa que a
+    empresa aproveita melhor o tempo que o desenvolvedor passa com ela. Mas, como fica a necessidade
+    de descansar de tempos em tempos? Quando programam em par, os desenvolvedores se revezam no teclado.
+    Normalmente, a pessoa que está digitando se cansa mais do que o navegador. Sendo assim, de tempos em
+    tempos o teclado troca de mãos, permitindo ao programador que o estava utilizando descansar um pouco,
+    embora continue engajado na atividade, colaborando para a construção da solução. Sendo assim, a
+    programação em par acaba servindo como uma forma de equilibrar a necessidade de trabalhar com o
+    maior foco possível e, ao mesmo tempo, descansar de tempos em tempos.
+</p>
+<p>
+    Recentemente conversei com o dono de uma empresa na qual iniciamos a implantação do <a href="/xp">xp</a> há pouco
+    mais de um ano. Lá, eles utilizam <a href="/xp">xp</a> atualmente em todas as suas equipes, todos trabalham em par e
+    utilizam as demais práticas do <a href="/xp">xp</a>. O dono me disse que o que ele mais gostou no <a href="/xp">xp</a> foi a
+    programação em par. Quando escutei isso, achei que tivesse escutado errado e pedi que ele
+    repetisse, afinal, não acreditei que a pessoa que estava pagando aqueles desenvolvedores também
+    fosse a mais entusiasmada em ter dois deles "fazendo o trabalho que um só poderia fazer sozinho".
+    Então ele me explicou que em 20 anos de empresa, jamais tinha visto as pessoas trabalhando tanto
+    tempo focadas da forma que via agora. Ele disse que no passado, observava que raramente os
+    desenvolvedores utilizavam mais que metade do tempo que passavam na empresa de forma útil.
+    E isso obviamente não era das coisas que ele mais apreciava, afinal era ele quem pagava. Por outro
+    lado, depois que as pessoas começaram a programar em par, ele passou a notar que de um modo geral
+    as pessoas conseguiam aproveitar no mínimo 75% do tempo que estavam no trabalho de forma extremamente
+    útil. Isso mostra que, ao contrário do que possa parecer à primeira vista, a programação em par não
+    consome mais recursos, pelo contrário. Ela aproveita melhor as pessoas tornando-as mais produtivas.
+</p>
+<p>
+    <i>Disseminação do conhecimento</i>
+</p>
+<p>
+    Uma das características mais marcantes da programação em par é a sua capacidade de disseminação de
+    conhecimento, especialmente em projetos <a href="/xp">xp</a>, nos quais os desenvolvedores sempre trocam de pares,
+    fazendo com que haja maior compartilhamento de informações ao longo do projeto. Além disso, os
+    desenvolvedores também se revezam no desenvolvimento das funcionalidades. Isto é, hoje
+    estou trabalhando em uma parte do sistema e amanhã posso vir a codificar outra parte
+    completamente diferente, com outro par. Esse revezamento se dá de maneira simples.
+</p>
+<p>
+    Suponha que hoje iniciei o dia trabalhando com João em uma funcionalidade. Na parte da tarde,
+    por exemplo, João vai trabalhar com outra pessoa, em outra parte do sistema. Por sua vez, Patricia vem
+    trabalhar comigo. No início, passo de 5 a 10 minutos lhe explicando o que eu e o João havíamos iniciado.
+    A partir daí, ela pode simplesmente me ajudar a continuar na mesma linha de ação, bem como pode notar
+    que há uma forma mais simples de atacar o problema. Se esse for o caso, ela me explica e com isso a
+    solução está sendo oxigenada com uma visão renovada, não viciada, que muitas vezes acaba reduzindo
+    o tempo total de desenvolvimento. Daí por diante, passamos a tarde desenvolvendo, por exemplo, de modo
+    que na manhã do dia seguinte eu vou trabalhar com outra pessoa e o Fábio vem trabalhar com a Patrícia.
+    Como ela já passou a tarde do dia anterior trabalhando na funcionalidade, eu pude deixar o par tranqüilamente,
+    pois ela já conhece o problema tão bem quanto eu. Em resumo, para que o revezamento ocorra de forma adequada,
+    é importante que sempre haja alguém no par que já esteja trabalhando há mais tempo na funcionalidade, para que
+    possa contextualizar a pessoa que está chegando. Isso é fácil de fazer se nós garantirmos que apenas uma
+    única pessoa do par será trocada a cada vez que o revezamento ocorrer. Isso preserva o histórico e permite
+    rotacionar. Entretanto, é essencial que a pessoa que tenha ficado no par, necessariamente saia dele no próximo
+    revezamento. Isso garante que todas as pessoas na equipe tenham a oportunidade de trocar de pares.
+</p>
+<p>
+    O problema mais nítido desta abordagem é o tempo que se gasta para contextualizar a pessoa que está
+    chegando. Esse tempo pode ser grande ou pequeno, dependendo do tamanho da funcionalidade e da
+    freqüência de trocas. De modo geral, procuramos assegurar que as funcionalidades sejam sempre quebradas
+    para que fiquem suficientemente pequenas (o que por si só já faz com que a contextualização tenda a ser rápida).
+    Isso é conseguido aplicando certos parâmetros ao jogo do planejamento. Nós por exemplo, trabalhamos
+    com o hábito de assegurar que qualquer história possa ser desenvolvida em par em no máximo três dias.
+    Caso seja estimada em um tempo superior, pedimos ao cliente que quebre a história até que esteja dentro
+    desse parâmetro. Além disso, procuramos rotacionar os pares com freqüência para que o um par nunca
+    passe tanto tempo junto, ao ponto de ter que explicar uma quantidade enorme de coisas para a próxima
+    pessoa que estiver chegando no par. Então, de um modo geral limitamos as sessões de pareamento a
+    uma manhã ou uma tarde, porque não se produz tanto assim neste período de tempo. Isso faz com que
+    a quantidade de informações a serem transmitidas seja menor e diminui o tempo de contextualização.
+</p>
+<p>
+    Esse tempo, embora possa parecer um overhead, freqüentemente se paga de duas formas:
+    maior compartilhamento de conhecimento e oxigenação da funcionalidade. Cansei de presenciar
+    situações nas quais uma pessoa ingressou no par e, com uma visão ainda não viciada, conseguiu
+    perceber formas melhores e bem mais rápidas de solucionar o problema.
+</p>
+<p>
+    O aprendizado em par é particularmente rico porque ocorre o que é chamado de aprendizado situado.
+    Há um problema para ser resolvido, há uma contribuição clara para o projeto caso ele seja
+    resolvido, existe um contexto bem definido no qual aquele problema se encontra e existe uma pessoa
+    ao seu lado que muitas vezes já conhece a solução. Quando este é o caso, o seu aprendizado é
+    muito rico porque, primeiro, há um grande interesse seu em saber a solução. Nós sempre aprendemos
+    melhor e com mais afinco quando temos um problema real para resolver. Especialmente quando
+    sabemos que a resolução dele irá contribuir de alguma forma para outras pessoas. Nós gostamos de
+    contribuir com as pessoas a nossa volta. Então, na programação em par, existe uma primeira componente
+    fundamental que é a necessidade. E uma segunda que é o desejo de contribuir. Além disso, temos ao nosso
+    lado uma pessoa que sabe resolver o problema e, o que é melhor, ela pode dialogar conosco e explicar.
+    O diálogo é a forma mais rica de comunicação e ele permite que as pessoas recebam feedback
+    facilmente. Desta forma, enquanto seu colega lhe explica algo, você pode fazer gestos ou ter
+    expressões faciais que demonstrem que não está captando a mensagem. Seu colega instintivamente
+    pode captar esse feedback e explicar melhor a solução. O problema em questão pode ser técnico ou
+    de negócio. Às vezes o seu colega entende melhor o negócio associado àquela parte do código por
+    já ter trabalhado com ele em outro projeto. Eventualmente sabe melhor um determinado aspecto técnico
+    porque teve aulas daquele assunto em um curso que fez e você não. Às vezes é o contrário e você
+    é quem ensina. Na verdade, durante a programação em par, as pessoas naturalmente se
+    revezam no papel de "professor" e "aluno".
+</p>
+<p>
+    Mesmo quando ambos não sabem resolver o problema, é mais rápido pesquisar sobre ele quando
+    se está em par. Ambos podem, por exemplo, compartilhar idéias sobre termos a serem buscados
+    no Google, podem lembrar de livros que têm a disposição, que possa ter a solução, podem
+    lembrar de diferentes pessoas que talvez saibam a solução e possam ser procuradas, entre outras coisas.
+</p>
+<p>
+    A maior disseminação do conhecimento rapidamente eleva as habilidades técnicas dos
+    membros da equipe. Isso tem efeitos extraordinários no médio e longo prazos, porque
+    quanto mais habilidoso um desenvolvedor é, melhores se tornam as suas soluções. Elas
+    ficam mais claras, mais limpas, mais fáceis de compreender e se acerta mais vezes. Além
+    disso, normalmente se consegue gerar tais soluções com maior rapidez. O efeito cumulativo
+    de inúmeras soluções melhores e mais rápidas ao longo do projeto representa um enorme
+    ganho de produtividade. Mas, não é tudo.
+</p>
+<p>
+    Também há a disseminação de conhecimento sobre o negócio, que leva mais pessoas a saberem
+    solucionar questões em qualquer parte do projeto, o que naturalmente aumenta a robustez da equipe.
+    Ou seja, se alguém faltar por qualquer razão, se um desenvolvedor entrar de férias ou se uma pessoa
+    decidir mudar de emprego, isso não impede a equipe de seguir adiante. Naturalmente há uma perda
+    na força de trabalho, mas não há uma situação em que se perca uma pessoa sem a qual o projeto
+    não possa sobreviver. O projeto consegue sobreviver bem a mudanças de pessoal porque muita
+    gente sabe sobre muita coisa. É quase impossível apenas uma pessoa saber sobre um assunto
+    do projeto a tal ponto de comprometê-lo caso não apareça mais.
+</p>
+<p>
+    Isso obviamente é bom para o projeto, mas também é excelente para os desenvolvedores, que podem
+    tirar férias, visitar médicos ou faltar por qualquer razão que se faça necessária, com a tranqüilidade de
+    saber que a equipe não terá que importuná-lo. A equipe consegue seguir adiante com ou sem ele. Em
+    muitas empresas, é comum os desenvolvedores terem dificuldades para tirar férias, por exemplo, tamanha
+    é a dependência de um projeto sobre ele. E isso naturalmente é ruim para ele e péssimo para o projeto.
+    Esse tipo de coisas não existe quando se utiliza a programação em par.
+</p>
+<p>
+    <i>
+        Confiança
+    </i>
+</p>
+<p>
+    A programação em par também é uma forma de fazer com que o desenvolvedor
+    tenha mais confiança no código que produz. Afinal, o código foi produzido por
+    ele e mais outra pessoa que o ajudou a revisá-lo. Quando sabemos que mais
+    uma pessoa, ou talvez várias, já olharam para o código no qual trabalhamos e
+    estão de acordo sobre o mesmo, temos maior confiança de que ele realmente
+    irá funcionar. Isso significa que a programação em par reduz o estresse do
+    desenvolvedor. Primeiro, porque várias pessoas conhecem e concordam com a
+    solução, segundo porque nenhum erro cometido no projeto é exclusivo de uma
+    única pessoa. Quando há um erro, não existe um culpado. A responsabilidade é
+    da equipe como um todo, porque várias pessoas tiveram a chance de editar
+    aquele código. Essa capacidade de deixar anônimo o responsável por uma falha,
+    que em outras palavras, significa que toda a equipe é responsável por qualquer
+    falha, é um dos aspectos sociais mais interessantes do <a href="/xp">xp</a>, porque reduz a possibilidade
+    de brigas e desentendimentos dentro da equipe, além de tornar todos mais
+    compreensivos uns com os outros. Naturalmente o estresse reduz-se e as
+    pessoas convivem melhor dentro do projeto.
+</p>
+<p>
+    <i>
+        Velocidade
+    </i>
+</p>
+<p>
+    O conjunto de características apresentadas acima faz com que a programação
+    em par acelere o desenvolvimento significativamente, embora à primeira vista
+    pareça o contrário. Em função da redução de bugs (e conseqüente redução no
+    tempo de depuração), pressão do par, maior simplicidade das soluções,
+    disseminação do conhecimento, maior confiança nas soluções, entre outros
+    efeitos que a programação em par produz, uma atividade feita em par normalmente
+    é encerrada mais rapidamente que outra feita por um programador solitário.
+    Existem pesquisas indicando que se uma atividade é feita em 8 horas por um
+    desenvolvedor sozinho, será feita em aproximadamente 4 horas por um par.
+    O que significa que, mesmo no curto prazo, não existem diferenças significativas
+    de produtividade. Pois, em ambos os caso se estão consumindo basicamente os
+    mesmos 8 homem-hora. A Laurie Williams, por exemplo, tem diversas estudos
+    nessa linha. Eu os respeito, mas os considero pouco significativos em relação
+    ao que ocorre realmente nos projetos, porque os problemas solucionados
+    durante estes experimentos são muito simples. E os problemas que os
+    projetos reais enfrentam são bem mais complexos. Entretanto, quanto mais
+    difícil a situação, quanto mais complexo o problema, maior é o ganho da
+    programação em par.&nbsp;
+</p>
+<p>
+    Pelo que observo nos projetos, pela complexidade daquilo que se busca resolver,
+    não me parece que a programação em par consuma a mesma quantidade de recursos.
+    Parece-me que consome bem menos, porque é exatamente diante dos problemas
+    complexos que a oportunidade de discutir inúmeras soluções mais agrega valor.
+    É exatamente nestes casos que conseguimos descobrir formas mais simples que
+    realmente economizam muito trabalho que, um programador sozinho, eventualmente
+    não imaginaria. Quanto mais complexo o problema, mais importante a capacidade de
+    descobrir bugs rapidamente com o processo permanente de inspeção de código. Quanto
+    mais difícil o problema, maior é a importância da pressão do par para evitar a dispersão.
+    Quanto mais difícil, mais importante é a disseminação do conhecimento para que mais
+    pessoas compreendam os problemas e se tornem cada vez mais habilidosas em resolvê-los.&nbsp;
+</p>
+<p>
+    Programação em par não consome mais recursos, não duplica o número de desenvolvedores
+    necessários ao projeto, nem duplica o tempo de desenvolvimento. Na verdade, por mais paradoxal
+    e contra-intuitivo que possa parecer, a programação em par poupa recursos. Lembre-se, as
+    pessoas erram. Se todos fossem perfeitos, a programação em par possivelmente só
+    serviria para duplicar recursos, elevar o tempo e encarecer o projeto. Mas, a questão
+    fundamental é perceber que as pessoas erram e erram com mais freqüência do
+    que se imagina. A programação em par ajuda a reduzir a incidência de problemas
+    e torna os projetos mais produtivos.
+</p>
+<p>
+    <i>
+        Problemas
+    </i>
+</p>
+<p>
+    Programar em par exige que as pessoas envolvidas sejam receptivas,
+    compreensivas umas com as outras, engajadas e, sobretudo, humildes.
+    É necessário aceitar que somos falíveis para que possamos programar em
+    par. Weinberg criou o termo egoless programming, ou seja, programação
+    sem ego. É essencial que o desenvolvedor não veja o código como uma
+    extensão de si próprio. Ele não pode achar que um erro no código significa uma
+    falha sua como pessoa. O código é apenas uma obra que tem vida própria e não
+    representa o caráter e a personalidade de quem o criou. Pois, se o desenvolvedor
+    imaginar que o código representa a si próprio, dificilmente irá buscar problemas
+    e falhas no código. Afinal, ninguém gosta de saber que tem falhas. O código precisa
+    ser visto como algo que não representa a personalidade de seu criador. Isso é mais
+    fácil de se obter quando se programa em par, pois neste caso, o código é a contribuição
+    de várias pessoas e não de uma única.
+</p>
+<p>
+    Pode parecer que desenvolvedores, freqüentemente introspectivos e muitas vezes
+    pouco sociais, tenham dificuldades significativas para lidar com a programação
+    em par. Isso realmente acontece com alguns, porém poucos. Aqueles que trabalham
+    com programação em par observam que naturalmente há um pequeno desconforto
+    inicial em muitos casos, mas em quase todos as pessoas se adaptam rapidamente
+    e aprendem a valorizar bastante a programação em par à medida que percebem o
+    benefício dela. Na minha experiência particular tenho notado isso consistentemente,
+    tanto no mercado, quanto no nível acadêmico.
+</p>
+<p>
+    No mercado, tive a oportunidade de trabalhar com algumas dezenas de desenvolvedores
+    com programação em par, em diversos projetos <a href="/xp">xp</a> e, em todos os casos, os
+    desenvolvedores se adaptaram bem a essa técnica e nenhuma das equipes pensa
+    em voltar atrás. Todas mantém a prática de forma consistente, algumas há quase
+    dois anos. Na UFRJ, onde ministrei curso de <a href="/xp">xp</a> para a graduação diversas vezes,
+    meu alunos (que de um modo geral são dos últimos períodos) não trabalhavam
+    antes com a programação em par e sempre acabaram se adaptando bem a ela
+    com uma ou outra exceção. As exceções existem, mas são apenas exceções.
+</p>
+<p>
+    <i>
+        Adoção
+    </i>
+</p>
+<p>
+    Apesar de tudo o que foi dito acima, se você acredita que a programação em
+    par não funcionaria no seu caso ou no caso da sua empresa, provavelmente
+    você está certo e não há muito mais o que eu possa fazer aqui. Em todo o caso,
+    antes de jogar a idéia fora, a minha sugestão é que você a experimente por alguns
+    dias. Não durante uma ou duas horas apenas. Tente utilizá-la, por exemplo,
+    durante uma semana, apenas para fazer um pequeno experimento. Imagino o
+    quanto o seu projeto deva ser importante e como você tem pouco tempo, mas
+    experimentar durante alguns dias não fará um mal tão grande assim. No pior dos
+    casos, você realmente terá perdido algum tempo. Mas, se tudo der certo, talvez
+    você descubra uma tremenda oportunidade de melhorar seu projeto e ganhar muito
+    tempo adiante. Tente experimentar, de mente aberta, apenas por poucos dias. Afinal,
+    é sempre fácil dizer que algo não funciona sem experimentar, mas normalmente é
+    muito mais recompensador e instrutivo se dar a chance de experimentar. Porque
+    quando funciona, você ganha alguma coisa nova, mas mesmo se não funcionar, no
+    mínimo você passa a poder dizer que não funciona e que você sabe disso, por ter
+    experimentado. Ninguém vai poder dizer que você não tem autoridade para falar
+    do assunto.
+</p>
+<p>
+    Programação em par é uma técnica que tem várias justificativas, porém só se
+    percebe o seu real valor utilizando. Muitas coisas que acontecem naturalmente
+    durante o seu uso, só são realmente percebidas enquanto se utiliza. A teoria,
+    as justificativas, as pesquisas, os resultados estatísticos, entre outros são interessantes
+    e têm o seu papel, mas o que realmente faz a diferença é experimentar e sentir os
+    seus efeitos. Isso vale mais do que qualquer palavra que você tenha lido até aqui,
+    mais do que qualquer pesquisa ou qualquer coisa que falem com você a esse
+    respeito. E, a propósito, se for possível, experimente não apenas com outro
+    desenvolvedor, mas com vários. Assim, você terá a exata noção do que a programação
+    em par pode fazer por você e um gostinho de uma das partes do <a href="/xp">xp</a>.
+</p>
+<p>
+  <i>Veja Também</i>
+</p>
+<p>
+  <a href="http://www.pairprogramming.com">PairProgramming.com</a><br>
+  <a href="http://agilealliancebeta.org/article/articles_by_category/35">Artigos relacionados na Agile Alliance</a><br>
+  <a href="http://en.wikipedia.org/wiki/Pair_programming">Pair Programming - Wikipedia</a><br>
+  <a href="http://collaboration.csc.ncsu.edu/laurie/publications.html">Laurie Williams</a><br>
+</p>

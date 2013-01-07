@@ -1,0 +1,665 @@
+---
+layout: default
+title: 'Integração Contínua'
+keywords: 'integração contínua prática extreme programming xp programação extrema'
+description: 'Integração Contínua: Prática do Extreme Programming (XP)'
+heading: 'Integração Contínua'
+---
+
+<p>
+    Em uma equipe com vários desenvolvedores, todos trabalhando na elaboração de um mesmo sistema, qual a melhor forma de unificar as diversas alterações feitas na base de código? <a href="/xp/manifesto_agil">Processos ágeis</a> como o <a href="/xp">xp</a> utilizam a prática conhecida como <b>Integração Contínua</b> para solucionar essa questão.
+  </p>
+  <p> 
+    Integração contínua consiste em integrar o trabalho diversas vezes ao dia, assegurando que a base de código permaneça consistente ao final de cada integração. Nesse artigo, você conhecerá os passos necessários para usar essa prática em seu dia-a-dia, primeiro de forma manual, com foco nos conceitos, e depois de forma automatizada.
+  </p>
+  <h2>Repositórios e versionamento</h2>
+  <p>
+    Uma das ações mais importantes para permitir que diversos desenvolvedores trabalhem juntos em um mesmo projeto é utilizar um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">sistema de controle de versões</a>, que chamaremos aqui de "<a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório de código</a>" ou simplesmente "<a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>". Existem muitos desses sistemas disponíveis no mercado, tais como <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>, <a href="http://en.wikipedia.org/wiki/Source_Safe">Microsoft Visual SourceSafe</a>, <a href="http://pt.wikipedia.org/wiki/SVN">Subversion</a>, <a href="http://en.wikipedia.org/wiki/Clearcase">Rational ClearCase</a>, entre outros. Nesse artigo iremos utilizar o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> para apoiar nosso exemplo. Trata-se de um software <a href="http://pt.wikipedia.org/wiki/Open_source">open source</a> amplamente utilizado em todo o mundo.
+  </p>
+  <p>
+    <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">Repositórios de código</a> fornecem um local centralizado para armazenamento dos arquivos de um projeto, e também controlam as versões desses arquivos. Imagine, por exemplo, que num projeto haja uma classe <code>CestaCompras</code> com capacidade apenas de listar e calcular o valor total dos produtos na cesta, e que um dia alguém implemente também a inserção e a remoção de produtos. Ao armazenar o código atualizado com as novas funcionalidades, o repositório grava uma nova versão da cesta. Ou seja, a classe <code>CestaCompras</code> original não é simplesmente substituída por uma nova. Ao invés disso, o novo código é anexado ao antigo. 
+  </p>
+  <p>
+    Guardar versões é como ter um botão de "desfazer" à nossa disposição. Quando cometemos um erro em um arquivo e o colocamos acidentalmente no repositório, o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> nos permite recuperar a versão anterior. No caso da classe <code>CestaCompras</code>, por exemplo, imagine que a primeira versão funcionasse perfeitamente e, ao implementarmos a inserção e remoção de produtos, tivéssemos inserido um <a href="http://en.wikipedia.org/wiki/Software_bug">bug</a> por falta de atenção. Suponha ainda que o <a href="http://en.wikipedia.org/wiki/Software_bug">bug</a> só fosse percebido quando a classe já estivesse em produção. Nesse tipo de situação, a possibilidade de controlar versões com um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório de código</a> é muito útil, por exemplo, porque nos permite obter a versão original rapidamente (a que funcionava) e colocá-la no ar até que a versão mais recente (com problemas) seja corrigida.
+  </p>
+  <p>
+    Quando diversas pessoas trabalham juntas em um projeto, o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> se torna o destino final de tudo o que é produzido. Quando um desenvolvedor armazena seu trabalho no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>, dizemos que está fazendo uma <b>integração</b>, isto é, está integrando o que acabou de produzir com o que seus colegas também vêm produzindo e armazenando no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>.
+  </p>
+  <h2>Formas de integração</h2>
+  <p>
+    Em um projeto, com várias pessoas trabalhando juntas, é comum acontecerem situações nas quais dois ou mais desenvolvedores precisem editar determinado arquivo ao mesmo tempo. Como tratar essa possibilidade?
+  </p>
+  <p>
+    Existem duas abordagens utilizadas. Na mais simples, o primeiro desenvolvedor que precisa editar um arquivo faz um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> desse arquivo e, enquanto o estiver editando ninguém mais consegue alterá-lo. Ou seja, o arquivo passa a ter apenas acesso de leitura para todos os outros desenvolvedores. (Fazer um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> significa trazer uma cópia de um ou mais arquivos do <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> para a estação de trabalho do desenvolvedor.) Usa-se esse modelo de edição de arquivos em sistemas como o <a href="http://en.wikipedia.org/wiki/Source_Safe">Microsoft Visual SourceSafe</a>, por exemplo.
+  </p>
+  <p>
+    A outra abordagem, que iremos tratar com mais detalhes ao longo do artigo, é adotada freqüentemente por usuários do <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> e do <a href="http://pt.wikipedia.org/wiki/SVN">Subversion</a>, por exemplo. Nela, cada desenvolvedor faz <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> de todo o projeto para a sua máquina, e tem liberdade para editar qualquer arquivo sem ter que se preocupar se outras pessoas também estarão editando o mesmo arquivo que ele.
+  </p>
+  <p>
+    Quando termina sua tarefa, o desenvolvedor pede ao <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> para integrar seu código ao repositório. Para cada arquivo que alterou, o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> verifica se outra pessoa também fez alterações. Quando isso ocorre, torna-se necessário fazer um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">merge</a>, isto é, unificar as alterações dos diferentes desenvolvedores. 
+  </p>
+  <p>
+    O <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">merge</a> pode ser automático ou manual. O <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">merge</a> automático ocorre quando o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> detecta que duas pessoas editaram o mesmo arquivo, porém constata que linhas diferentes foram alteradas. Nesse caso, o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> simplesmente aceita as duas (ou mais) alterações no arquivo. Já quando dois <a href="/xp/papeis/programadores">programadores</a> editam a mesma linha de código, torna-se necessário fazer um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">merge</a> manual. Então, o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> marca no código o trecho em que existe o conflito e o <a href="/xp/papeis/programadores">programador</a> tem que analisar manualmente as mudanças e decidir como os códigos devem ser unificados.
+  </p>
+  <p>
+    O modelo de trabalho do <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> traz uma série de vantagens, mas parece mais arriscado que aquele em que desenvolvedores editam arquivos com exclusividade sobre os mesmos. Entretanto, utilizando as recomendações que veremos adiante, você poderá utilizá-lo de forma segura. Assim poderá editar arquivos livremente, sabendo que na hora de integrar não irá causar nenhum mal aos arquivos já presentes no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>.
+  </p>
+  <h2>Integração através de um exemplo</h2>
+  <p>
+    Para que você possa experimentar o processo de integração, iremos ajudá-lo a simular o que aconteceria em um pequeno projeto, cujo objetivo é criar uma calculadora usando <a href="/xp/praticas">práticas</a> do <a href="/xp">xp</a>. Sendo assim, além da <b>integração contínua</b>, outras <a href="/xp/praticas">práticas</a> serão usadas, tais como <a href="/xp/praticas/programacao_par">programação em par</a> e <a href="/xp/praticas/tdd">desenvolvimento orientado a testes</a>, mas não é necessário conhecer detalhes sobre essas técnicas para acompanhar o artigo.
+  </p>
+  <p>
+    Nesse exemplo, iremos considerar uma equipe composta por quatro desenvolvedores: Ana, Bruno, Carlos, e Denise. Eles irão trabalhar em <a href="/xp/praticas/programacao_par">pares</a>, e usarão dois computadores diferentes. Em um computador, Ana e Bruno irão trabalhar juntos, enquanto no outro estarão Carlos e Denise. O <a href="http://www.eclipse.org">Eclipse</a> será utilizado no projeto. 
+  </p>
+  <p>
+    Para simular as condições exatas desse projeto, será necessário criar em seu computador dois workspaces, um para cada par. No meu computador, por exemplo, criei os seguintes diretórios:
+  </p>
+  <pre>        /Users/vinicius/workspaceAB (para o par Ana e Bruno)
+  /Users/vinicius/workspaceCD (para o par Carlos e Denise)
+  </pre>
+  <p>
+    Você também deverá ser capaz de abrir duas cópias diferentes do <a href="http://www.eclipse.org">Eclipse</a>, de modo que possa alterar o conteúdo de cada workspace, à medida que avançarmos na explicação. Uma forma simples de fazer isso é instalar o <a href="http://www.eclipse.org">Eclipse</a> em dois diretórios diferentes. No meu caso, por exemplo, ele foi instalado nos seguintes diretórios:
+  </p>
+  <pre>        /Users/vinicius/eclipseAB
+  /Users/vinicius/eclipseCD 
+  </pre>
+  <p>
+    Finalmente, você precisará ter acesso a um servidor <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Se estiver em um ambiente administrado, onde já exista um <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> instalado, peça acesso ao responsável pela infra-estrutura. Caso contrário, você poderá baixar e instalar o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> a partir dos links fornecidos ao final do artigo. Explicar como instalar o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> está fora do escopo desse artigo, mas os links e livros sugeridos serão úteis nesse sentido.
+  </p>
+  <h2>Iniciando o exemplo</h2>
+  <p>
+    Iremos começar simulando o par Ana e Bruno. Para isso, execute o <a href="http://www.eclipse.org">Eclipse</a> reservado para eles. Em seguida, configure-o para utilizar o workspace destinado a esse par, através da opção <code>File|Switch Workspace</code>. Veja a <a href="#Figura 1">Figura 1</a>.
+  </p>
+  <p>
+  <a name="Figura 1"><b>Figura 1</b></a>: Configurando o workspace do Eclipse para o primeiro par.<br>
+  <img alt="Configurando o workspace do Eclipse para o primeiro par." src="/images/xp/praticas/integracao/switchWorkspace.png"><br>
+  </p>
+  <h3>Criando o projeto e os diretórios</h3>
+  <p>
+    Crie um novo projeto <a href="http://java.sun.com">Java</a> chamado <code>Calculadora</code> e configure os diretórios onde serão armazenados os códigos fontes. Haverá dois diretórios, um para o código da aplicação (<code>src</code>) e outro para os testes (<code>srcTeste</code>). Para efetuar a configuração, escolha <code>Project|Properties</code>, clique na opção <code>Java Build Path</code> no painel à esquerda e depois na aba <code>Source</code> à direita. Depois clique no botão <code>Add Folder</code>, digite <code>src</code> e clique em <code>Ok</code>. 
+  </p>
+  <p>
+    Nesse momento o <a href="http://www.eclipse.org">Eclipse</a> irá perguntar se você deseja direcionar os arquivos compilados para o diretório <code>bin</code>. Aceite essa sugestão. Agora só falta adicionar o diretório <code>srcTeste</code>. Para isso, clique novamente no botão <code>Add Folder</code> e em seguida no botão <code>Create New Folder</code> e digite <code>srcTeste</code>. Com isso, os diretórios onde serão armazenados os fontes estão configurados. 
+  </p>
+  <h2>Configurando o <a href="http://www.junit.org">JUnit</a></h2>
+  <p>
+    Para executar <a href="/xp/praticas/tdd">testes automatizados</a>, usaremos o <a href="http://www.junit.org">JUnit</a>. Para isso, é necessário adicionar a biblioteca <code>junit.jar</code> no <code>classpath</code> do projeto. Existem pelo menos duas formas de se fazer isso. A primeira é configurar o projeto para referenciar <code>junit.jar</code> no diretório do plug-in do <a href="http://www.junit.org">JUnit</a> que já vem com o <a href="http://www.eclipse.org">Eclipse</a>. A outra é criar um diretório <code>lib</code> no projeto, copiar o <code>junit.jar</code> para esse diretório, e configurar o projeto para usá-lo. 
+  </p>
+  <p>
+    Usaremos a segunda opção porque, mais tarde, ao colocar o projeto no repositório, queremos que ele seja armazenado com todos os arquivos e bibliotecas dos quais depende, incluindo a biblioteca do <a href="http://www.junit.org">JUnit</a>.
+  </p>
+  <p>
+    Crie um diretório chamado <code>lib</code> <code>(File|New&gt;Folder)</code>. Copie o arquivo <code>junit.jar</code> para esse diretório. Você poderá encontrar esse jar no diretório de instalação do <a href="http://www.eclipse.org">Eclipse</a>, no subdiretório <code>plugins/org.junit_3.8.1</code> (a versão pode variar). Feita a cópia, escolha a opção de menu <code>File|Refresh</code>. A partir desse ponto, você será capaz de observar a estrutura de diretórios da <a href="#Figura 2">Figura 2</a>.
+  </p>
+  <p>
+<a name="Figura 2"><b>Figura 2</b></a>: Estrutura inicial do projeto.<br>
+<img alt="Estrutura inicial do projeto." src="/images/xp/praticas/integracao/estruturaProjeto1.png"><br>
+</p>
+  <p>
+    Para configurar o <code>classpath</code>, selecione o projeto e escolha <code>Project|Properties</code>, clique em <code>Java Build Path</code> e depois na aba <code>Libraries</code>. Depois clique no botão <code>Add JARs</code> e escolha <code>junit.jar</code>. 
+  </p>
+  <h3>Primeiras classes</h3>
+  <p>
+    Agora, vamos supor que depois de alguns minutos trabalhando, Ana e Bruno produziram as classes apresentadas na <a href="#Listagem 1">Listagem 1</a>. Ao escrevê-las no <a href="http://www.eclipse.org">Eclipse</a>, note que a classe <code>CalculadoraTeste</code> deve ser colocada no <code>srcTeste</code>, enquanto a classe <code>Calculadora</code> ficará no <code>src</code>. Veja a <a href="#Figura 3">Figura 3</a>.
+  </p>
+  <p>
+  <a name="Listagem 1"><b>Listagem 1</b></a>: Primeira versão da classe Calculadora e seu teste. 
+  </p><pre name="code" class="java">        package jm;
+  
+  import junit.framework.TestCase;
+  
+  public class CalculadoraTeste extends TestCase {
+    Calculadora calculadora = new Calculadora();
+    public void testSoma() {
+      assertEquals(3, calculadora.soma(1, 2));
+    }
+  
+    public void testSubtracao() {
+      assertEquals(1, calculadora.subtrai(3, 2));
+    }
+  
+    public void testDivisao() {
+      assertEquals(2, calculadora.divide(2, 1));
+    }
+  
+    public void testMultiplicao() {
+      assertEquals(2, calculadora.multiplica(1, 2));
+    }
+  }
+  </pre>
+  <p></p>
+  <p>
+<a name="Figura 3"><b>Figura 3</b></a>: Estrutura do projeto após adicionar as primeiras classes.<br>
+<img alt="Estrutura do projeto após adicionar as primeiras classes." src="/images/xp/praticas/integracao/estruturaProjeto2.png"><br>
+</p>
+  <h2>Importando o projeto no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a></h2>
+  <p>
+    Para que os pares possam integrar o que produzem usando o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> é necessário importar o projeto no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>, isto é, adicionar os primeiros arquivos do projeto no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>. Começamos configurando o <a href="http://www.eclipse.org">Eclipse</a> para acessar o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>.
+  </p>
+  <p>
+<a name="Figura 4"><b>Figura 4</b></a>: Configurando o acesso ao repositório.<br>
+<img alt="Configurando o acesso ao repositório." src="/images/xp/praticas/integracao/repositoryLocation.png"><br>
+</p>
+<p>
+<a name="Figura 5"><b>Figura 5</b></a>: Definindo parâmetros de configuração para o acesso ao CVS.<br>
+<img alt="Definindo parâmetros de configuração para o acesso ao CVS." src="/images/xp/praticas/integracao/configuracaoRepositorio.png"><br>
+</p>
+  <p>
+    Acesse a opção de menu <code>Window|Open Perspective&gt;Other&gt;CVS Repository Exploring</code>. Clique com o botão direito sobre a perspectiva <code>CVS Repositories</code> e escolha <code>New&gt;Repository Location</code>. Veja a <a href="#Figura 4">Figura 4</a>. Agora digite os dados relativos à configuração do seu servidor <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Veja na <a href="#Figura 5">Figura 5</a> como ficou a configuração no meu caso.
+  </p>
+  <p>
+    Agora que o <a href="http://www.eclipse.org">Eclipse</a> reconhece o repositório, você pode importar o projeto. Volte para a perspectiva <a href="http://java.sun.com">Java</a>, clique com o botão direito sobre o topo da estrutura do projeto e escolha a opção <code>Team&gt;Share Project</code>. Desse ponto em diante, selecione as opções padrões oferecidas pelas telas do wizard, conforme ilustrado na <a href="#Figura 6">Figura 6</a>.
+  </p>
+  
+  <p>
+  <a name="Figura 6"><b>Figura 6</b></a>: Importando o projeto para o CVS.<br>
+  <img alt="Escolhendo o repositório para onde o projeto será importado" src="/images/xp/praticas/integracao/shareProject1.png"><br>
+  Escolhendo o repositório para onde o projeto será importado.<br>
+  <br>
+  <img alt="Definindo o nome do módulo no CVS, isto é, como o projeto será conhecido no CVS" src="/images/xp/praticas/integracao/shareProject2.png"><br>
+  Definindo o nome do módulo no CVS, isto é, como o projeto será conhecido no CVS.<br>
+  <br>
+  <img alt="Definindo a tag inicial do projeto. Pode ser vazia." src="/images/xp/praticas/integracao/shareProject3.png"><br>
+  Definindo a tag inicial do projeto. Pode ser vazia.<br>
+  <br>
+  <img alt="Verificando os arquivos que serão importados e finalizando." src="/images/xp/praticas/integracao/shareProject4.png"><br>
+  Verificando os arquivos que serão importados e finalizando.<br>
+  <br>
+  <img alt="Adicionando um comentário ao gravar os arquivos no repositório." src="/images/xp/praticas/integracao/shareProject5.png"><br>
+  Adicionando um comentário ao gravar os arquivos no repositório.<br>
+  </p>
+  <p>
+    Sempre que armazenamos novos arquivos ou alterações de arquivos no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>, ele sugere a inserção de comentários, descrevendo o que está sendo armazenado, o porquê das mudanças etc. A necessidade desses comentários depende das características de cada projeto, como veremos adiante.
+  </p>
+  <h2><a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">Checkout</a> do projeto</h2>
+  <p>
+    Agora que o projeto já está no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>, vamos imaginar que o outro par, formado por Carlos e Denise, comece a contribuir com o projeto. Para isso, é necessário que eles configurem o <a href="http://www.eclipse.org">Eclipse</a> para acessar o repositório e façam o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> de todos os arquivos do projeto até o momento.
+  </p>
+  <p>
+    Para que você possa simular essa situação, execute a instalação do <a href="http://www.eclipse.org">Eclipse</a> que foi destinada para esse segundo par. Em seguida, configure o IDE para usar o workspace de Carlos e Denise, acionando <code>File|Switch Workspace</code>, e digitando a sua localização (no meu caso, <code>/Users/vinicius/workspaceCD</code>).
+  </p>
+  <p>
+    Acesse <code>Window|Open Perspective&gt;Other&gt;CVS Repository Exploring</code>, e clique com o botão direito sobre a perspectiva <code>CVS Repositories</code>. Depois escolha <code>New&gt;Repository Location</code>. Digite os mesmos dados de configuração do repositório que usamos anteriormente para configurar o workspace do primeiro par.
+  </p>
+  <p>
+    Nesse momento você já pode fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> do projeto. Na perspectiva <code>CVS Repositories</code> expanda a linha correspondente ao <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> onde está nosso projeto. Você deverá ver algo parecido com a <a href="#Figura 7">Figura 7</a>. 
+  </p>
+  <p>
+  <a name="Figura 7"><b>Figura 7</b></a>: Acessando o CVS para fazer checkout do projeto.<br>
+  <img alt="Acessando o CVS para fazer checkout do projeto." src="/images/xp/praticas/integracao/estruturaRepositorio.png"><br>
+  </p>
+  <p>
+    Clique com o botão direito sobre o projeto e escolha a opção <code>Check Out As</code>. Depois escolha <code>Check out as project in the workspace</code>, como ilustrado na <a href="#Figura 8">Figura 8</a>. Por fim, mude para a perspectiva <a href="http://java.sun.com">Java</a>, onde você encontrará os arquivos do projeto.
+  </p>
+  <p>
+  <a name="Figura 8"><b>Figura 8</b></a>: Definindo a forma de realizar o checkout.<br>
+  <img alt="Definindo a forma de realizar o checkout." src="/images/xp/praticas/integracao/checkout1.png"><br>
+  </p>
+  <h2><a href="/xp/praticas/programacao_par">Pares</a> programando em paralelo</h2>
+  <p>
+    Nesse momento, os dois <a href="/xp/praticas/programacao_par">pares</a> estão com a versão original dos arquivos em seus respectivos workspaces. Iremos simular agora uma situação em que cada <a href="/xp/praticas/programacao_par">par</a> altera um arquivo diferente do outro. 
+  </p>
+  <p>
+    Ana e Bruno decidem <a href="/xp/praticas/refatoracao">refatorar</a> a classe de <a href="/xp/praticas/tdd">teste</a> com o objetivo de eliminar algumas duplicações. Farão isso acrescentando algumas constantes, conforme o código apresentado na <a href="#Listagem 2">Listagem 2</a>. Por sua vez, Carlos e Denise <a href="/xp/praticas/refatoracao">refatoram</a> a implementação da classe <code>Calculadora</code> com o objetivo de melhorar os nomes dos parâmetros usados nos métodos. O resultado é apresentado na <a href="#Listagem 3">Listagem 3</a>.
+  </p>
+  <p>
+  <a name="Listagem 2"><b>Listagem 2</b></a>: Ana e Bruno introduzem constantes na classe <code>CalculadoraTeste</code>. 
+  </p><pre name="code" class="java">        package jm;
+  
+  import junit.framework.TestCase;
+  
+  public class CalculadoraTeste extends TestCase {
+    public static final int UM = 1;
+    public static final int DOIS = 2;
+    private static final int TRES = 3;
+    
+    Calculadora calculadora = new Calculadora();
+    
+    public void testSoma() {
+      assertEquals(TRES, calculadora.soma(UM, DOIS));
+    }
+  
+    public void testSubtracao() {
+      assertEquals(UM, calculadora.subtrai(TRES, DOIS));
+    }
+  
+    public void testDivisao() {
+      assertEquals(DOIS, calculadora.divide(DOIS, UM));
+    }
+  
+    public void testMultiplicao() {
+      assertEquals(DOIS, calculadora.multiplica(UM, DOIS));
+    }
+  }
+  </pre>
+  <p></p>
+  <p>
+  <a name="Listagem 3"><b>Listagem 3</b></a>: Carlos e Denise melhoram os nomes dos métodos da classe <code>Calculadora</code>. 
+  </p><pre name="code" class="java">        package jm;
+  
+  public class Calculadora {
+    public int soma(int somando, int outroSomando) {
+      return somando + outroSomando;
+    }
+  
+    public int subtrai(int minuendo, int subtraendo) {
+      return minuendo - subtraendo;
+    }
+  
+    public int divide(int dividendo, int divisor) {
+      return dividendo/ divisor;
+    }
+  
+    public int multiplica(int multiplicando, int multiplicador) {
+      return multiplicando * multiplicador;
+    }
+  }
+  </pre>
+  <p></p>
+  <h2>Sincronizando com o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a></h2>
+  <p>
+    Nesse ponto, cada <a href="/xp/praticas/programacao_par">par</a> terá contribuído de alguma forma com o projeto. Supondo que eles não tivessem mais nada a fazer com relação à calculadora, seria recomendável integrar suas alterações ao <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>. Desenvolvedores que trabalham com <a href="/xp">xp</a> procuram integrar o que produzem inúmeras vezes ao dia, razão pela qual essa prática é chamada de integração contínua. Toda vez que o código está <b>consistente</b>, ou seja, quando todo o projeto compila e todos os <a href="/xp/praticas/tdd">testes automatizados</a> executam perfeitamente, pode-se efetuar uma integração.
+  </p>
+  <p>
+    Integrar com freqüência significa fazer algumas pequenas alterações no código, assegurar a consistência do mesmo – e também verificar se a base de código guardada no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>, uma vez acrescida dessas pequenas alterações, continuará funcionando corretamente. Fazer pequenas mudanças e validá-las várias vezes ao dia é vantajoso. Se integramos um pouco de cada vez, o esforço é menor, o potencial de erros diminui e eventuais erros podem ser tratados mais facilmente. Sobretudo, ao final de cada integração, buscamos assegurar que o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> continue consistente, para que integrações futuras não sejam afetadas negativamente por eventuais erros da integração corrente. 
+  </p>
+  <p>
+    Voltando ao <a href="http://www.eclipse.org">Eclipse</a>, a forma mais simples de integrar alterações nele é pedindo que o código local seja sincronizado com o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>. Para fazer isso, no workspace de Ana e Bruno, clique com o botão direito na raiz do projeto e escolha a opção <code>Team&gt;Synchronize with Repository</code>. Nesse ponto, pode ser que o <a href="http://www.eclipse.org">Eclipse</a> avise que a ação está associada à perspectiva <code>Synchronize</code>, conforme a <a href="#Figura 9">Figura 9</a>. Se for o caso, será perguntado se você aceita mudar para essa perspectiva. Responda que sim e prossiga.
+  </p>
+  <p>
+  <a name="Figura 9"><b>Figura 9</b></a>: Configurando o Eclipse para abrir a perspectiva correta durante a sincronização.<br>
+  <img alt="Configurando o Eclipse para abrir a perspectiva correta durante a sincronização." src="/images/xp/praticas/integracao/sincronizar0.png"><br>
+  </p>
+  <p>
+    O <a href="http://www.eclipse.org">Eclipse</a> mostra que a única diferença entre o projeto em sua estação e o que está no repositório é a modificação feita na classe <code>CalculadoraTeste</code> que agora deverá ser gravada no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Clique com o botão direito sobre a raiz do projeto e escolha <code>Commit</code>. Veja as <a href="#Figura 10">Figuras 10</a> e <a href="#Figura 11">11</a>.
+  </p>
+  <p>
+  <a name="Figura 10"><b>Figura 10</b></a>: Resultado da sincronização. Modificações locais na classe CalculadoraTeste.<br>
+  <img alt="Resultado da sincronização. Modificações locais na classe CalculadoraTeste." src="/images/xp/praticas/integracao/sincronizar1.png"><br>
+  </p>
+  <p>
+  <a name="Figura 11"><b>Figura 11</b></a>: Adicionando um comentário descrevendo a alteração efetuada.<br>
+  <img alt="Adicionando um comentário descrevendo a alteração efetuada." src="/images/xp/praticas/integracao/sincronizar2.png"><br>
+  </p>
+  <h2>Roteiro da integração contínua</h2>
+  <p>
+    Agora que Ana e Bruno integraram sua contribuição, é a vez de Carlos e Denise fazerem o mesmo. Mas dessa vez eles seguirão o modelo de integração contínua proposto pelo <a href="/xp">xp</a>.
+  </p>
+  <p>
+    De acordo com esse modelo, os <a href="/xp/praticas/programacao_par">pares</a> seguem um roteiro de oito passos:
+  </p>
+  <ol>
+    <li>Assegurar que o projeto compila e todos os <a href="/xp/praticas/tdd">testes automatizados</a> executam com sucesso</li>
+    <li>Conquistar a vez de integrar</li>
+    <li>Criar um backup do projeto na estação de trabalho</li>
+    <li>Fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">update</a> do projeto</li>
+    <li>Assegurar que o software continua compilando e os <a href="/xp/praticas/tdd">testes</a> executam com sucesso</li>
+    <li>Fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> do projeto</li>
+    <li>Apagar o diretório do projeto na estação de trabalho e fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a></li>
+    <li>Assegurar que o software continua compilando e que os <a href="/xp/praticas/tdd">testes</a> executam com sucesso</li>
+  </ol><br>
+  <p>
+    Veremos adiante a explicação de cada passo, bem como a execução do roteiro manualmente.
+  </p>
+  <h3>1. Assegurar que o projeto compila e todos os <a href="/xp/praticas/tdd">testes automatizados</a> executam com sucesso</h3>
+  <p>
+    Em <a href="/xp">xp</a>, a equipe busca assegurar que o repositório esteja permanentemente consistente. Isso significa que, a qualquer momento, se um <a href="/xp/praticas/programacao_par">par</a> fizer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> do projeto, o código deve ser capaz de compilar perfeitamente, bem como passar em todos os <a href="/xp/praticas/tdd">testes</a>. Para que esse objetivo seja alcançado, o <a href="/xp/praticas/programacao_par">par</a> que estiver integrando deve ter o cuidado de assegurar que aquilo que for para o repositório compile e passe nos <a href="/xp/praticas/tdd">testes</a>. 
+  </p>
+  <p>
+    No caso do segundo <a href="/xp/praticas/programacao_par">par</a>, Carlos e Denise, eles compilaram o código, executaram os <a href="/xp/praticas/tdd">testes</a> e obtiveram um resultado positivo, conforme indicado na <a href="#Figura 12">Figura 12</a>.
+  </p>
+  <p>
+  <a name="Figura 12"><b>Figura 12</b></a>: Testes passam, permitindo que o código possa ser armazenado no repositório.<br>
+  <img alt="Testes passam, permitindo que o código possa ser armazenado no repositório." src="/images/xp/praticas/integracao/junit.png"><br>
+  </p>
+  <h3>2. Conquistar a vez de integrar</h3>
+  <p>
+    É difícil manter o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> consistente se os <a href="/xp/praticas/programacao_par">pares</a> puderem fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> (gravar suas alterações no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>) sempre que quiserem, inclusive enquanto outros <a href="/xp/praticas/programacao_par">pares</a> também estiverem fazendo o mesmo. Obtém-se melhor controle sobre o processo quando apenas um <a href="/xp/praticas/programacao_par">par</a> pode integrar de cada vez. Nesse cenário, que é o utilizado em projetos <a href="/xp">xp</a>, quando um <a href="/xp/praticas/programacao_par">par</a> estiver integrando, todos os demais devem aguardar a vez. 
+  </p>
+  <p>
+    Isso pode se tornar um problema se cada integração consumir muito tempo. Mas, esse normalmente não é o caso em <a href="/xp">xp</a>, porque os <a href="/xp/praticas/programacao_par">pares</a> integram diversas vezes por dia, o que torna cada integração relativamente rápida (por haver pouco a ser integrado de cada vez).
+  </p>
+  <p>
+    É necessário garantir que apenas um <a href="/xp/praticas/programacao_par">par</a> integre de cada vez. Isso pode ser conseguido de inúmeras formas. Por exemplo, a equipe pode separar um computador para ser usado exclusivamente com o propósito de integrar. Assim, o <a href="/xp/praticas/programacao_par">par</a> que quiser integrar deve copiar o workspace para esse computador, ir até ele, executar o roteiro de integração e voltar para sua estação de trabalho quando tiver terminado. Mais adiante, trataremos de situações nas quais a equipe seja grande demais e não possa trabalhar junta em um mesmo ambiente, dificultando assim o uso de um computador exclusivo para integração.
+  </p>
+  <p>
+    Outra alternativa consiste em adotar um sinalizador, que é um instrumento visual cuja posse determina quem pode integrar no momento. O sinalizador pode ser qualquer coisa que indique claramente que uma integração está ocorrendo. Por exemplo, um de <a href="/clientes">nossos clientes</a>, a <a href="/case_ancar">Ancar</a>, utiliza um boneco de borracha do Bob Esponja! Quando um <a href="/xp/praticas/programacao_par">par</a> deseja integrar, deve obter o boneco, pressioná-lo duas vezes (fazendo um barulho que indica o início da integração) e, em seguida, colocá-lo sobre o monitor. Quando a integração termina, o <a href="/xp/praticas/programacao_par">par</a> pressiona o boneco uma vez, indicando que a integração terminou, e o coloca em outro lugar (ou simplesmente o repassa para o próximo <a href="/xp/praticas/programacao_par">par</a> que quiser integrar). Veja o Bob Esponja em ação na <a href="#Figura 13">Figura 13</a>.
+  </p>
+  <p>
+  <a name="Figura 13"><b>Figura 13</b></a>: Bob Esponja usado como sinalizador para indicar quem conquistou a vez de integrar.<br>
+  <img alt="Bob Esponja usado como sinalizador para indicar quem conquistou a vez de integrar." src="/images/xp/praticas/integracao/bobEsponja.jpg?1352895511"><br>
+  </p>
+  <h3>3. Criar um backup do projeto na estação de trabalho</h3>
+  <p>
+    Por maiores que sejam os esforços para tornar o processo de integração seguro, problemas podem ocorrer e o risco de se perder o trabalho produzido está presente. No passo a seguir teremos que fazer um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">update</a> do projeto, para que alterações feitas no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> sejam trazidas para a estação de trabalho do desenvolvedor. Na maioria das vezes essas alterações convivem bem com o que o desenvolvedor está produzindo. Mas de tempos em tempos elas podem entrar em conflito com o trabalho que acabou de ser feito; por exemplo, quando após um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">update</a> não se consegue mais compilar o projeto e não há uma solução fácil.
+  </p>
+  <p>
+    Para que o desenvolvedor possa ter acesso ao código que havia escrito antes de efetuar o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">update</a>, caso necessite, é recomendável que se faça uma cópia de segurança do diretório contendo o projeto antes de executar o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">update</a>.
+  </p>
+  <h3>4. Fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">update</a> do projeto</h3>
+  <p>
+    Antes de gravar alterações no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>, temos que integrá-las na máquina reservada para integrações. Para isso, executamos um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">update</a>. Trata-se de um comando do <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> que traz para nossa estação tudo aquilo que foi alterado no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> desde a última vez que foi executado um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a>.
+  </p>
+  <p>
+    O <a href="http://www.eclipse.org">Eclipse</a> ajuda a realizar o update de forma simples. Para ver como o processo funciona, mude para o <a href="http://www.eclipse.org">Eclipse</a> que está simulando o <a href="/xp/praticas/programacao_par">par</a> Carlos e Denise. Agora, peça para sincronizar com o repositório clicando com o botão direito na raiz do projeto e escolhendo a opção <code>Team&gt;Synchronize with Repository</code>. Você deverá ver o conteúdo da <a href="#Figura 14">Figura 14</a>.
+  </p>
+  <p>
+  <a name="Figura 14"><b>Figura 14</b></a>: Sincronizando o projeto no workspace do segundo par.<br>
+  <img alt="Sincronizando o projeto no workspace do segundo par." src="/images/xp/praticas/integracao/sincronizar3.png"><br>
+  </p>
+  <p>
+    Note que a classe <code>CalculadoraTeste</code> é mostrada com uma seta para a esquerda. Isso indica que a versão do <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> está mais nova que a versão na estação de trabalho. Portanto, é necessário substituir a versão local, pela versão no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Clique sobre essa classe com o botão direito e escolha a opção <code>Update</code>, como mostrado na <a href="#Figura 15">Figura 15</a>.
+  </p>
+  <p>
+  <a name="Figura 15"><b>Figura 15</b></a>: Fazendo update da classe CalculadoraTeste.<br>
+  <img alt="Fazendo update da classe CalculadoraTeste." src="/images/xp/praticas/integracao/sincronizar4.png"><br>
+  </p>
+  <p>
+    Agora que já temos todas as novidades do <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>, podemos prosseguir. Mas antes, podemos aproveitar para resolver um pequeno detalhe. Veja novamente a <a href="#Figura 15">Figura 15</a>. Repare no diretório <code>bin</code>. O <a href="http://www.eclipse.org">Eclipse</a> nos informa, através de uma seta apontando para a direita contendo um sinal de adição, que ele precisa ser adicionado ao <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Entretanto, esse diretório armazena o código compilado de nossa aplicação, que normalmente não precisa ser armazenado no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>. Podemos configurar o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> para ignorar todo o conteúdo desse diretório, de modo que não seja mais mostrado durante o processo de sincronização. Para tanto, clique sobre ele com o botão direito e escolha a opção <code>Add to .cvignore</code>.
+  </p>
+  <h3>5. Assegurar que o software continua compilando e que os <a href="/xp/praticas/tdd">testes</a> executam com sucesso</h3>
+  <p>
+    Quando integramos o código local com alterações trazidas do <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> há sempre o risco de que as novidades façam nosso código deixar de compilar, os <a href="/xp/praticas/tdd">testes</a> deixarem de passar, ou ambos. Sendo assim, precisamos recompilar a aplicação, executar os <a href="/xp/praticas/tdd">testes</a> e corrigir eventuais erros antes de prosseguir. Vamos supor nesse caso que Carlos e Denise compilem o projeto e executam os <a href="/xp/praticas/tdd">testes</a>, e tudo continue funcionando. Portanto, eles podem gravar suas alterações no passo seguinte.
+  </p>
+  <h3>6. Fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a></h3>
+  <p>
+    Para fazer um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> (armazenar suas alterações no repositório), basta clicar com o botão direito sobre a raiz do projeto e escolher a opção <code>Commit</code>.
+  </p>
+  <h3>7. Apagar o diretório do projeto na estação de trabalho e fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a></h3>
+  <p>
+    Como explicado anteriormente, buscamos assegurar que qualquer par de desenvolvedores seja capaz de fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> do projeto a qualquer momento, com a segurança de que o software possa ser compilado e os <a href="/xp/praticas/tdd">testes</a> possam funcionar imediatamente. Por essa razão, antes de considerar a integração terminada, o par que está integrando deve apagar o diretório de trabalho da máquina de integração (o que não deve gerar maiores preocupações, pois um backup foi feito no segundo passo), e depois fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> do projeto nessa mesma máquina. Para apagar o projeto, use o procedimento normal do <a href="http://www.eclipse.org">Eclipse</a> (botão direito e <code>Delete</code>). 
+  </p>
+  <p>
+    Após apagar, deve-se fazer o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a>. Na perspectiva <code>CVS Repositories</code> expanda a linha correspondente ao <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> no qual se encontra o projeto. Clique com o botão direito sobre o projeto e escolha a opção <code>Check Out As</code>. Depois escolha <code>Check out as project in the workspace</code>.
+  </p>
+  <h3>8. Assegurar que o software continue compilando e os <a href="/xp/praticas/tdd">testes</a> executam com sucesso</h3>
+  <p>
+    Finalmente, se tudo tiver corrido bem, o código irá compilar e os <a href="/xp/praticas/tdd">testes</a> irão passar. Nesse momento, a integração terá terminado com sucesso e a máquina de integração (ou sinalizador) poderá ser liberada para outro <a href="/xp/praticas/programacao_par">par</a>.
+  </p>
+  <h2>Possíveis problemas</h2>
+  <p>
+    O cenário descrito anteriormente representa o melhor caso, quando tudo corre bem. Mas nem sempre as coisas funcionam de primeira. Vários problemas podem ocorrer durante a integração, e é útil conhecer os principais deles.
+  </p>
+  <p>
+    Na integração descrita anteriormente, Carlos e Denise editaram a classe Calculadora. Suponha que ao mesmo tempo, Ana e Bruno também tivessem editado a mesma classe com o objetivo de incluir o método <code>raizQuadrada()</code>, conforme a <a href="#Listagem 4">Listagem 4</a>.
+  </p>
+  <p>
+  <a name="Listagem 4"><b>Listagem 4</b></a>: Ana e Bruno adicionam o método <code>raizQuadrada()</code> à classe <code>Calculadora</code>. 
+  </p><pre name="code" class="java">        package jm;
+  
+  public class Calculadora {
+    public int soma(int valor, int outroValor) {
+      return valor + outroValor;
+    }
+    public int subtrai(int valor, int outroValor) {
+      return valor - outroValor;
+    }
+    public int divide(int valor, int outroValor) {
+      return valor / outroValor;
+    }
+    public int multiplica(int valor, int outroValor) {
+      return valor * outroValor;
+    }
+    public double raizQuadrada(double numero) {
+      return Math.sqrt(numero);
+    }
+  }
+  </pre>
+  <p></p>
+  <p>
+    Note na listagem que, além do novo método, o código ainda contém a versão antiga dos parâmetros. Portanto, já está diferente do que se encontra no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Ao fazer a integração, Ana e Bruno enfrentarão um conflito, isto é, uma ou mais linhas de código foram editadas ao mesmo tempo por mais de um <a href="/xp/praticas/programacao_par">par</a> e portanto o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> não sabe como conciliar as contribuições de cada um. Quando isso acontece, o <a href="/xp/praticas/programacao_par">par</a> que está integrando é responsável por conciliar as modificações manualmente. (É importante salientar que no <a href="/xp">xp</a> os <a href="/xp/praticas/programacao_par">pares</a> têm total autonomia para integrar sempre que alcançarem um ponto no desenvolvimento em que considerem apropriado fazê-lo.)
+  </p>
+  <p>
+    Na <a href="#Figura 16">Figura 16</a>, você observa o que o <a href="http://www.eclipse.org">Eclipse</a> informou quando Ana e Bruno sincronizaram o projeto. Os símbolos vermelhos indicam a existência de conflitos. Clicando-se duas vezes sobre o arquivo, o <a href="http://www.eclipse.org">Eclipse</a> mostra a tela da <a href="#Figura 17">Figura 17</a>.
+  </p>
+  <p>
+  <a name="Figura 16"><b>Figura 16</b></a>: Sincronização revela a existência de conflitos na classe Calculadora.<br>
+  <img alt="Sincronização revela a existência de conflitos na classe Calculadora." src="/images/xp/praticas/integracao/conflitoIntegracao1.png"><br>
+  </p>
+  <p>
+  <a name="Figura 17"><b>Figura 17</b></a>: Eclipse revela as diferenças entre o código local e o armazenado no CVS.<br>
+  <img alt="Eclipse revela as diferenças entre o código local e o armazenado no CVS." src="/images/xp/praticas/integracao/conflitoIntegracao2.png"><br>
+  </p>
+  <p>
+    As áreas de código marcadas em azul claro indicam alterações armazenadas no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> que podem ser trazidas para a estação de trabalho local com segurança, pois não conflitam com nada que tenha sido editado localmente. A área marcada em vermelho delimita um trecho do arquivo cujo conteúdo entra em conflito com uma alteração efetuada no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>. 
+  </p>
+  <p>
+    Para solucionar essa questão, começaremos trazendo do <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> todas as mudanças que não geram conflito. Para isso, basta clicar no ícone indicado na <a href="#Figura 18">Figura 18</a>. O resultado dessa ação é apresentado na <a href="#Figura 19">Figura 19</a>. 
+  </p>
+  <p>
+  <a name="Figura 18"><b>Figura 18</b></a>: Clicando-se no ícone enfatizado em vermelho o CVS traz todas as alterações não-conflitantes.<br>
+  <img alt="Clicando-se no ícone enfatizado em vermelho o CVS traz todas as alterações não-conflitantes." src="/images/xp/praticas/integracao/conflitoIntegracao3.png"><br>
+  </p>
+  <p>
+  <a name="Figura 19"><b>Figura 19</b></a>: Eclipse conciliou automaticamente as alterações não-conflitantes.<br>
+  <img alt="Eclipse conciliou automaticamente as alterações não-conflitantes." src="/images/xp/praticas/integracao/conflitoIntegracao4.png"><br>
+  </p>
+  <p>
+    Apesar de o <a href="http://www.eclipse.org">Eclipse</a> ainda acusar um conflito, analisando a classe notamos que o código já está correto. Ele apenas acusou o conflito devido a uma sobreposição de edições em linhas idênticas, tanto no código que está no workspace, quanto no que está no repositório. Precisamos apenas informar ao <a href="http://www.eclipse.org">Eclipse</a> que o código que temos agora já está integrado, de modo que possamos fazer o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> do mesmo. Para isso, basta clicar com o botão direito sobre a classe <code>Calculadora</code> e escolher a opção <code>Mark as Merged</code>. Finalmente podemos fazer o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> do projeto clicando com o botão direito sobre a raiz do projeto e escolhendo <code>Commit</code>.
+  </p>
+  <h2>Automatizando a integração</h2>
+  <p>
+    É importante que o processo de integração seja automatizado para assegurar que os passos não sejam esquecidos e também garantir maior velocidade. Para automação pode-se utilizar, por exemplo, o script do <a href="http://ant.apache.org">Ant</a> mostrado na <a href="#Listagem 5">Listagem 5</a> que deve ser armazenado em um arquivo chamado <a href="/xp/build.zip">build.xml</a> na raiz do projeto. Faça o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> desse arquivo e, em seguida, selecione a opção de menu <code>Window|Show View&gt;Ant</code>. Arraste o arquivo <a href="/xp/build.zip">build.xml</a> e o solte nessa view. Você deverá ver a <a href="#Figura 20">Figura 20</a>. Para executar o script do <a href="http://ant.apache.org">Ant</a>, clique com o botão direito do mouse sobre a raiz da view <a href="http://ant.apache.org">Ant</a> e selecione a opção de menu <code>Run As&gt;Ant Build</code> como ilustrado na <a href="#Figura 21">Figura 21</a>.
+  </p>
+  <p>
+  <a name="Listagem 5"><b>Listagem 5</b></a>: <a href="/xp/build.zip">build.xml</a> - Script do <a href="http://ant.apache.org">Ant</a> para automatizar a integração. 
+  </p><pre name="code" class="xml">        &lt;project name="Calculadora" basedir=".." default="integrate"&gt;
+    &lt;property name="project.dir" value="${ant.project.name}"/&gt;
+    &lt;property name="backup.dir" value="Backup${project.dir}"/&gt;
+    &lt;property name="src.dir" value="${project.dir}/src"/&gt;
+    &lt;property name="srcTeste.dir" value="${project.dir}/srcTeste"/&gt;
+    &lt;property name="build.dir" value="${project.dir}/bin"/&gt;
+    &lt;property name="lib.dir" value="${project.dir}/lib"/&gt;
+    &lt;property name="allTests.class" value="jm.AllTests"/&gt;
+    &lt;property name="cvsroot" value=
+        ":pserver:vinicius@vini-mac:/usr/local/cvs/desenvolvimento"/&gt;
+  
+    &lt;path id="project.classpath"&gt;
+      &lt;pathelement location="${build.dir}"/&gt;
+      &lt;fileset dir="${lib.dir}"&gt;
+        &lt;include name="*.jar"/&gt;
+      &lt;/fileset&gt;
+    &lt;/path&gt;
+    &lt;taskdef name="junit" 
+    classname= "org.apache.tools.ant.taskdefs.optional.junit.JUnitTask"&gt;
+      &lt;classpath refid="project.classpath"/&gt;
+    &lt;/taskdef&gt;
+  
+    &lt;target name="backup"&gt;
+      &lt;delete dir="${backup.dir}"/&gt;
+      &lt;copy todir="${backup.dir}"&gt;
+        &lt;fileset dir="${project.dir}" defaultexcludes="false" /&gt;
+      &lt;/copy&gt;
+    &lt;/target&gt;
+    &lt;target name="update"&gt;
+      &lt;cvs cvsroot="${cvsroot}" command="update -d ${ant.project.name}" 
+    failonerror="true"/&gt;
+    &lt;/target&gt;
+  
+    &lt;target name="build"&gt;
+      &lt;mkdir dir="${build.dir}"/&gt;
+      &lt;javac debug="on" srcdir="${src.dir}" destdir="${build.dir}" 
+    failonerror="true"&gt;
+        &lt;classpath refid="project.classpath"/&gt;
+      &lt;/javac&gt;
+      &lt;javac debug="on" srcdir="${srcTeste.dir}" destdir="${build.dir}" 
+    failonerror="true"&gt;
+        &lt;classpath refid="project.classpath"/&gt;
+      &lt;/javac&gt;
+    &lt;/target&gt;
+  
+   &lt;target name="test" depends="build"&gt;
+      &lt;dirname file="build.xml" property="current.dir"/&gt;
+      &lt;junit haltonfailure="true" haltonerror="true" fork="true" 
+    dir="${current.dir}"&gt;
+        &lt;classpath&gt;
+          &lt;path refid="project.classpath"/&gt;
+        &lt;/classpath&gt;
+        &lt;formatter type="plain" usefile="false"/&gt;
+        &lt;test name="${allTests.class}"/&gt;
+      &lt;/junit&gt;
+    &lt;/target&gt;
+  
+    &lt;target name="commit"&gt;
+      &lt;cvs cvsroot="${cvsroot}" command="commit -m '' ${ant.project.name}" 
+    failonerror="true"/&gt;
+    &lt;/target&gt;
+  
+    &lt;target name="checkout"&gt;
+      &lt;delete dir="${project.dir}"/&gt;
+      &lt;cvs cvsroot="${cvsroot}" command="checkout -P ${ant.project.name}" /&gt;
+    &lt;/target&gt;
+  
+    &lt;target name="integrate" depends="test, backup, update, test, commit, 
+    checkout"&gt;
+      &lt;antcall target="test"/&gt;
+      &lt;echo message="Integracao concluida com sucesso."/&gt;
+    &lt;/target&gt;
+  &lt;/project&gt;
+  </pre>
+  <p></p>
+  <p>
+  <a name="Figura 20"><b>Figura 20</b></a>: View do Ant mostrando targets presentes no build.xml.<br>
+  <img alt="View do Ant mostrando targets presentes no build.xml." src="/images/xp/praticas/integracao/ant1.png"><br>
+  </p>
+  <p>
+  <a name="Figura 21"><b>Figura 21</b></a>: Executando o script do Ant.<br>
+  <img alt="Executando o script do Ant." src="/images/xp/praticas/integracao/ant2.png"><br>
+  </p>
+  <p>
+    Selecione a aba <code>Classpath</code>, e clique no botão <code>Add JARs</code> conforme a <a href="#Figura 22">Figura 22</a> e escolha <code>junit.jar</code> (dentro do diretório <code>lib</code>). Finalmente, clique no botão <code>Run</code>. Quando tratamos do <code>junit.jar</code> pela primeira vez, nosso objetivo foi configurar o <a href="http://www.eclipse.org">Eclipse</a> para reconhecê-lo, viabilizando assim a implementação do <a href="/xp/praticas/tdd">teste</a>. O <a href="http://ant.apache.org">Ant</a>, por sua vez, é uma ferramenta à parte, que também precisa ter acesso ao <code>junit.jar</code> para que possa executar tarefas associadas ao <a href="http://www.junit.org">JUnit</a>. Isso explica por que temos que fazer esse último passo antes de executar o script do <a href="http://ant.apache.org">Ant</a>.
+  </p>
+  <p>
+  <a name="Figura 22"><b>Figura 22</b></a>: Configurando o classpath do Ant.<br>
+  <img alt="Configurando o classpath do Ant." src="/images/xp/praticas/integracao/ant3.png"><br>
+  </p>
+  <h2>Modelos de Integração Contínua</h2>
+  <p>
+    Existem duas formas de executar a integração contínua: síncrona e assíncrona. 
+  </p>
+  <h3>Integração Contínua Síncrona</h3>
+  <p>
+    Esse artigo está demonstrando a integração contínua síncrona, onde apenas um <a href="/xp/praticas/programacao_par">par</a> integra seu trabalho de cada vez e outros <a href="/xp/praticas/programacao_par">pares</a> só são liberados para integrar ao serem informados do término da integração corrente. Mas não são todos os projetos que podem usar esse modelo de integração, pois ele exige que os desenvolvedores trabalhem juntos, normalmente em uma <a href="/xp/praticas/sentar_junto">mesma sala</a>. Desse modo se pode garantir que apenas um <a href="/xp/praticas/programacao_par">par</a> integre de cada vez, utilizando-se um computador dedicado à integração, por exemplo.
+  </p>
+  <p>
+    Além disso, para usar a forma automatizada de integração é essencial a existência de <a href="/xp/praticas/tdd">testes automatizados</a>, para garantir que tudo está funcionando antes de efetuar os <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commits</a>. Se você analisar atentamente o script <a href="/xp/build.zip">build.xml</a> fornecido, notará que qualquer falha de compilação ou de <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">merge</a>, ou falhas nos <a href="/xp/praticas/tdd">testes automatizados</a>, fará o script do <a href="http://ant.apache.org">Ant</a> ser interrompido antes que as alterações possam ser gravadas no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> através do comando <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> do <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Nas linhas abaixo, extraídas da <a href="#Listagem 5">Listagem 5</a>, as diretivas que fazem o script ser interrompido automaticamente em caso de erro estão marcadas em negrito.
+  </p>
+  <p>
+  </p><pre name="code" class="xml">        (...)
+  &lt;cvs cvsroot="${cvsroot}" command="update -d ${ant.project.name}" failonerror="true"/&gt;
+  (...)
+  &lt;javac debug="on" srcdir="${src.dir}" destdir="${build.dir}" failonerror="true"&gt;
+  (...)
+  &lt;javac debug="on" srcdir="${srcTeste.dir}" destdir="${build.dir}" failonerror="true"&gt;
+  (...)
+  &lt;junit haltonfailure="true" haltonerror="true" fork="true" dir="${current.dir}"&gt;
+  (...)
+  &lt;cvs cvsroot="${cvsroot}" command="commit -m '' ${ant.project.name}" failonerror="true"/&gt;
+  (...)
+  </pre>
+  <p></p>
+  <p>
+    Esse modelo de integração procura garantir a maior proteção possível para o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>, fazendo com que apenas arquivos consistentes (capazes de compilar e passar nos <a href="/xp/praticas/tdd">testes</a>) sejam armazenados. Esse modelo também força os desenvolvedores a atuarem imediatamente quando acontecem falhas durante a integração. Desse modo, evita-se que os problemas só sejam detectados e corrigidos tardiamente.
+  </p>
+  <h3>Integração contínua assíncrona</h3>
+  <p>
+    Projetos nos quais os desenvolvedores não trabalhem juntos em uma mesma sala, como por exemplo a maioria dos projetos <a href="http://pt.wikipedia.org/wiki/Open_source">open source</a>, não comportam a utilização do modelo de integração síncrona, pois em tais casos torna-se difícil ou impossível garantir que apenas um desenvolvedor irá integrar de cada vez. Nessas situações, o modelo assíncrono de integração contínua é mais apropriado.
+  </p>
+  <p>
+    Nesse modelo, o desenvolvedor integra seu código, executando um subconjunto dos passos descritos anteriormente:
+  </p>
+  <ol>
+    <li>Assegurar que o projeto compila e todos os <a href="/xp/praticas/tdd">testes automatizados</a> executam com sucesso</li>
+    <li>Criar um backup do projeto na estação de trabalho</li>
+    <li>Fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">update</a> do projeto</li>
+    <li>Assegurar que o software continua compilando e os <a href="/xp/praticas/tdd">testes</a> executam com sucesso</li>
+    <li>Fazer <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> do projeto</li>
+  </ol><br>
+  <p>
+    Depois disso, uma ferramenta de apoio à integração contínua assíncrona, como o <a href="http://cruisecontrol.sourceforge.net">CruiseControl</a>,  monitora o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> permanentemente. Sempre que detecta mudanças (porque alguém fez um <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a>), o <a href="http://cruisecontrol.sourceforge.net">CruiseControl</a> faz <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">checkout</a> de todo o projeto automaticamente, compila o projeto e executa todos os <a href="/xp/praticas/tdd">testes</a>. Quando ocorre algum erro de compilação, de <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">merge</a> ou na execução dos <a href="/xp/praticas/tdd">testes</a>, a ferramenta envia um e-mail para o desenvolvedor responsável pelo problema. O desenvolvedor, por sua vez, deve fazer as correções o mais brevemente possível e colocá-las no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>.
+  </p>
+  <p>
+    A integração contínua assíncrona permite o trabalho de desenvolvedores distribuídos geograficamente, porém é um pouco mais arriscada e menos eficiente que a integração síncrona. O risco aumenta porque o repositório pode ficar inconsistente durante alguns períodos de tempo – sempre que um erro ocorre e o responsável por ele ainda não fez o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> das correções.
+  </p>
+  <p>
+    Um dos valores básicos do <a href="/xp">xp</a> é <a href="/xp/valores/feedback">feedback</a>: busca-se obter <a href="/xp/valores/feedback">feedback</a> rápido e freqüente sobre tudo que é produzido. A integração contínua é uma forma de obter <a href="/xp/valores/feedback">feedback</a> sobre nosso código, indicando se ele consegue conviver em harmonia com o restante do código no <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a>. 
+  </p>
+  <p>
+    Na integração assíncrona, a eficiência diminui porque leva mais tempo para o desenvolvedor descobrir que cometeu um erro. É comum o desenvolvedor receber a notificação de um erro depois de já ter iniciado uma nova atividade. Ao ser notificado, deve parar a nova tarefa, relembrar o que havia feito na tarefa anteriormente e corrigir o erro. 
+  </p>
+  <p>
+    O processo síncrono é mais eficiente no uso do <a href="/xp/valores/feedback">feedback</a> exatamente porque impede o desenvolvedor de desviar sua atenção para qualquer outra atividade, enquanto a integração não tiver sido concluída com sucesso. 
+  </p>
+  <h2>Identificação dos desenvolvedores</h2>
+  <p>
+    Equipes XP, em que todos os desenvolvedores trabalham em pares, em uma mesma sala, costumam utilizar um único login para toda a equipe acessar o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Isso torna impossível determinar através dos logs do <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> quem fez determinada alteração. Existem algumas razões para se agir dessa forma.
+  </p>
+  <p>
+    Em <a href="/xp">xp</a> a responsabilidade por implementar uma funcionalidade é sempre atribuída a no mínimo <a href="/xp/praticas/programacao_par">duas pessoas</a>. Na maioria dos casos, diversas pessoas da equipe trabalham <a href="/xp/praticas/sentar_junto">juntas</a>, revezando-se em <a href="/xp/praticas/programacao_par">pares</a>, para implementar as <a href="/xp/praticas/historias">histórias</a> (como as funcionalidades são chamadas em <a href="/xp">xp</a>). Por isso costuma-se usar um login genérico, compartilhado por todos os <a href="/xp/praticas/programacao_par">pares</a>.
+  </p>
+  <p>
+    A integração contínua síncrona, tal como apresentada aqui, leva em conta essa questão. O script do <a href="http://ant.apache.org">Ant</a> apresentado usa um único login para o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>, sem a possibilidade de alterá-lo.
+  </p>
+  <p>
+    Já quando uma equipe trabalha com integração assíncrona, o problema se inverte completamente. Nesse caso a identificação torna-se importante, já que (por exemplo) é desejável a possibilidade de enviar relatórios de erros para os desenvolvedores responsáveis pelos mesmos. Assim, na integração assíncrona, é necessário que se use o login específico de cada desenvolvedor que estiver acessando o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>.
+  </p>
+  <h2>Comentários nos commits</h2>
+  <p>
+    O <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> permite que o desenvolvedor adicione um comentário cada vez que faz o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> de um arquivo. Assim ele pode, por exemplo, resumir as alterações realizadas e, sobretudo, explicar porque elas foram feitas. Tais comentários serão úteis para outros desenvolvedores ao acessarem o histórico de determinado arquivo.
+  </p>
+  <p>
+    Para acessar esse histórico no <a href="http://www.eclipse.org">Eclipse</a>, por exemplo, clique na classe <code>Calculadora</code> com o botão direito e escolha a opção <code>Team&gt;Show Resource History</code>. O resultado é mostrado na <a href="#Figura 23">Figura 23</a>.
+  </p>
+  <p>
+  <a name="Figura 23"><b>Figura 23</b></a>: Histórico de alterações da classe Calculadora.<br>
+  <img alt="Histórico de alterações da classe Calculadora." src="/images/xp/praticas/integracao/comentarios1.png"><br>
+  </p>
+  <p>
+    Em equipes <a href="/xp">xp</a>, em que os desenvolvedores revezam-se entre <a href="/xp/praticas/programacao_par">pares</a>, o conhecimento sobre o projeto é disseminado de forma mais rica. Por essa razão, muitas dessas equipes consideram desnecessário armazenar comentários no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Nesse artigo, estamos considerando uma equipe com essas características, na medida em que o script <a href="http://ant.apache.org">Ant</a> apresentado faz o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> forçando os comentários a serem vazios, conforme se pode observar no trecho abaixo, extraído desse script:
+  </p>
+  <p>
+  </p><pre name="code" class="xml">        &lt;target name="commit"&gt;
+    &lt;cvs cvsroot="${cvsroot}" command="commit -m '' 
+    ${ant.project.name}" failonerror="true"/&gt;
+  &lt;/target&gt;
+  </pre>
+  <p></p>
+  <p>
+    O parâmetro <code>–m ''</code> é usado para armazenar um comentário vazio. Em uma equipe na qual se deseje possibilitar a inclusão de comentários e ainda assim usar a automação do <a href="http://ant.apache.org">Ant</a>, é possível alterar o script para que ele solicite o comentário antes de efetuar o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a>. Isso é particularmente importante quando se usa o modelo assíncrono de integração contínua. Nesse caso, os desenvolvedores normalmente trabalham em separado e é recomendável adicionar comentários durante os <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commits</a>. Para isso, basta alterar o target do <a href="http://ant.apache.org">Ant</a> que faz o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a>, como a seguir:
+  </p>
+  <p>
+  </p><pre name="code" class="xml">        &lt;target name="commit"&gt;
+    &lt;input addproperty="comentario" 
+      message="Comentários para o commit"/&gt;
+    &lt;cvs cvsroot="${cvsroot}" command= "commit -m '${comentario}'
+      ${ant.project.name}" failonerror="true"/&gt;
+  &lt;/target&gt;
+  </pre>  
+  <p></p>
+  <p>
+    Assim, ao executar o do <a href="http://ant.apache.org">Ant</a> que, o <a href="http://www.eclipse.org">Eclipse</a> irá interromper a execução logo antes de efetuar o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> e solicitará um comentário, como ilustrado na <a href="#Figura 24">Figura 24</a>.
+  </p>
+  <p>
+    Em equipes <a href="/xp">XP</a>, em que os desenvolvedores revezam-se entre <a href="/xp/praticas/programacao_par">pares</a>, o conhecimento sobre o projeto é disseminado de forma mais rica. Por essa razão, muitas dessas equipes consideram desnecessário armazenar comentários no <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>. Nesse artigo, estamos considerando uma equipe com essas características, na medida em que o script <a href="http://ant.apache.org">Ant</a> apresentado faz o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commit</a> forçando os comentários a serem vazios, conforme se pode observar no trecho abaixo, extraído desse script:
+  </p>
+  <h2>Freqüência de integração</h2>
+  <p>
+    Quando um desenvolvedor integra várias vezes ao dia, eventuais erros de integração são detectados mais rapidamente, pois obtém-se <a href="/xp/valores/feedback">feedback</a> sobre o que está sendo integrado várias vezes ao dia. <a href="/xp/valores/feedback">Feedback</a> rápido e menos código produzido significam a possibilidade de solucionar problemas de integração com maior rapidez, mesmo quando uma equipe não usa comentários nos <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commits</a>.
+  </p>
+  <p>
+    Por exemplo, o <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a> permite fazer comparações entre versões de um arquivo, possibilitando verificar diferenças entre uma versão e outra. Para acionar esse recurso, clique com o botão direito sobre um arquivo e escolha a opção <code>Compare With&gt;Revision</code>.
+  </p>
+  <p>
+    A <a href="#Figura 25">Figura 25</a> mostra a comparação de duas versões da classe <code>Calculadora</code>. É fácil ver a diferença entre elas: o método <code>raizQuadrada()</code>. Note que nesse caso, como a alteração foi pequena ficou fácil compreender a diferença entre as versões. Integrações freqüentes ajudam a assegurar que as alterações sejam pequenas entre uma versão e outra do arquivo, o que ajuda a compreender a evolução dos arquivos e torna eventuais <a href="http://en.wikipedia.org/wiki/Debug">depurações</a> mais fáceis, mesmo quando comentários não são adicionados durante os <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão#Vocabul.C3.A1rio">commits</a>.
+  </p>
+  <p>
+  <a name="Figura 25"><b>Figura 25</b></a>: Comparação entre versões diferentes da classe Calculadora.<br>
+  <img alt="Comparação entre versões diferentes da classe Calculadora." src="/images/xp/praticas/integracao/comparacao.png"><br>
+  </p>
+  <h2>Conclusões</h2>
+  <p>
+    Em um projeto onde vários desenvolvedores trabalham juntos, é necessário estabelecer um processo seguro para a integração das contribuições de cada desenvolvedor. Em <a href="/xp">xp</a>, utiliza-se a prática de integração contínua, na qual os desenvolvedores integram o que produzem com o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> diversas vezes ao dia. Isso é feito de forma segura, seguindo-se um roteiro que é automatizado. A integração busca assegurar que o <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_versão">repositório</a> permaneça sempre consistente, possibilitando que qualquer desenvolvedor possa obter todo o código do projeto, a qualquer momento, sendo então capaz de compilá-lo e executar todos os <a href="/xp/praticas/tdd">testes</a> com sucesso.
+  </p>
+  <p>
+      <b><a href="http://www.improvit.com.br/xp/build.zip">Baixe os arquivos desse tutorial</a></b>.
+  </p>
