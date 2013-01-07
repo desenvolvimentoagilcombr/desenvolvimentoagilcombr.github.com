@@ -64,7 +64,12 @@ blockquote ul {
   margin: 0 auto;
 }
 
-blockquote li {
+article ul {
+  margin-left: 20px;
+  list-style: disc;
+}
+
+article li {
   margin-bottom: 5px;
 }
 
