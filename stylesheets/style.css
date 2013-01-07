@@ -153,6 +153,15 @@ article li {
   font-size: 24px;
 }
 
+#content-table a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#content-table a:hover {
+  text-decoration: underline;
+}
+
 #content-navigation {
   margin: 10px 0;
   width: 100%;
@@ -162,15 +171,6 @@ article li {
 #content-navigation .topic {
   margin: 0 0 15px 0;
   float: left;
-}
-
-#content-navigation a {
-  color: #fff;
-  text-decoration: none;
-}
-
-#content-navigation a:hover {
-  text-decoration: underline;
 }
 
 #content-navigation h3 {
