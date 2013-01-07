@@ -21,6 +21,7 @@ GEM
     maruku (0.6.0)
       syntax (>= 1.0.0)
     posix-spawn (0.3.6)
+    rdiscount (1.6.8)
     sass (3.1.15)
     syntax (1.0.0)
 
@@ -31,4 +32,5 @@ DEPENDENCIES
   haml (= 3.1.4)
   jekyll (= 0.11.2)
   jekyll_ext (= 0.1.4)
+  rdiscount (= 1.6.8)
   sass (= 3.1.15)

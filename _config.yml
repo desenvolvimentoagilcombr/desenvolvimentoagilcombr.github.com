@@ -1,4 +1,5 @@
 server: true
 auto: true
+markdown: rdiscount
 exclude: docs README Gemfile Gemfile.lock CNAME
 permalink:  :pretty
