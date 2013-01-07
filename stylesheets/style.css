@@ -50,13 +50,22 @@ table {
 /*=== Base Styles ===*/
 /*====================*/
 
+blockquote {
+  background: #F1F1F1;
+  border: 1px #ccc solid;
+  width: 70%;
+  margin: 20px auto;
+  padding: 20px;
+}
 
-/*/*====================*/
-/*=== Modules Styles ===*/
-/*====================*/
+blockquote ul {
+  width: 75%;
+  list-style: disc;
+  margin: 0 auto;
+}
 
-.presentation-link {
-  text-align: center;
+blockquote li {
+  margin-bottom: 5px;
 }
 
 /*/*====================*/
@@ -211,4 +220,16 @@ table {
 
 #content a:hover {
   text-decoration: none;
+}
+
+/*/*====================*/
+/*=== Modules Styles ===*/
+/*====================*/
+
+.presentation-link {
+  text-align: center;
+}
+
+.center.article {
+  width: 930px;
 }
