@@ -4,6 +4,7 @@ title: 'Valores do Extreme Programming (XP)'
 keywords: 'valores valor extreme programming xp programming programação extrema'
 description: 'Descrição resumida dos valores do Extreme Programming, XP: feedback, comunicação, simplicidade, coragem e respeito'
 heading: 'Valores do XP'
+header_id: 'valores'
 ---
 
 Todos que se envolvem com desenvolvimento de software têm um sentimento sobre aquilo que realmente importa. Uma pessoa pode achar que o que realmente importa é pensar cuidadosamente em todas as decisões de design concebíveis antes de implementá-las. Outra pode achar que importante mesmo é não ter nenhum tipo de restrições sobre sua liberdade pessoal.

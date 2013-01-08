@@ -4,6 +4,7 @@ title: 'Simplicidade'
 keywords: 'simplicidade valor extreme programming xp programming programação extrema'
 description: 'Simplicidade: valor do Extreme Programming (XP)'
 heading: 'Simplicidade'
+header_id: 'simplicidade'
 ---
 
 <blockquote class="excerpt">
@@ -19,9 +20,9 @@ A [Toyota][to] acredita que o maior desperdício que existe é produzir algo que
 O [XP][] utiliza o conceito de simplicidade em inúmeros aspectos do projeto para assegurar que a equipe se concentre em fazer, primeiro, apenas aquilo que é claramente necessário e evite fazer o que poderia vir a ser necessário, mas ainda não se provou essencial.
 
 [ma]:		/xp/metodologia
-[tps]:		"http://en.wikipedia.org/wiki/Toyota_Production_System"
-[jit]:		"http://en.wikipedia.org/wiki/Just_in_time"
+[tps]:		http://en.wikipedia.org/wiki/Toyota_Production_System
+[jit]:		http://en.wikipedia.org/wiki/Just_in_time
 [dt]:		/xp/desenvolvimento_tradicional
 [XP]:		/xp	
-[to]:		"http://en.wikipedia.org/wiki/Toyota"
+[to]:		http://en.wikipedia.org/wiki/Toyota
 [pra]:		/xp/praticas

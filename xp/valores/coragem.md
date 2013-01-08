@@ -4,6 +4,7 @@ title: 'Coragem'
 keywords: 'coragem valor extreme programming xp programming programação extrema'
 description: 'Coragem: valor do Extreme Programming (XP)'
 heading: 'Coragem'
+header_id: 'coragem'
 ---
 
 Costuma-se dizer que a única constante em um projeto de software é a mudança. Clientes mudam de idéia com freqüência, mesmo quando fecham [contratos][co] nos quais, teoricamente, assumem o compromisso de não alterar o que está na especificação. Eles mudam porque aprendem durante o projeto e descobrem problemas mais prioritários a serem solucionados ou formas mais apropriadas de resolvê-los. Embora isso seja natural, gera uma preocupação para a equipe de desenvolvimento que, de tempos em tempos, precisa alterar partes do sistema que já estavam prontas, correndo o risco de se quebrar o que já vinha funcionando.

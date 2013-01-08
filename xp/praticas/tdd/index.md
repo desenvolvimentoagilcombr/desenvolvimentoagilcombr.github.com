@@ -4,6 +4,7 @@ title: 'Desenvolvimento Orientado a Testes'
 keywords: 'desenvolvimento orientado testes prática extreme programming xp extrema'
 description: 'Desenvolvimento Orientado a Testes: Prática do Extreme Programming (XP)'
 heading: 'Desenvolvimento Orientado a Testes'
+header_id: tdd
 ---
 
 <blockquote class="excerpt">
@@ -1314,8 +1315,8 @@ Desenvolvimento orientado a testes pode se tornar excessivamente trabalhoso devi
 [Figura 4]:			#figura4
 [Figura 5]:			#figura5
 
-[fig1]:		/images/br/xp/praticas/tdd/ativandoJUnit.gif
-[fig2]:		/images/br/xp/praticas/tdd/barraVermelha.gif
-[fig3]:		/images/br/xp/praticas/tdd/barraVerde.gif
-[fig4]:		/images/br/xp/praticas/tdd/variosTestes.gif
-[fig5]:		/images/br/xp/praticas/tdd/pacotes.gif
+[fig1]:		/images/xp/praticas/tdd/ativandoJUnit.gif
+[fig2]:		/images/xp/praticas/tdd/barraVermelha.gif
+[fig3]:		/images/xp/praticas/tdd/barraVerde.gif
+[fig4]:		/images/xp/praticas/tdd/variosTestes.gif
+[fig5]:		/images/xp/praticas/tdd/pacotes.gif

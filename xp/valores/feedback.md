@@ -4,6 +4,7 @@ title: 'Feedback'
 keywords: 'feedback valor extreme programming xp programming programação extrema'
 description: 'Feedback: valor do Extreme Programming (XP)'
 heading: 'Feedback'
+header_id: 'feedback'
 ---
 Algumas pessoas seriam capazes de caminhar na beirada de um precipício com os olhos fechados, ou colocar a maior parte do seu dinheiro em um investimento com elevada chance de prejuízo sem acompanhá-lo de perto. Entretanto, a maioria das pessoas provavelmente manteria os olhos bem abertos em ambos os casos. Isso é particularmente verdade no caso de equipes trabalhando com [XP][]. Elas acreditam que projetos de software são iniciativas freqüentemente caras, arriscadas e com um histórico repleto de falhas, o que as leva a simples conclusão de que provavelmente o projeto em que estão envolvidas também enfrentará falhas e problemas, como é habitual na área de software.
 

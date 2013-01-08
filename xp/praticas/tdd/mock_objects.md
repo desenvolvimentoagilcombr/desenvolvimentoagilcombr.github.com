@@ -4,6 +4,7 @@ title: 'Testes de unidade com mock objects'
 keywords: 'teste mock objects object prática extreme programming xp extrema'
 description: 'Automação de testes de unidade com mock objects.'
 heading: 'Testes com Mock Objects'
+header_id: 'mock_objects'
 ---
 
 [Processos ágeis][agil] como o [Extreme Programming][xp] vêm popularizando o conceito de [automação de testes][tdd], sobretudo através do uso de [testes de unidade][tdd]. Mas estes testes, embora sejam bastante úteis para manter a boa saúde de um software, freqüentemente são difíceis de serem criados.  

@@ -4,6 +4,7 @@ title: 'Análise da Raiz do Problema'
 keywords: 'análise da raiz do problema prática extreme programming xp extrema'
 description: 'Análise da Raiz do Problema: Prática do Extreme Programming (XP)'
 heading: 'Análise da Raiz do Problema'
+header_id: 'raiz_do_problema'
 ---
 
 Sábado à noite, restaurante lotado, um garçom comete um erro ao processar um pagamento com cartão de crédito. O cliente se aborrece e chama o gerente, que fica indignado e pune o garçom. 

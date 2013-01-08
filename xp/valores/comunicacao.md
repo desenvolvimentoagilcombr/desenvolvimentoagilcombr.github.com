@@ -4,6 +4,7 @@ title: 'Comunicação'
 keywords: 'comunicação valor extreme programming xp programming programação extrema'
 description: 'Comunicação: valor do Extreme Programming (XP)'
 heading: 'Comunicação'
+header_id: 'comunicacao'
 ---
 
 O cliente de um projeto de software tem um conjunto de problemas que deseja solucionar com o sistema em desenvolvimento e possui algumas idéias sobre que funcionalidades podem resolvê-los. Por sua vez, desenvolvedores possuem conhecimento sobre aspectos técnicos que influenciam a forma de solucionar o problema do cliente. Para que os desenvolvedores compreendam o que o cliente deseja e este último entenda os desafios técnicos que precisam ser vencidos, é preciso que haja comunicação entre as partes. 
