@@ -20,7 +20,6 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -64,13 +63,49 @@ blockquote ul {
   margin: 0 auto;
 }
 
-article ul {
-  margin-left: 20px;
+blockquote.excerpt {
+  float: right;
+  width: 25%;
+  padding: 20px 0;
+  background: none;
+  border: 2px solid #555;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  margin: 0 0 1em 1em;
+}
+
+blockquote.excerpt p {
+  color: #555;
+  font: italic normal normal 130%/1.3em Georgia, Garamond, "Bodoni", "Times New Roman", serif;
+  text-align: right;
+  margin: 0;
+}
+
+article ul, article ol {
+  margin: 0 0 15px 20px;
   list-style: disc;
 }
 
 article li {
   margin-bottom: 5px;
+  line-height: 20px;
+}
+
+pre {
+  overflow: auto;
+  border: solid 1px #9AACAE;
+  font: 14px courier,Georgia,Serif;
+  background: #EFEFEF;
+  line-height: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+code {
+  color: #533D2A;
+  background: #f1f1f1;
+  font: normal normal normal 85%/1.2em "Lucida Console", "Monaco", monospace;
 }
 
 /*/*====================*/
@@ -193,6 +228,7 @@ article li {
 
 #content-navigation li {
   margin: 9px 0 0 0;
+  line-height: 18px;
 }
 
 #content {
@@ -201,11 +237,31 @@ article li {
   padding: 15px;
 }
 
-#content h2 {
+#content h1 {
+  padding-top: 30px;
   padding-bottom: 5px;
+  height: 59px;
   border-bottom: 1px #333 solid;
   font-size: 40px;
   color: #333;
+  margin: 0 0 20px 0;
+}
+
+#content h2 {
+  font-size: 25px;
+  color: #333;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+}
+
+#content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+#content h4 {
+  line-height: 25px;
   margin: 0 0 10px 0;
 }
 
@@ -220,6 +276,10 @@ article li {
   margin: 0 auto;
 }
 
+#content strong {
+  font-weight: bold;
+}
+
 #content a {
   color: #477B96;
 }
@@ -228,9 +288,95 @@ article li {
   text-decoration: none;
 }
 
+#content i a, #content i {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+#books td {
+  line-height: 20px;
+}
+
+#books i {
+  font-weight: bold;
+  font-size: 18px;
+}
+
 /*/*====================*/
 /*=== Modules Styles ===*/
 /*====================*/
+
+#content .book-title {
+  border-bottom: 0;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+h1#default {
+  background: url(/images/main_heading/default.gif) no-repeat right bottom;
+}
+
+h1#praticas {
+  background: url(/images/main_heading/praticas.gif) no-repeat right bottom;
+}
+
+h1#tdd {
+  background: url(/images/main_heading/tdd.gif) no-repeat right bottom;
+}
+
+h1#comunicacao {
+  background: url(/images/main_heading/comunicacao.gif) no-repeat right bottom;
+}
+
+h1#coragem {
+  background: url(/images/main_heading/coragem.gif) no-repeat right bottom;
+}
+
+h1#feedback {
+  background: url(/images/main_heading/feedback.gif) no-repeat right bottom;
+}
+
+h1#valores {
+  background: url(/images/main_heading/valores.gif) no-repeat right bottom;
+}
+
+h1#respeito {
+  background: url(/images/main_heading/respeito.gif) no-repeat right bottom;
+}
+
+h1#simplicidade {
+  background: url(/images/main_heading/simplicidade.gif) no-repeat right bottom;
+}
+
+h1#integracao_continua {
+  background: url(/images/main_heading/integracao_continua.gif) no-repeat right bottom;
+}
+
+h1#programacao_par {
+  background: url(/images/main_heading/programacao_par.gif) no-repeat right bottom;
+}
+
+h1#raiz_do_problema {
+  background: url(/images/main_heading/raiz_do_problema.gif) no-repeat right bottom;
+}
+
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+
+h1#mock_objects {
+  background: url(/images/main_heading/mock_objects.gif) no-repeat right bottom;
+}
+h1#emma {
+  background: url(/images/main_heading/emma.gif) no-repeat right bottom;
+}
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
 
 .dp-highlighter
 {
