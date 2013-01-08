@@ -18,7 +18,11 @@
       {% include content_table.html %}
     </header>
     <article id="content" class="center article">
-      <h2>{{ page.heading }}</h2>
+      {% if page.header_id %}
+      <h1 id="{{ page.header_id }}">{{ page.heading }}</h1>
+      {% else %}
+      <h1 id="default">{{ page.heading }}</h1>
+      {% endif %}
       {{ content }}
     </article>
   </body>
