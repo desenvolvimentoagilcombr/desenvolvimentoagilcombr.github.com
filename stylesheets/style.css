@@ -200,7 +200,7 @@ a:active {
 }
 
 #content-table a {
-  color: #fff;
+  color: #f1f1f1;
   text-decoration: none;
 }
 
@@ -233,8 +233,8 @@ a:active {
 #content-navigation ul {
   float: left;
   margin: 5px 15px 0 0;
-  letter-spacing: -1px;
-  max-width: 140px;
+  letter-spacing: 0px;
+  max-width: 134px;
 }
 
 #content-navigation li {
