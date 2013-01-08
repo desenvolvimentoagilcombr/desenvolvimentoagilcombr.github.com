@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Ciclo Trimestral'
 keywords: 'ciclo trimestral prática extreme programming xp programação extrema'
 description: 'Ciclo Trimestral: Prática do Extreme Programming (XP)'

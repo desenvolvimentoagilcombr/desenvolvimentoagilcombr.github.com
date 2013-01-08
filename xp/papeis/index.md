@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Papéis exercidos em um projeto XP'
 keywords: 'papéis papel extreme programming xp programação extrema'
 description: 'Papéis exercidos em um projeto com Extreme Programming, XP'	

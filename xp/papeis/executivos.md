@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: Executivos
 keywords: 'executivos papéis papel extreme programming xp programação extrema'
 description: 'Executivos: Papéis em Extreme Programming (XP)'

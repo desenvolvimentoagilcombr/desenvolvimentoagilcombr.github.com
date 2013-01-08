@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Feedback'
 keywords: 'feedback valor extreme programming xp programming programação extrema'
 description: 'Feedback: valor do Extreme Programming (XP)'

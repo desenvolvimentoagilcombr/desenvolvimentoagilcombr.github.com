@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Análise da Raiz do Problema'
 keywords: 'análise da raiz do problema prática extreme programming xp extrema'
 description: 'Análise da Raiz do Problema: Prática do Extreme Programming (XP)'

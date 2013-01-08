@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Oportunidade'
 keywords: 'oportunidade princípios princípio extreme programming xp programação extrema'
 description: 'Oportunidade: Princípio do Extreme Programming (XP)'

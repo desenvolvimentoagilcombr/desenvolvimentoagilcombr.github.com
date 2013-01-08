@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: "Por que dizemos não à certificação de Scrum Master?" 
 keywords: "scrum ágil agile gestão gerência gerenciamento master certified csm"
 description: "Entenda por que a Improve It não apóia a certificação de Scrum Master." 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Código Coletivo'
 keywords: 'código coletivo prática extreme programming xp programação extrema'
 description: 'Código Coletivo: Prática do Extreme Programming (XP)'

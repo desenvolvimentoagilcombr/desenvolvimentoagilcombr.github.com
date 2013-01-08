@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Desenvolvimento Orientado a Testes'
 keywords: 'desenvolvimento orientado testes prática extreme programming xp extrema'
 description: 'Desenvolvimento Orientado a Testes: Prática do Extreme Programming (XP)'

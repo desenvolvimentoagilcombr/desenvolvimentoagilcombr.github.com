@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Histórias'
 keywords: 'histórias história prática extreme programming xp programação extrema'
 description: 'Histórias: Prática do Extreme Programming (XP)'

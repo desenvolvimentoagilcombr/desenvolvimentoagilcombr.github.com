@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Benefício Mútuo'
 keywords: 'benefício mútuo princípio extreme programming xp programação extrema'
 description: 'Benefício Mútuo: Princípio do Extreme Programming (XP)'	

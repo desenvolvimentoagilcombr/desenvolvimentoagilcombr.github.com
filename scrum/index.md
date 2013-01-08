@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Scrum: metodologia ágil para gestão e planejamento de projetos'
 keywords: 'scrum scrum ágil agile gestão gerência gerenciamento planejamento projeto'
 description: 'Scrum é uma metodologia ágil para gestão e planejamento de projetos de software.'

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Testes de unidade com mock objects'
 keywords: 'teste mock objects object prática extreme programming xp extrema'
 description: 'Automação de testes de unidade com mock objects.'

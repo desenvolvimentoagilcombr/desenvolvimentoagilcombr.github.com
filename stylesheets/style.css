@@ -108,6 +108,11 @@ code {
   font: normal normal normal 85%/1.2em "Lucida Console", "Monaco", monospace;
 }
 
+a:active {
+  position: relative;
+  top: 1px;
+}
+
 /*/*====================*/
 /*=== Layout Styles ===*/
 /*====================*/
@@ -137,6 +142,11 @@ code {
 #main-navigation li {
   float: left;
   margin-right: 5px;
+  padding-bottom: 3px;
+}
+
+#main-navigation .current, #main-navigation li:hover {
+  border-bottom: 2px #fff solid;
 }
 
 #main-navigation a {
@@ -150,6 +160,7 @@ code {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
 }
 
 #content-table-link {

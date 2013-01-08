@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Humanismo'
 keywords: 'humanismo princípios princípio extreme programming xp programação extrema'
 description: 'Humanismo: Princípio do Extreme Programming (XP)'

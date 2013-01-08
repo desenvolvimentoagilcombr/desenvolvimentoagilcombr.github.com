@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Release burndown: gestão ágil com Scrum'
 keywords: 'release burndown scrum ágil agile gestão gerência gerenciamento'
 description: 'Em um projeto Scrum, a equipe monitora seu progresso em relação a um plano atualizando um Release Burndown Chart ao final de cada Sprint.'

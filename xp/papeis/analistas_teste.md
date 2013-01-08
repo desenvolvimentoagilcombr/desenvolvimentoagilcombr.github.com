@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Analistas de Teste'
 keywords: 'analistas de teste papéis papel extreme programming xp programação extrema'
 description: 'Analistas de Teste: Papéis em Extreme Programming (XP)'

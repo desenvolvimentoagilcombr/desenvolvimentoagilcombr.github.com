@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Fluidez'
 keywords: 'fluidez princípios princípio extreme programming xp programação extrema'
 description: 'Fluidez: Princípio do Extreme Programming (XP)'

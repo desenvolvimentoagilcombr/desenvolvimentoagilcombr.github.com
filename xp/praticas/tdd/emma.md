@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Análise de cobertura de testes automatizados usando Emma'
 keywords: 'emma cobertura teste testes prática extreme programming xp extrema'
 description: 'Análise de cobertura de testes automatizados usando Emma.'

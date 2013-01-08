@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Comunicação'
 keywords: 'comunicação valor extreme programming xp programming programação extrema'
 description: 'Comunicação: valor do Extreme Programming (XP)'

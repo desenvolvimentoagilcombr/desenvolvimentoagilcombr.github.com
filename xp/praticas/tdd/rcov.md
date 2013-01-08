@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Análise de cobertura de testes automatizados usando Rcov '
 keywords: 'rcov cobertura teste testes extreme programming xp ruby rails rake rcov tdd'
 description: 'Análise de cobertura de testes automatizados usando Rcov.'

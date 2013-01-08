@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Simplicidade'
 keywords: 'simplicidade valor extreme programming xp programming programação extrema'
 description: 'Simplicidade: valor do Extreme Programming (XP)'

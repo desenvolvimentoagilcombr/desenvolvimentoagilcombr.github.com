@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Refatoração'
 keywords: 'refatoração prática extreme programming xp programação extrema'
 description: 'Refatoração: Prática do Extreme Programming (XP)'

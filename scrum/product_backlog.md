@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Product Backlog: gestão ágil com Scrum'
 keywords: 'product backlog scrum ágil agile gestão gerência gerenciamento'
 description: 'Product Backlog é uma lista contendo todas as funcionalidades desejadas para um produto.'

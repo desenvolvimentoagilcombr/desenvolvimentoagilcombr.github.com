@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Metáfora'
 keywords: 'metáfora prática extreme programming xp programação extrema'
 description: 'Metáfora: Prática do Extreme Programming (XP)'

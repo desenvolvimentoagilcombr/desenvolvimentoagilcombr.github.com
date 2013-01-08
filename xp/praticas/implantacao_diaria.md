@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Implantação Diária'
 keywords: 'implantação diária prática extreme programming xp programação extrema'
 description: 'Implantação Diária: Prática do Extreme Programming (XP)'

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Ciclo Semanal'
 keywords: 'ciclo semanal prática extreme programming xp programação extrema'
 description: 'Ciclo Semanal: Prática do Extreme Programming (XP)'

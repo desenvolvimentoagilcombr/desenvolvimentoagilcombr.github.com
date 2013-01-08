@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Scrum Master: gestão ágil com Scrum'
 keywords: 'master scrummaster scrum scrum ágil agile gestão gerência gerenciamento'
 description: 'O Scrum Master é responsável por assegurar que o Scrum Team respeite e siga os valores e as práticas do Scrum.'

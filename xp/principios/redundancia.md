@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Redundância'
 keywords: 'redundância princípios princípio extreme programming xp programação extrema'
 description: 'Redundância: Princípio do Extreme Programming (XP)'

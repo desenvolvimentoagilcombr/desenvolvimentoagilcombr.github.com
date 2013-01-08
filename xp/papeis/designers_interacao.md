@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Designers de Interação'
 keywords: 'designers de interação papéis papel extreme programming xp extrema'
 description: 'Designers de Interação: Papéis em Extreme Programming (XP)'

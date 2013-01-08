@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Base de Código Unificada'
 keywords: 'base de código unificada prática extreme programming xp programação extrema'
 description: 'Base de Código Unificada: Prática do Extreme Programming (XP)'

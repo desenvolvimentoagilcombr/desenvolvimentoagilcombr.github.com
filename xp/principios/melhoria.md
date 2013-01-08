@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Melhoria'
 keywords: 'melhoria princípios princípio extreme programming xp programação extrema'
 description: 'Melhoria: Princípio do Extreme Programming (XP)'

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Falha'
 keywords: 'falha princípios princípio extreme programming xp programação extrema'
 description: 'Falha: Princípio do Extreme Programming (XP)'

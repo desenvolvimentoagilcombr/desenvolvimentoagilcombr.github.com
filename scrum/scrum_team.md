@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Scrum Team: gestão ágil com Scrum'
 keywords: 'team equipe scrum ágil agile gestão gerência gerenciamento'
 description: 'O Scrum Team é a equipe de desenvolvimento de um projeto Scrum.'

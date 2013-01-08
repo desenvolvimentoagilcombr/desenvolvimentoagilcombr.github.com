@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Sprint Backlog: gestão ágil com Scrum'
 keywords: 'sprint backlog scrum ágil agile gestão gerência gerenciamento'
 description: 'O Sprint Backlog é uma lista de tarefas que o Scrum Team se compromete a fazer em um Sprint.'

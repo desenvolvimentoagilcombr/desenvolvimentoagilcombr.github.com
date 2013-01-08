@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Daily Scrum: gestão ágil com Scrum'
 keywords: 'daily scrum ágil agile gestão gerência gerenciamento standup meeting'
 description: 'Daily Scrum é uma reunião diária com o objetivo de discutir o que foi feito no dia anterior e priorizar o trabalho do dia que se inicia.'

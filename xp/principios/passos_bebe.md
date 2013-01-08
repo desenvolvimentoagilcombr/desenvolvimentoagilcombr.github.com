@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Passos de Bebê'
 keywords: 'passos de bebê princípios princípio extreme programming xp extrema'
 description: 'Passos de Bebê: Princípio do Extreme Programming (XP)'

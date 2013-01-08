@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Valores do Extreme Programming (XP)'
 keywords: 'valores valor extreme programming xp programming programação extrema'
 description: 'Descrição resumida dos valores do Extreme Programming, XP: feedback, comunicação, simplicidade, coragem e respeito'

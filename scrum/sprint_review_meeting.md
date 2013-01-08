@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Sprint Review Meeting: gestão ágil com Scrum'
 keywords: 'sprint review meeting scrum ágil agile gestão gerência gerenciamento'
 description: 'Ao final de cada Sprint é feito um Sprint Review Meeting. Durante esta reunião, a Scrum Team mostra o que foi alcançado durante o Sprint.'

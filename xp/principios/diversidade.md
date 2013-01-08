@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Diversidade'
 keywords: 'diversidade princípios princípio extreme xp programming programação extrema'
 description: 'Diversidade: Princípio do Extreme Programming (XP)'

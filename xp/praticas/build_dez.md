@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Build de Dez Minutos'
 keywords: 'build de dez minutos prática extreme programming xp programação extrema'
 description: 'Build de Dez Minutos: Prática do Extreme Programming (XP)'

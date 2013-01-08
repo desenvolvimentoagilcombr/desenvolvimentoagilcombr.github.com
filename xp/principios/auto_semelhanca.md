@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Auto-semelhança'
 keywords: 'auto-semelhança princípios princípio extreme programming xp extrema'
 description: 'Auto-Semelhança: Princípio do Extreme Programming (XP)'

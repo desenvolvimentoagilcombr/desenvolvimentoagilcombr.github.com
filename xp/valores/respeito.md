@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Respeito'
 keywords: 'respeito valor extreme programming xp programming programação extrema'
 description: 'Respeito: valor do Extreme Programming (XP)'

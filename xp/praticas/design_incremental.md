@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Design Incremental'
 keywords: 'design incremental prática extreme programming xp programação extrema'
 description: 'Design Incremental: Prática do Extreme Programming (XP)'

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Coragem'
 keywords: 'coragem valor extreme programming xp programming programação extrema'
 description: 'Coragem: valor do Extreme Programming (XP)'

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Product Owner: gestão ágil com Scrum'
 keywords: 'product owner scrum ágil agile gestão gerência gerenciamento'
 description: 'O Product Owner define os itens que compõem o Product Backlog e os prioriza.'

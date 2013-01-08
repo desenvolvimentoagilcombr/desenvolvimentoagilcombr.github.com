@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Sentar-se Junto'
 keywords: 'sentar-se junto prática extreme programming xp programação extrema'
 description: 'Sentar-se Junto: Prática do Extreme Programming (XP)'

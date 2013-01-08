@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Responsabilidade Aceita'
 keywords: 'responsabilidade aceita princípio extreme programming xp programação extrema'
 description: 'Responsabilidade Aceita: Princípio do Extreme Programming (XP)'

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Reflexão'
 keywords: 'reflexão princípios princípio extreme programming xp programação extrema'
 description: 'Reflexão: Princípio do Extreme Programming (XP)'

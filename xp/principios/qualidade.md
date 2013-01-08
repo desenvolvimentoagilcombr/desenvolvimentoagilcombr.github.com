@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Qualidade'
 keywords: 'qualidade princípios princípio extreme programming xp programação extrema'
 description: 'Qualidade: Princípio do Extreme Programming (XP)'

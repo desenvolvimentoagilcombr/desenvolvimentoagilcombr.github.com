@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Princípios do Extreme Programming (XP)'
 keywords: 'princípios princípio extreme programming xp programação extrema'
 description: 'Princípio do Extreme Programming (XP)'

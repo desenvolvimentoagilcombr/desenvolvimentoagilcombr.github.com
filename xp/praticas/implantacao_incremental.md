@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Implantação Incremental'
 keywords: 'implantação incremental prática extreme programming xp programação extrema'
 description: 'Implantação Incremental: Prática do Extreme Programming (XP)'

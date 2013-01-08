@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Envolvimento do Cliente Real'
 keywords: 'envolvimento do cliente real prática extreme programming xp extrema'
 description: 'Envolvimento do Cliente Real: Prática do Extreme Programming (XP)'

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Continuidade da Equipe'
 keywords: 'continuidade da equipe prática extreme programming xp programação extrema'
 description: 'Continuidade da Equipe: Prática do Extreme Programming (XP)'

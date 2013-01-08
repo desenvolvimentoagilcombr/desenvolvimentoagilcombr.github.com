@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Equipes que Encolhem'
 keywords: 'equipes que encolhem prática extreme programming xp programação extrema'
 description: 'Equipes que Encolhem: Prática do Extreme Programming (XP)'

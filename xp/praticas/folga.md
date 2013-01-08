@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Folga'
 keywords: 'folga prática extreme programming xp programação extrema'
 description: 'Folga: Prática do Extreme Programming (XP)'

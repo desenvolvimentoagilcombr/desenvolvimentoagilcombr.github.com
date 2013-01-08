@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Economia'
 keywords: 'economia princípios princípio extreme programming xp programação extrema'
 description: 'Economia: Princípio do Extreme Programming (XP)'

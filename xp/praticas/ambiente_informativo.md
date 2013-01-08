@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Ambiente Informativo'
 keywords: 'ambiente informativo prática extreme programming xp programação extrema'
 description: 'Ambiente Informativo: Prática do Extreme Programming (XP)'

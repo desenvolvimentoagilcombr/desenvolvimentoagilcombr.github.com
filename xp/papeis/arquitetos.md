@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Arquitetos'
 keywords: 'arquitetos papéis papel extreme programming xp programação extrema'
 description: 'Arquitetos: Papéis em Extreme Programming (XP)'

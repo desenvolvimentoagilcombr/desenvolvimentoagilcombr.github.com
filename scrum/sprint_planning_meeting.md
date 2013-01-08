@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: scrum
 title: 'Sprint Planning Meeting: gestão ágil com Scrum'
 keywords: 'sprint planning meeting scrum ágil agile gestão gerência gerenciamento'
 description: 'Sprint Planning Meeting é uma reunião onde estão presentes o Product Owner, o Scrum Master e todo o Scrum Team para priorizar os itens do Sprint.'

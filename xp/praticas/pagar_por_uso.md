@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: xp
 title: 'Pagar por Uso'
 keywords: 'pagar por uso prática extreme programming xp programação extrema'
 description: 'Pagar por Uso: Prática do Extreme Programming (XP)'
