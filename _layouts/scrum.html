@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='pt'>
+  {% include head.html %}
+  <body>
+    <header id="header">
+      <div id="masthead">
+        <div class="center">
+          <h1><a href="/" id="logo" title="DesenvolvimentoÁgil.com.br">DesenvolvimentoÁgil.com.br</a></h1>
+          <nav id="main-navigation">
+            <ul>
+              <li><a href="/xp" title="XP">XP</a></li>
+              <li class="current"><a href="/scrum" title="Scrum">Scrum</a></li>
+            </ul>
+          </nav>
+          <a href="#" id="content-table-link"><span>≡</span> Tabela de Conteúdo (Scrum)</a>
+        </div>
+      </div>
+      {% include content_table_scrum.html %}
+    </header>
+    <article id="content" class="center article">
+      <h1 id="scrum">{{ page.heading }}</h1>
+      {{ content }}
+    </article>
+  </body>
+</html>
