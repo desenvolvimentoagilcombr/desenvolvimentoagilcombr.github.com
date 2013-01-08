@@ -313,6 +313,10 @@ code {
   line-height: 30px;
 }
 
+h1#scrum {
+  background: url(/images/main_heading/scrum.gif) no-repeat right bottom;
+}
+
 h1#default {
   background: url(/images/main_heading/default.gif) no-repeat right bottom;
 }
