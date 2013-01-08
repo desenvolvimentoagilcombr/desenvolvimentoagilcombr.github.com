@@ -383,14 +383,21 @@ h1#contrato_escopo_negociavel {
 h1#mock_objects {
   background: url(/images/main_heading/mock_objects.gif) no-repeat right bottom;
 }
+
 h1#emma {
   background: url(/images/main_heading/emma.gif) no-repeat right bottom;
 }
+
 h1#contrato_escopo_negociavel {
   background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
 }
+
 h1#contrato_escopo_negociavel {
   background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+
+h1#grupos_xp {
+  background: url(/images/main_heading/grupos_xp.gif) no-repeat right bottom;
 }
 
 .dp-highlighter
