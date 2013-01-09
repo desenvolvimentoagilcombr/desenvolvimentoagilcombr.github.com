@@ -1,4 +1,5 @@
 ---
+layout: xp
 title: 'Recursos Humanos (RH)'
 keywords: 'recursos humanos rh papéis papel extreme programming xp programação extrema'
 description: 'Recursos Humanos: Papéis em Extreme Programming (XP)'

@@ -1,4 +1,5 @@
 ---
+layout: xp
 title: 'Redatores Técnicos'
 keywords: 'redatores técnicos papéis papel extreme programming xp programação extrema'
 description: 'Redatores Técnicos: Papéis em Extreme Programming (XP)'

@@ -1,4 +1,5 @@
 ---
+layout: xp
 title: 'Gerentes de Projeto'
 keywords: 'gerentes de projeto papéis papel extreme programming xp programação extrema'
 description: 'Gerentes de Projeto: Papéis em Extreme Programming (XP)'

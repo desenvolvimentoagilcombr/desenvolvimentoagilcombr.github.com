@@ -1,4 +1,5 @@
 ---
+layout: xp
 title: 'Usuários'
 keywords: 'usuários papéis papel extreme programming xp programação extrema'
 description: 'Usuários: Papéis em Extreme Programming (XP)'

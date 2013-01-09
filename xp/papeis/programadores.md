@@ -1,4 +1,5 @@
 ---
+layout: xp
 title: 'Programadores'
 keywords: 'programadores papéis papel extreme programming xp programação extrema'
 description: 'Programadores: Papéis em Extreme Programming (XP)'

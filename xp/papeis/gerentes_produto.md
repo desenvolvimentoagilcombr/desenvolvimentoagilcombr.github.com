@@ -1,4 +1,5 @@
 ---
+layout: xp
 title: 'Gerentes de Produto'
 keywords: 'gerentes de produto papéis papel extreme programming xp programação extrema'
 description: 'Gerentes de Produto: Papéis em Extreme Programming (XP)'
