@@ -274,7 +274,7 @@ Isso acontece pois o Rcov analisa as linhas por onde o código passou e efetivam
 [Listagem 2]:			#Listagem2
 [hpricot]:				http://code.whytheluckystiff.net/hpricot/
 [Rake]:					http://rake.rubyforge.org/
-[ic]: 					http://www.improveit.com.br/xp/praticas/integracao
+[ic]: 					/xp/praticas/integracao
 [rcov-falha]:	        /images/xp/praticas/tdd/rcov/rcov-falha.png
 [formula]:	    		/images/xp/praticas/tdd/rcov/formula.png
 [cobertura_total]:		/images/xp/praticas/tdd/rcov/cobertura_total.png
@@ -290,6 +290,6 @@ Isso acontece pois o Rcov analisa as linhas por onde o código passou e efetivam
 [HTML]:					http://en.wikipedia.org/wiki/Html
 [feedback]:				/xp/valores/feedback
 [xpath]:				http://www.w3.org/TR/xpath
-[XP]:					http://www.improveit.com.br/xp 
+[XP]:					/xp 
 [asplake]:				http://asplake.blogspot.com/2006/01/test-coverage-with-rcov-and-rake-962.html
 [janelas]: http://blog.improveit.com.br/articles/2007/01/05/nada-de-janelas-quebradas
