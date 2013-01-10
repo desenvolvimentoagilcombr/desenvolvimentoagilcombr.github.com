@@ -317,22 +317,61 @@ a:active {
 #main {
   font-family: 'Lato', sans-serif;
   min-height: 600px;
+  overflow: hidden;
 }
 
-#main h1 {
+#main hgroup {
+  margin-top: 40px;
+}
+
+#main hgroup h1 {
   font-size: 45px;
   text-align: center;
   font-weight: bold;
   color: #3b3b3b;
-  margin-top: 20px;
   letter-spacing: -1px;
 }
 
-#main h2 {
+#main hgroup h2 {
   margin-top: 10px;
   font-size: 16px;
   text-align: center;
   color: #3b3b3b;
+}
+
+#main hgroup h2 a, #contribute a {
+  color: #d32525;
+}
+
+#main hgroup h2 a:hover, #contribute a:hover {
+  color: #8c0202;
+  text-decoration: none;
+}
+
+#contribute {
+  width: 800px;
+  margin: 0 auto 50px auto;
+  color: #3b3b3b;
+}
+
+#contribute h1, #contribute h2 {
+  font-size: 25px;
+  font-weight: bold;
+  border-left: 3px #d32525 solid;
+  padding-left: 3px;
+  margin: 30px 0;
+}
+
+#contribute p {
+  line-height: 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#agile-icon {
+  position: absolute;
+  top: 10px;
+  right: 280px;
 }
 
 /*/*====================*/
@@ -419,6 +458,8 @@ h1#contrato_escopo_negociavel {
 
 #hexagon-navigation {
   width: 430px;
+  height: 250px;
+  overflow: hidden;
   margin: 30px auto;
 }
 
