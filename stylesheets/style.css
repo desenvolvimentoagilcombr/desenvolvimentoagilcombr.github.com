@@ -357,8 +357,8 @@ a:active {
 #contribute h1, #contribute h2 {
   font-size: 25px;
   font-weight: bold;
-  border-left: 3px #d32525 solid;
-  padding-left: 3px;
+  border-left: 8px #d32525 solid;
+  padding-left: 8px;
   margin: 30px 0;
 }
 
@@ -470,25 +470,29 @@ h1#contrato_escopo_negociavel {
   text-decoration: none;
   font-weight: bold;
   text-align: center;
+  margin-top: 15px;
 }
 
 .hexagon * {
-  -webkit-transition: all .5s;
-  -o-transition: all .5s;
-  -moz-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .hexagon:hover .hexagon-top {
   border-bottom: 50px solid #8c0202; 
+  -webkit-transform: translate(0, -15px);
 }
 
 .hexagon:hover .hexagon-bottom {
   border-top: 50px solid #8c0202;
+  -webkit-transform: translate(0, -15px);
 }
 
 .hexagon:hover .hexagon-middle {
   background: #8c0202;
+  -webkit-transform: translate(0, -15px);
 }
 
 .hexagon-right {
