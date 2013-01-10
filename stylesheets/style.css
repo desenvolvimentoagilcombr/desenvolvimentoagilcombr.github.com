@@ -345,6 +345,28 @@ a:active {
   right: 280px;
 }
 
+footer {
+  background: #e2e2e2;
+  margin-top: 20px;
+  padding: 20px 0;
+  color: #3b3b3b;
+  font:12px Lato, 'sans-serif'
+}
+
+#footer-links {
+  float: right;
+}
+
+#footer-links a {
+  display: block;
+  float: left;
+  margin-left: 10px;
+}
+
+#footer-links .improveit-link {
+  margin-top: 17px;
+}
+
 /*/*====================*/
 /*=== Modules Styles ===*/
 /*====================*/
