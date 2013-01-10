@@ -129,8 +129,8 @@ a:active {
 }
 
 #masthead {
-  background: #D01A17;
-  padding: 15px;
+  background: #D01A17 url(/images/header-bg.png) repeat-x top left;
+  padding: 13px;
   overflow: hidden;
   box-shadow: inset 0px -1px 1px rgba(255,255,255,0.2);
 }
@@ -314,6 +314,27 @@ a:active {
   font-size: 18px;
 }
 
+#main {
+  font-family: 'Lato', sans-serif;
+  min-height: 600px;
+}
+
+#main h1 {
+  font-size: 45px;
+  text-align: center;
+  font-weight: bold;
+  color: #3b3b3b;
+  margin-top: 20px;
+  letter-spacing: -1px;
+}
+
+#main h2 {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  color: #3b3b3b;
+}
+
 /*/*====================*/
 /*=== Modules Styles ===*/
 /*====================*/
@@ -394,6 +415,78 @@ h1#contrato_escopo_negociavel {
 
 h1#contrato_escopo_negociavel {
   background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+
+#hexagon-navigation {
+  width: 430px;
+  margin: 30px auto;
+}
+
+.hexagon {
+  width: 170px;
+  height: 194px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hexagon * {
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+.hexagon:hover .hexagon-top {
+  border-bottom: 50px solid #8c0202; 
+}
+
+.hexagon:hover .hexagon-bottom {
+  border-top: 50px solid #8c0202;
+}
+
+.hexagon:hover .hexagon-middle {
+  background: #8c0202;
+}
+
+.hexagon-right {
+  float: right;
+}
+
+.hexagon-left {
+  float: left;
+}
+
+.hexagon-top {
+  width: 0;
+  border-bottom: 50px solid #d32525;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
+}
+
+.hexagon-middle {
+  background: #d32525;
+  width: 170px;
+  height: 90px;
+  padding-top: 10px;
+}
+
+.hexagon-left h3 {
+  font-size: 66px;
+}
+
+.hexagon-right h3 {
+  font-size: 36px;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+
+.hexagon-bottom {
+  width: 0;
+  border-top: 50px solid #d32525;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
 }
 
 h1#grupos_xp {
