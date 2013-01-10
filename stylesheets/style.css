@@ -121,6 +121,7 @@ a:active {
   width: 980px;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
 }
 
 #header {
@@ -129,6 +130,7 @@ a:active {
 }
 
 #masthead {
+  height: 23px;
   background: #D01A17 url(/images/header-bg.png) repeat-x top left;
   padding: 13px;
   overflow: hidden;
@@ -184,68 +186,28 @@ a:active {
   display: inline-block;
 }
 
-#content-table {
+#header #content-table {
   background: #1E1E1E;
   color: #fff;
   display: none;
 }
 
-#content-table .center {
+#header #content-table .center {
   padding: 15px;
 }
 
-#content-table h2 {
-  font-weight: bold;
-  font-size: 24px;
-}
-
-#content-table a {
+#header #content-table a {
   color: #f1f1f1;
   text-decoration: none;
 }
 
-#content-table a:hover {
+#header #content-table a:hover {
   text-decoration: underline;
-}
-
-#content-navigation {
-  margin: 10px 0;
-  width: 100%;
-  overflow: hidden;
-}
-
-#content-navigation .topic {
-  margin: 0 0 15px 0;
-  float: left;
-}
-
-#content-navigation h3 {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-#content-navigation h4 {
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 5px;
-}
-
-#content-navigation ul {
-  float: left;
-  margin: 5px 15px 0 0;
-  letter-spacing: 0px;
-  max-width: 134px;
-}
-
-#content-navigation li {
-  margin: 9px 0 0 0;
-  line-height: 18px;
 }
 
 #content {
   font-family: Georgia, "Times New Roman";
   margin-top: 5px;
-  padding: 15px;
 }
 
 #content h1 {
@@ -292,10 +254,11 @@ a:active {
 }
 
 #content a {
-  color: #477B96;
+  color: #d32525;
 }
 
 #content a:hover {
+  color: #8c0202;
   text-decoration: none;
 }
 
@@ -303,6 +266,10 @@ a:active {
   font-size: 18px;
   font-weight: bold;
   color: #333;
+}
+
+#content .topic {
+  float: left;
 }
 
 #books td {
@@ -315,8 +282,12 @@ a:active {
 }
 
 #main {
+  background: #f1f1f1;
+}
+
+#main, #contribute {
   font-family: 'Lato', sans-serif;
-  min-height: 600px;
+  min-height: 460px;
   overflow: hidden;
 }
 
@@ -377,6 +348,46 @@ a:active {
 /*/*====================*/
 /*=== Modules Styles ===*/
 /*====================*/
+
+#content-table h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#content-navigation {
+  margin: 10px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#content-navigation .topic {
+  margin: 0 0 15px 0;
+  float: left;
+}
+
+#content-navigation h3 {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#content-navigation h4 {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+#content-navigation ul {
+  float: left;
+  margin: 5px 15px 0 0;
+  letter-spacing: 0px;
+  max-width: 134px;
+  list-style: none;
+}
+
+#content-navigation li {
+  margin: 9px 0 0 0;
+  line-height: 18px;
+}
 
 #content .book-title {
   border-bottom: 0;
@@ -474,25 +485,25 @@ h1#contrato_escopo_negociavel {
 }
 
 .hexagon * {
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
 .hexagon:hover .hexagon-top {
   border-bottom: 50px solid #8c0202; 
-  -webkit-transform: translate(0, -15px);
+  -webkit-transform: translate(0, -10px);
 }
 
 .hexagon:hover .hexagon-bottom {
   border-top: 50px solid #8c0202;
-  -webkit-transform: translate(0, -15px);
+  -webkit-transform: translate(0, -10px);
 }
 
 .hexagon:hover .hexagon-middle {
   background: #8c0202;
-  -webkit-transform: translate(0, -15px);
+  -webkit-transform: translate(0, -10px);
 }
 
 .hexagon-right {
@@ -726,8 +737,4 @@ text-decoration: underline;
 
 .presentation-link {
   text-align: center;
-}
-
-.center.article {
-  width: 930px;
 }
