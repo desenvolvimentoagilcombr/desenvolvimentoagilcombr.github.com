@@ -3,26 +3,27 @@
   {% include head.html %}
   <body>
     {% include google_analytics.html %}
-    <header id="header">
-      <div id="masthead">
-        <div class="center">
-          <h1><a href="/" id="logo" title="DesenvolvimentoÁgil.com.br">DesenvolvimentoÁgil.com.br</a></h1>
-          <nav id="main-navigation">
-            <ul>
-              <li><a href="/xp" title="XP">XP</a></li>
-              <li><a href="/scrum" title="Scrum">Scrum</a></li>
-            </ul>
-          </nav>
+    <section id="wrapper">
+      <header id="header">
+        <div id="masthead">
+          <div class="center">
+            <h1><a href="/" id="logo" title="DesenvolvimentoÁgil.com.br">DesenvolvimentoÁgil.com.br</a></h1>
+            <nav id="main-navigation">
+              <ul>
+                <li><a href="/xp" title="XP">XP</a></li>
+                <li><a href="/scrum" title="Scrum">Scrum</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
-    <section id="main">
-      <div class="center">
-        {{ content }}
-      </div>
+      </header>
+      <section id="main">
+        <div class="center">
+          {{ content }}
+        </div>
+      </section>
+      {% include contribute.html %}
     </section>
-    {% include contribute.html %}
-    
     {% include footer.html %}
   </body>
 </html>

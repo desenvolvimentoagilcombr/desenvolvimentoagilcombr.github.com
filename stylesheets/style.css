@@ -49,6 +49,14 @@ table {
 /*=== Base Styles ===*/
 /*====================*/
 
+html, body, #wrapper {
+  height: 100%;
+}
+
+body > #wrapper {
+  height: auto; min-height: 100%;
+}
+
 blockquote {
   background: #F1F1F1;
   border: 1px #ccc solid;
@@ -208,6 +216,8 @@ a:active {
 #content {
   font-family: Georgia, "Times New Roman";
   margin-top: 5px;
+  overflow:auto;
+  padding-bottom: 150px;
 }
 
 #content h1 {
@@ -291,6 +301,10 @@ a:active {
   overflow: hidden;
 }
 
+#contribute {
+  padding-bottom: 130px;
+}
+
 #main hgroup {
   margin-top: 40px;
 }
@@ -347,10 +361,13 @@ a:active {
 
 footer {
   background: #e2e2e2;
-  margin-top: 20px;
   padding: 20px 0;
   color: #3b3b3b;
-  font:12px Lato, 'sans-serif'
+  font:12px Lato, 'sans-serif';
+  position: relative;
+	margin-top: -130px;
+	height: 90px;
+	clear:both;
 }
 
 #footer-links {
