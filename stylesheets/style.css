@@ -197,7 +197,7 @@ a:active {
 #header #content-table {
   background: #1E1E1E;
   color: #fff;
-/*  display: none;*/
+  display: none;
 }
 
 #header #content-table .center {
