@@ -282,6 +282,10 @@ a:active {
   float: left;
 }
 
+#content-navigation .last ul {
+  margin-right: 0;
+}
+
 #books td {
   line-height: 20px;
 }
