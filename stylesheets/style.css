@@ -197,7 +197,7 @@ a:active {
 #header #content-table {
   background: #1E1E1E;
   color: #fff;
-  display: none;
+/*  display: none;*/
 }
 
 #header #content-table .center {
@@ -280,10 +280,6 @@ a:active {
 
 #content .topic {
   float: left;
-}
-
-#content-navigation .last ul {
-  margin-right: 0;
 }
 
 #books td {
@@ -404,11 +400,13 @@ footer {
 }
 
 #content-navigation .topic {
-  margin: 0 0 15px 0;
   float: left;
+  margin-right: 20px;
 }
 
-#content-navigation h3 {
+#content-navigation h3,
+#header #content-table h3 a {
+  color: #D32525;
   font-weight: bold;
   font-size: 18px;
 }
@@ -419,9 +417,18 @@ footer {
   margin-top: 5px;
 }
 
+#content-navigation .topic.last,
+.main-category ul.last {
+  margin-right: 0;
+}
+
+.main-category ul {
+  margin-right: 15px;
+}
+
 #content-navigation ul {
   float: left;
-  margin: 5px 15px 0 0;
+  font-size: 15px;
   letter-spacing: 0px;
   max-width: 134px;
   list-style: none;
