@@ -1246,6 +1246,13 @@ Desenvolvimento orientado a testes pode se tornar excessivamente trabalhoso devi
 [Test-Driven Development - Wikipedia][tdw]  
 [Teste de Software - Wikipedia][tsw]
 
+## Licença de uso ##
+
+Artigo publicado originalmente por [Vinícius Manhães Teles][vini] em 23/10/2006.
+
+Licenciado como [Creative Commons Atribuição][cca].
+
+[![CC Atribuição][ccapng]][cca]
 
 [dceua]:			http://www.nist.gov/public_affairs/releases/n02-10.htm
 [bug]:				http://en.wikipedia.org/wiki/Software_bug
@@ -1315,8 +1322,12 @@ Desenvolvimento orientado a testes pode se tornar excessivamente trabalhoso devi
 [Figura 4]:			#figura4
 [Figura 5]:			#figura5
 
-[fig1]:		/images/xp/praticas/tdd/ativandoJUnit.gif
-[fig2]:		/images/xp/praticas/tdd/barraVermelha.gif
-[fig3]:		/images/xp/praticas/tdd/barraVerde.gif
-[fig4]:		/images/xp/praticas/tdd/variosTestes.gif
-[fig5]:		/images/xp/praticas/tdd/pacotes.gif
+[fig1]:		   		/images/xp/praticas/tdd/ativandoJUnit.gif
+[fig2]:		   		/images/xp/praticas/tdd/barraVermelha.gif
+[fig3]:		   		/images/xp/praticas/tdd/barraVerde.gif   
+[fig4]:		   		/images/xp/praticas/tdd/variosTestes.gif 
+[fig5]:		   		/images/xp/praticas/tdd/pacotes.gif      
+
+[vini]:				http://viniciusteles.com.br
+[cca]:              http://creativecommons.org/licenses/by/3.0/deed.pt_BR
+[ccapng]:           /images/cc.png
