@@ -1,3 +1,4 @@
 .DS_Store
+.rbenv-version
 _site
 _backup
