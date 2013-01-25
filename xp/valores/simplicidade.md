@@ -5,6 +5,7 @@ keywords: 'simplicidade valor extreme programming xp programming programação e
 description: 'Simplicidade: valor do Extreme Programming (XP)'
 heading: 'Simplicidade'
 header_id: 'simplicidade'
+date: '02/10/2006'
 ---
 
 <blockquote class="excerpt">
@@ -18,6 +19,8 @@ No início, o [Just in Time][jit] foi considerado, especialmente pelos americano
 A [Toyota][to] acredita que o maior desperdício que existe é produzir algo que ninguém irá utilizar. [Estudos][dt] mostram que 64% das funcionalidades tipicamente produzidas não são utilizadas. Isso representa mais da metade delas e, possivelmente, bem mais da metade do tempo e dos gastos de um projeto típico de software.
 
 O [XP][] utiliza o conceito de simplicidade em inúmeros aspectos do projeto para assegurar que a equipe se concentre em fazer, primeiro, apenas aquilo que é claramente necessário e evite fazer o que poderia vir a ser necessário, mas ainda não se provou essencial.
+
+{% include author_vinicius.md %}
 
 [ma]:		/xp/metodologia
 [tps]:		http://en.wikipedia.org/wiki/Toyota_Production_System

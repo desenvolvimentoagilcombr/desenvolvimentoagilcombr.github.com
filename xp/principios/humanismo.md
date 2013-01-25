@@ -4,6 +4,7 @@ title: 'Humanismo'
 keywords: 'humanismo princípios princípio extreme programming xp programação extrema'
 description: 'Humanismo: Princípio do Extreme Programming (XP)'
 heading: 'Humanismo'
+date: '02/10/2006'
 ---
 
 Pessoas desenvolvem software. [Metodologias][m] e ferramentas apenas as ajudam a realizar o trabalho. Portanto, é importante compreender a natureza humana para que possamos potencializar o que ela tem de melhor e suprimir o que tem de pior. Em particular, devemos compreender os [programadores][pro] para que possamos nos aliar a favor e não contra seus instintos. 
@@ -22,6 +23,8 @@ Existem alguns fatores que afetam diretamente a qualidade do trabalho de um dese
 * Orgulho - a possibilidade de fazer um trabalho de alta [qualidade][q], do qual se possa obter orgulho.
 
 [XP][] coloca as pessoas no centro do esforço de desenvolvimento e suas [práticas][pra] são voltadas para  potencializar o melhor que podem oferecer, bem como suprimir suas falhas. O problema da documentação, por exemplo, é um problema de [comunicação][co]. [Programação em par][pp] permite que os desenvolvedores trabalhem juntos e conversem continuamente sobre o que estão fazendo, o que ajuda a disseminar conhecimento e reduz a necessidade de documentação dentro da equipe. Escrever [testes automatizados][tdd] é um meio de documentar o sistema através de exemplos de uso, além de ser uma atividade de programação, portanto, melhor relacionada ao que os [programadores][pro] gostam de fazer. Outras práticas como o planejamento do [ciclo semanal][cs], [reunião em pé][rp], uso de um [ambiente informativo][ai], ajudam a resolver o problema da [comunicação][co] sem impor aos desenvolvedores a necessidade de escrever extensos documentos.
+
+{% include author_vinicius.md %}
 
 [XP]:		/xp
 [m]:		/xp/metodologia

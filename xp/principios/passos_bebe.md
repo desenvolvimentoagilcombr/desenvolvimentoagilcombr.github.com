@@ -4,6 +4,7 @@ title: 'Passos de Bebê'
 keywords: 'passos de bebê princípios princípio extreme programming xp extrema'
 description: 'Passos de Bebê: Princípio do Extreme Programming (XP)'
 heading: 'Passos de Bebê'
+date: '02/10/2006'
 ---
 
 O que acontece quando adicionamos inúmeras linhas de código à aplicação antes de compilar? Recebemos várias mensagens de erro, o que causa:
@@ -25,6 +26,8 @@ Passos de bebê determinam que é melhor avançar um pouquinho de cada vez, com 
 
 * [Integração contínua][ic] - é melhor integrar o código várias vezes ao dia, para que cada integração seja referente apenas a um pequeno lote de trabalho.
 * [Refatoração][ref] - refatoramos o código freqüentemente para evitar grandes refatorações que, além de serem mais perigosas, são também mais complexas.
+
+{% include author_vinicius.md %}
 
 [tdd]:			/xp/praticas/tdd
 [ref]:			/xp/praticas/refatoracao

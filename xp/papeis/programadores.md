@@ -4,9 +4,12 @@ title: 'Programadores'
 keywords: 'programadores papéis papel extreme programming xp programação extrema'
 description: 'Programadores: Papéis em Extreme Programming (XP)'
 heading: Programadores
+date: '02/10/2006'
 ---
 
 Programadores em uma equipe [XP][] trabalham em [pares][p] implementando [histórias][h]. Eles também estimam as [histórias][h] no [Jogo do Planejamento][cs] e automatizam tarefas repetitivas. Também são responsáveis por criar [testes automatizados][tdd] para tudo o que produzem. Isso é feito com a prática de [desenvolvimento orientado a testes][tdd]. Além de criarem novas funcionalidades, também [refatoram][r] o sistema permanentemente para aprimorar a arquitetura, eliminar duplicações e tornar o código mais claro.
+
+{% include author_vinicius.md %}
 
 [XP]:			/xp
 [h]:			/xp/praticas/historias

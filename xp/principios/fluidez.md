@@ -4,6 +4,7 @@ title: 'Fluidez'
 keywords: 'fluidez princípios princípio extreme programming xp programação extrema'
 description: 'Fluidez: Princípio do Extreme Programming (XP)'
 heading: 'Fluidez'
+date: '02/10/2006'
 ---
 
 Software é conhecimento inserido no meio [digital][]. Sendo assim, é fluído. Edifícios, por outro lado, são estruturas estáticas em um mundo físico. Apesar disso, muitos comparam fazer software a construir prédios. Esse é um erro grave.
@@ -55,6 +56,8 @@ Pequenos lotes, entregues freqüentemente, dão fluidez ao trabalho da equipe e 
 O [princípio][pri] da fluidez foi introduzido por [Kent Beck][kb] na segunda edição do seu livro [Extreme Programming Explained][xpe]. O termo em inglês é **flow**. Eu o traduzi para **fluidez**, entretanto, poderia ter sido fluxo ou fluir, por exemplo. No Brasil, ainda não há um consenso sobre traduções como essas. Os poucos autores que escrevem sobre [XP][] traduzem ao seu próprio modo. Por isso, você pode acabar se deparando com esse mesmo [princípio][pri], em outro texto, porém traduzido de outra forma. Se você acredita que eu deveria adotar outra tradução ou deseja discutir alguma característica desse artigo, por gentileza, deixe seu comentário abaixo.
 
 [Vinícius Manhães Teles][v]
+
+{% include author_vinicius.md %}
 
 [XP]:		/xp
 [cs]:		/xp/praticas/ciclo_semanal

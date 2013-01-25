@@ -4,6 +4,7 @@ title: 'Economia'
 keywords: 'economia princípios princípio extreme programming xp programação extrema'
 description: 'Economia: Princípio do Extreme Programming (XP)'
 heading: 'Economia'
+date: '02/10/2006'
 ---
 
 Software é um investimento. Desenvolver é uma atividade que consome dinheiro e tempo. Investe-se em software com a expectativa de que gere retornos para os negócios. [XP][] reconhece essa premissa e suas [práticas][pra] são organizadas para antecipar receitas e adiar despesas.
@@ -17,6 +18,8 @@ Outro conceito importante tem a ver com opções. Em [XP][] fazemos investimento
 **Veja Também**
 
 [Keep Your Options Open: Extreme Programming and the Economics of Flexibility][k] <%= image_tag('/images/pdf-icon.jpg', :id => 'icone_pdf', :alt => 'Keep Your Options Open: Extreme Programming and the Economics of Flexibility está em formato PDF', :title => 'Keep Your Options Open: Extreme Programming and the Economics of Flexibility está em formato PDF') %>
+
+{% include author_vinicius.md %}
 
 [XP]:		/xp
 [pra]:		/xp/praticas

@@ -4,6 +4,7 @@ title: 'Qualidade'
 keywords: 'qualidade princípios princípio extreme programming xp programação extrema'
 description: 'Qualidade: Princípio do Extreme Programming (XP)'
 heading: 'Qualidade'
+date: '02/10/2006'
 ---
 
 [Extreme Programming][XP] gera valor rapidamente e evita desperdícios ao máximo. Software de má qualidade representa uma enorme perda, pois causa:
@@ -31,6 +32,8 @@ Lamentavelmente, qualidade talvez seja o item mais sacrificado nos projetos de s
 * [Desenvolvimento orientado a testes][tdd] - Testes automatizados são escritos antes mesmo da implementação das funcionalidades. Isso ajuda a assegurar que, uma vez finalizadas, as funcionalidades realmente fazem o que se propõem a fazer.
 * [Integração contínua][int] - Os pares integram o que estão produzindo com o restante do código no repositório do projeto várias vezes ao dia. Isso ajuda a obter [feedback][f] rapidamente e descobrir eventuais erros cedo.
 * [Refatoração][ref] - Os desenvolvedores revisam o código permanentemente e fazem vários ajustes ao longo do tempo para torná-lo mais claro, mais legível, mais simples e, portanto, mais fácil de compreender e adaptar a novas necessidades.
+
+{% include author_vinicius.md %}
 
 [XP]:		/xp
 [Toyota]:	http://www.toyota.com.br

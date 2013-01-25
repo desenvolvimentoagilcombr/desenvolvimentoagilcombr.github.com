@@ -4,6 +4,7 @@ title: 'Princípios do Extreme Programming (XP)'
 keywords: 'princípios princípio extreme programming xp programação extrema'
 description: 'Princípio do Extreme Programming (XP)'
 heading: 'Princípios do XP'
+date: '02/10/2006'
 ---
 
 <blockquote class="excerpt">
@@ -27,6 +28,8 @@ Os princípios listados aqui não são os únicos possíveis para guiar o desenv
 [Práticas][pra] são claras. Todo mundo é capaz de dizer se eu estive presente na [reunião de pé][rp] de manhã. Agora, dizer se eu valorizo ou não [comunicação][co] é algo mais nebuloso. Existe um oceano entre [valores][v] e [práticas][pra]. [Valores][v] são universais. Idealmente, meus [valores][v] no trabalho são os mesmos do restante da minha vida. [Práticas][pra], por outro lado, são completamente situadas. O valor [feedback][f] é expresso de formas completamente diferentes nas atividades de programar e trocar fraldas.
 
 Princípios existem para servir de ponte entre [valores][v] e [práticas][pra]. Princípios servem como guias que se aplicam a um domínio específico. 
+
+{% include author_vinicius.md %}
 
 [v]:		/xp/valores
 [co]:		/xp/valores/comunicacao
