@@ -17,6 +17,22 @@ Para atingir tais objetivos equipes [XP][] utilizam diversos instrumentos, tais 
 
 Essa prática aprimora a	[comunicação][2]   da equipe e faz com que ela ganhe tempo, já que as informações mais importantes sobre o projeto estão sempre visíveis nas paredes. Tais informações devem ser ativas, ou seja, devem ser atualizadas com freqüência para que sejam valiosas.
 
+## Autoria ##
+
+Texto de [Vinícius Manhães Teles][vini].  
+Ilustrações de [Leandro Mello][leandro].
+
+Publicado em 02/10/2006.
+
+Licenciado como [Creative Commons Atribuição][cca].
+
+[![CC Atribuição][ccapng]][cca]
+
 [1]:	/xp/praticas/historias
 [2]:	/xp/valores/comunicacao
 [XP]:	/xp
+
+[vini]:				http://viniciusteles.com.br
+[leandro]:          http://improveit.com.br/empresa/leandro
+[cca]:              http://creativecommons.org/licenses/by/3.0/deed.pt_BR
+[ccapng]:           /images/cc.png

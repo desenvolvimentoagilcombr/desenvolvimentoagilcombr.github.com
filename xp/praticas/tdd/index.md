@@ -1248,7 +1248,10 @@ Desenvolvimento orientado a testes pode se tornar excessivamente trabalhoso devi
 
 ## Autoria ##
 
-Artigo publicado originalmente por [Vinícius Manhães Teles][vini] em 23/10/2006.
+Texto de [Vinícius Manhães Teles][vini].  
+Ilustrações de [Leandro Mello][leandro].
+
+Publicado em 23/10/2006.
 
 Licenciado como [Creative Commons Atribuição][cca].
 
@@ -1329,5 +1332,6 @@ Licenciado como [Creative Commons Atribuição][cca].
 [fig5]:		   		/images/xp/praticas/tdd/pacotes.gif      
 
 [vini]:				http://viniciusteles.com.br
+[leandro]:          http://improveit.com.br/empresa/leandro
 [cca]:              http://creativecommons.org/licenses/by/3.0/deed.pt_BR
 [ccapng]:           /images/cc.png
