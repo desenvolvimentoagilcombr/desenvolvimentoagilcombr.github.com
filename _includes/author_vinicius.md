@@ -3,8 +3,10 @@
 Texto de [Vinícius Manhães Teles][vini].  
 Ilustrações de [Leandro Mello][leandro].
 
+{% if page.date %}
 Publicado em {{ page.date }}.
 
+{% endif %}
 Licenciado como [Creative Commons Atribuição][cca].
 
 [vini]:				http://viniciusteles.com.br
