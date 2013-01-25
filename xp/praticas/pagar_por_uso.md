@@ -4,6 +4,7 @@ title: 'Pagar por Uso'
 keywords: 'pagar por uso prática extreme programming xp programação extrema'
 description: 'Pagar por Uso: Prática do Extreme Programming (XP)'
 heading: 'Pagar por Uso'
+date: '02/10/2006'
 ---
 
 Em sistemas pay-per-use, você cobra por cada vez que o sistema é utilizado. Dinheiro é o feedback máximo. Não apenas é concreto, como você também pode gastá-lo. Conectar o fluxo de dinheiro ao desenvolvimento de software provê informação precisa e em tempo que pode ajudar a direcionar o desenvolvimento.
@@ -15,3 +16,5 @@ As práticas atuais requerem que o cliente pague por cada release do software. P
 Mesmo que você não possa implementar pay-per-use, talvez você consiga usar um modelo de subscrição, no qual o software é comprado mensalmente ou trimestralmente. Com o modelo de subscrição, a equipe tem, ao menos, a taxa de retenção (o número de clientes que continuam subscritos) como uma fonte de informação sobre como a equipe está indo. Uma mudança ainda menor no modelo de negócios seria fazer os contratos pesarem mais no sentido de taxas de suporte e menos em termos de pagamentos no início.
 
 Uma objeção ao modelo pay-per-use é que os clientes desejam custos previsíveis. Se a vantagem no preço do pay-per-use for suficientemente grande, o cliente talvez não se importe. Uma equipe usando a informação gerada pelo modelo pay-per-use deve ser capaz de fazer mais trabalhos eficazes que uma equipe confiando em feedback apenas gerado pelas receitas de licenças.
+
+{% include author_vinicius.md %}

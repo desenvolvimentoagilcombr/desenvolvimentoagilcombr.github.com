@@ -5,6 +5,7 @@ keywords: 'análise da raiz do problema prática extreme programming xp extrema'
 description: 'Análise da Raiz do Problema: Prática do Extreme Programming (XP)'
 heading: 'Análise da Raiz do Problema'
 header_id: 'raiz_do_problema'
+date: '14/01/2007'
 ---
 
 Sábado à noite, restaurante lotado, um garçom comete um erro ao processar um pagamento com cartão de crédito. O cliente se aborrece e chama o gerente, que fica indignado e pune o garçom. 
@@ -46,6 +47,8 @@ Em [XP][], esse é o processo usado para lidar com um defeito:
 Por que o problema ocorreu? Por que não foi detectado antes pelos testes automatizados? Que tipos de deficiências existem nos testes ou no processo de desenvolvimento que permitiram a ocorrência do erro? Existem habilidades específicas que a equipe ainda não domina que possa ter gerado o problema.
 
 Corrigir os sintomas às vezes ajuda a tapar um buraco, mas como as causas reais não são tratadas, a tendência é que o problema retorne. A análise da raiz de um problema ajuda a corrigir e prevenir nossas ocorrências.
+
+{% include author_vinicius.md %}
 
 [to]:	http://pt.wikipedia.org/wiki/Taiichi_Ohno
 [jit]:	http://pt.wikipedia.org/wiki/Sistema_Toyota_de_Produção
