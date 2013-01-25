@@ -5,6 +5,7 @@ keywords: 'rcov cobertura teste testes extreme programming xp ruby rails rake rc
 description: 'Análise de cobertura de testes automatizados usando Rcov.'
 heading: 'Cobertura de testes com Rcov'
 header_id: 'tdd'
+date: '14/05/2007'
 ---
 
 Durante o desenvolvimento de uma aplicação usando [testes automatizados][tdd] é importante avaliar se nossos [testes][tdd] estão passando por todos os trechos do nosso código. O [Rcov][] é uma ferramenta para analise de [cobertura de testes][ct] usada em [Ruby][] que gera um relatório em [HTML][] indicando por onde nossos testes não estão passando e devemos melhorar.
@@ -267,7 +268,7 @@ Isso acontece pois o Rcov analisa as linhas por onde o código passou e efetivam
 ![Figura 7. Relatório de falsa cobertura][rcov-falha]  
 **Figura 7** Relatório de falsa cobertura.
 
-
+{% include author_vinicius.md %}
 
 
 [Listagem 1]:			#Listagem1

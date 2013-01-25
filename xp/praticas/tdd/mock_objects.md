@@ -5,6 +5,7 @@ keywords: 'teste mock objects object prática extreme programming xp extrema'
 description: 'Automação de testes de unidade com mock objects.'
 heading: 'Testes com Mock Objects'
 header_id: 'mock_objects'
+date: '15/10/2006'
 ---
 
 [Processos ágeis][agil] como o [Extreme Programming][xp] vêm popularizando o conceito de [automação de testes][tdd], sobretudo através do uso de [testes de unidade][tdd]. Mas estes testes, embora sejam bastante úteis para manter a boa saúde de um software, freqüentemente são difíceis de serem criados.  
@@ -468,6 +469,8 @@ O último tipo de mock é o mais “caxias” de todos. Ele é parecido com o mo
 ## Conclusões ##
 
 O uso de mock objects é essencial para se obter o nível de isolamento desejável ao se criar [testes de unidade][tdd]. Sem eles, usar [testes de unidade][tdd] pode se tornar não apenas doloroso, mas também inviável. O [EasyMock][] é uma ferramenta que possibilita a criação de mock objects dinamicamente, de maneira simples, permitindo que o desenvolvedor tenha total controle sobre o comportamento dos mocks criados. 
+
+{% include author_vinicius.md %}
 
 [agil]:			/xp/manifesto_agil
 [xp]:			/xp

@@ -5,6 +5,7 @@ keywords: 'emma cobertura teste testes prática extreme programming xp extrema'
 description: 'Análise de cobertura de testes automatizados usando Emma.'
 heading: 'Cobertura de testes com Emma'
 header_id: 'emma'
+date: '15/10/2006'
 ---
 
 Quando desenvolvemos [testes automatizados][tdd] para uma aplicação é importante avaliar se eles estão alcançando todas as partes do sistema. O [Emma][] é uma ferramenta [open source][os] que ajuda nesta tarefa, fazendo a análise da [cobertura de testes][ct] de um projeto [Java][] e gerando um relatório em formato texto ou [HTML][]. Esse relatório representa um [feedback][] importante para os desenvolvedores, pois indica quais áreas do projeto ainda não estão sendo cobertas por [testes automatizados][tdd] e portanto devem ser tratadas prioritariamente.  
@@ -383,6 +384,8 @@ Aproveite e veja como facilitar a automação de [testes de unidade][tdd] usando
 ## Download do Exemplo ##
 
 Baixe os fontes do exemplo de [Fibonacci][] [aqui][fontes].
+
+{% include author_vinicius.md %}
 
 [tdd]:				/xp/praticas/tdd
 [Emma]:				http://emma.sourceforge.net
