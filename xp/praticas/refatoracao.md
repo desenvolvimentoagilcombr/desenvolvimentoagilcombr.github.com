@@ -4,6 +4,7 @@ title: 'Refatoração'
 keywords: 'refatoração prática extreme programming xp programação extrema'
 description: 'Refatoração: Prática do Extreme Programming (XP)'
 heading: 'Refatoração'
+date: '02/10/2006'
 ---
 
 Quando deixamos de cuidar de nossa casa, a poeira se acumula, a pia fica cheia de louça suja, as lixeiras ficam entupidas e aquilo que se costumava chamar de lar se transforma em um lugar pouco agradável. Para evitar que isso ocorra, investimos tempo frequentemente para varrer, lavar a louça, arrumar a cama, retirar o lixo, entre outras atividades. Isso nos ajuda a ter mais conforto e permite que utilizemos a nossa casa para o que desejarmos, como por exemplo, convidar amigos para assistir a um jogo conosco.
@@ -19,6 +20,8 @@ Assim como a nossa casa, sistemas também se deterioram quando não investimos c
 [Artigos relacionados na Agile Alliance][3]  
 [Refactoring - Wikipedia][4]  
 [Refactoring to Patterns][5]  
+
+{% include author_vinicius.md %}
 
 [1]:			http://www.refactoring.com
 [2]:			http://www.agiledata.org/essays/databaseRefactoring.html
