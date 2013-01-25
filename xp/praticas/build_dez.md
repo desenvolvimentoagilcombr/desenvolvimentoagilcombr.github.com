@@ -4,6 +4,7 @@ title: 'Build de Dez Minutos'
 keywords: 'build de dez minutos prática extreme programming xp programação extrema'
 description: 'Build de Dez Minutos: Prática do Extreme Programming (XP)'
 heading: 'Build de Dez Minutos'
+date: '02/10/2006'
 ---
 
 Assegure que seja possível executar o [build][build] e todos os [testes automatizados][tdd] do projeto em até dez minutos. Builds automatizados são importantes porque fazem a equipe ganhar tempo e garantem que os passos sejam consistentemente seguidos sempre que são executados.
@@ -15,6 +16,8 @@ A velocidade de execução dos [builds][build] é importante porque se um [build
 Para algumas equipes o [build][build] de dez minutos pode parecer algo distante da realidade. Nesses casos, dez minutos devem ser vistos como um ideal. Talvez não seja possível alcançá-lo imediatamente, mas aja algumas ações que possam ser tomadas hoje para reduzir seu tempo. Comece por elas e vá aprimorando o [build][build] continuamente até que o tempo de execução atinja o ideal de dez minutos.
 
 Quando a equipe possui uma boa base de [testes automatizados][tdd], um dos maiores desafios é assegurar que eles executem de forma suficientemente rápida para que o ideal de um [build][build] de dez minutos seja alcançado. [Mock objects][mock] podem ser úteis no sentido de acelerar a execução dos [testes][tdd] e devem ser seriamente considerados pela equipe, caso não estejam em uso.
+
+{% include author_vinicius.md %}
 
 [build]:	http://en.wikipedia.org/wiki/Software_build
 [tdd]:		/xp/praticas/tdd

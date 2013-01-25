@@ -4,6 +4,7 @@ title: 'Folga'
 keywords: 'folga prática extreme programming xp programação extrema'
 description: 'Folga: Prática do Extreme Programming (XP)'
 heading: 'Folga'
+date: '02/10/2006'
 ---
 
 Equipes de desenvolvimento de software freqüentemente se comprometem a fazer mais do que podem em um dado período de tempo. Isso é ruim porque quando os desenvolvedores não conseguem cumprir suas promessas, os clientes perdem a confiança. Desconfiança, por sua vez, gera inúmeros desperdícios, tais como pressões de tempo ainda maiores (que geram defeitos), baixa motivação (que diminui a produtividade) e relacionamentos conflituosos.
@@ -17,6 +18,8 @@ Projetos [XP][] são construídos com base em [comunicação][c] aberta e honest
 * Uma semana dedicada a tarefas técnicas a cada oito semanas do projeto.
 * Deixar um dia por semana reservado para os programadores executarem atividades técnicas.
 * Considerar apenas 80% da equipe quando estiver selecionando [histórias][h] para uma [iteração][cs].
+
+{% include author_vinicius.md %}
 
 [cs]:		/xp/praticas/ciclo_semanal
 [c]:		/xp/valores/comunicacao
