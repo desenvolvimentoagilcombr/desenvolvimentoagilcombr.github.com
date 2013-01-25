@@ -5,6 +5,7 @@ keywords: 'desenvolvimento orientado testes prática extreme programming xp extr
 description: 'Desenvolvimento Orientado a Testes: Prática do Extreme Programming (XP)'
 heading: 'Desenvolvimento Orientado a Testes'
 header_id: tdd
+date: '23/10/2006'
 ---
 
 <blockquote class="excerpt">
@@ -1246,16 +1247,7 @@ Desenvolvimento orientado a testes pode se tornar excessivamente trabalhoso devi
 [Test-Driven Development - Wikipedia][tdw]  
 [Teste de Software - Wikipedia][tsw]
 
-## Autoria ##
-
-Texto de [Vinícius Manhães Teles][vini].  
-Ilustrações de [Leandro Mello][leandro].
-
-Publicado em 23/10/2006.
-
-Licenciado como [Creative Commons Atribuição][cca].
-
-[![CC Atribuição][ccapng]][cca]
+{% include author_vinicius.md %}
 
 [dceua]:			http://www.nist.gov/public_affairs/releases/n02-10.htm
 [bug]:				http://en.wikipedia.org/wiki/Software_bug
@@ -1330,8 +1322,3 @@ Licenciado como [Creative Commons Atribuição][cca].
 [fig3]:		   		/images/xp/praticas/tdd/barraVerde.gif   
 [fig4]:		   		/images/xp/praticas/tdd/variosTestes.gif 
 [fig5]:		   		/images/xp/praticas/tdd/pacotes.gif      
-
-[vini]:				http://viniciusteles.com.br
-[leandro]:          http://improveit.com.br/empresa/leandro
-[cca]:              http://creativecommons.org/licenses/by/3.0/deed.pt_BR
-[ccapng]:           /images/cc.png
