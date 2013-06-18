@@ -151,7 +151,7 @@ a:active {
 
 #main-navigation li {
   float: left;
-  margin-right: 5px;
+  margin-left: 20px;
   padding-bottom: 3px;
 }
 
@@ -366,18 +366,25 @@ footer {
   font:12px Lato, 'sans-serif';
   position: relative;
 	margin-top: -130px;
-	height: 90px;
+	height: 68px;
 	clear:both;
+}
+
+footer span {
+  padding: 30px 0 0 13px;
+  float: left;
+  display: block;
 }
 
 #footer-links {
   float: right;
+  padding-right: 13px;
 }
 
 #footer-links a {
   display: block;
   float: left;
-  margin-left: 10px;
+  margin-left: 25px;
 }
 
 #footer-links .improveit-link {
