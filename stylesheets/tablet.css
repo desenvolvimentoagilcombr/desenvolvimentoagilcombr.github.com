@@ -1,0 +1,9 @@
+.center { width: 98% !important; padding: 0 1% !important; }
+#contribute { width: auto; padding: 0; }
+#content { padding-bottom: 50px !important }
+#main hgroup img { display: none; }
+#content-navigation ul { font-size: 12px; }
+#content-navigation h4 { font-size: 14px; }
+#content-navigation h3, #header #content-table h3 a { font-size: 16px; }
+.main-category { clear: both; margin: 30px 0 10px; }
+#content-navigation li { margin-top: 5px; }
