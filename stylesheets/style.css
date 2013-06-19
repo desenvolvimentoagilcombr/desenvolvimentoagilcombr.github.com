@@ -54,7 +54,8 @@ html, body, #wrapper {
 }
 
 body > #wrapper {
-  height: auto; min-height: 100%;
+  height: auto;
+  min-height: 600px;
 }
 
 blockquote {
@@ -127,6 +128,7 @@ a:active {
 
 .center {
   width: 980px;
+  padding: 0 15px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -140,7 +142,7 @@ a:active {
 #masthead {
   height: 23px;
   background: #D01A17 url(/images/header-bg.png) repeat-x top left;
-  padding: 13px;
+  padding: 13px 0;
   overflow: hidden;
   box-shadow: inset 0px -1px 1px rgba(255,255,255,0.2);
 }
@@ -151,7 +153,7 @@ a:active {
 
 #main-navigation li {
   float: left;
-  margin-right: 5px;
+  margin-left: 20px;
   padding-bottom: 3px;
 }
 
@@ -181,8 +183,10 @@ a:active {
   height: 20px;
   font-size: 12px;
   position: absolute;
-  left: 420px;
+  left: 50%;
   top: 3px;
+  line-height: 14px;
+  margin-left: -80px;
 }
 
 #content-table-link span {
@@ -217,7 +221,7 @@ a:active {
   font-family: Georgia, "Times New Roman";
   margin-top: 5px;
   overflow:auto;
-  padding-bottom: 150px;
+  padding-bottom: 50px;
 }
 
 #content h1 {
@@ -301,16 +305,13 @@ a:active {
   overflow: hidden;
 }
 
-#contribute {
-  padding-bottom: 130px;
-}
-
 #main hgroup {
   margin-top: 40px;
 }
 
 #main hgroup h1 {
   font-size: 45px;
+  line-height: 48px;
   text-align: center;
   font-weight: bold;
   color: #3b3b3b;
@@ -320,6 +321,7 @@ a:active {
 #main hgroup h2 {
   margin-top: 10px;
   font-size: 16px;
+  line-height: 22px;
   text-align: center;
   color: #3b3b3b;
 }
@@ -348,7 +350,7 @@ a:active {
 }
 
 #contribute p {
-  line-height: 20px;
+  line-height: 22px;
   font-size: 16px;
   margin-bottom: 10px;
 }
@@ -365,9 +367,14 @@ footer {
   color: #3b3b3b;
   font:12px Lato, 'sans-serif';
   position: relative;
-	margin-top: -130px;
-	height: 90px;
+	height: 68px;
 	clear:both;
+}
+
+footer span {
+  padding: 30px 0 0 0;
+  float: left;
+  display: block;
 }
 
 #footer-links {
@@ -377,7 +384,7 @@ footer {
 #footer-links a {
   display: block;
   float: left;
-  margin-left: 10px;
+  margin-left: 25px;
 }
 
 #footer-links .improveit-link {
@@ -391,6 +398,7 @@ footer {
 #content-table h2 {
   font-weight: bold;
   font-size: 24px;
+  margin-top: 10px;
 }
 
 #content-navigation {
