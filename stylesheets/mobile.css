@@ -9,7 +9,7 @@
 #content-navigation li { margin-top: 5px; }
 
 #masthead h1 { text-indent: -9999em; }
-#content-table-link { 
+#content-table-link {
 	position: static;
 	left: auto;
 	top: auto;
@@ -33,15 +33,6 @@ footer {
 footer span {
 	padding: 0;
 	float: none;
-}
-
-#footer-links { float: none; }
-
-#footer-links a {
-	display: block;
-	float: none;
-	margin-left: 0;
-	margin-top: 20px;	
 }
 
 #content h1 {
@@ -84,8 +75,8 @@ body > #wrapper { min-height: auto; }
 	line-height: 32px;
 }
 
-#hexagon-navigation { 
-	padding-bottom: 15px; 
+#hexagon-navigation {
+	padding-bottom: 15px;
 	width: 100%;
 	height: auto;
 }
