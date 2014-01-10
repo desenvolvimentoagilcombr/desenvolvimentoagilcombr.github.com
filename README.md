@@ -2,13 +2,15 @@
 
 O DesenvolvimentoAgil.com.br é um projeto Open Source feito pela comunidade de desenvolvimento ágil do Brasil. Mudanças e adições tanto no conteúdo quando no layout são bem-vindas, desde que sigam o Guideline de contribuição para o projeto.
 
-## Criando tarefas (issues)
+## Solicitando mudanças
 
 1. Crie uma conta no [GitHub](https://github.com/signup/free), caso não possua.
-1. Crie uma issue com a sua alteração. Certifique-se de que não exista alguma issue igual a sua.
+1. Certifique-se de que não [exista nenhuma issue igual a sua](https://github.com/desenvolvimentoagilcombr/desenvolvimentoagilcombr.github.com/issues).</a></li>
+1. [Crie uma issue](https://github.com/desenvolvimentoagilcombr/desenvolvimentoagilcombr.github.com/issues/new) com a sua solicitação.</li>
 1. Descreva claramente a mudança que você deseja fazer.
 
-## Fazendo as mudanças
+
+## Realizando as mudanças
 
 1. Faça um Fork do [repositório](https://github.com/desenvolvimentoagilcombr/desenvolvimentoagilcombr.github.com)
 
