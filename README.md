@@ -1,6 +1,6 @@
 # DesenvolvimentoAgil.com.br
 
-O DesenvolvimentoAgil.com.br é um projeto Open Source feito pela comunidade de desenvolvimento ágil do Brasil. Mudanças e adições tanto no conteúdo quando no layout são bem-vindas, desde que sigam o Guideline de contribuição para o projeto.
+O [DesenvolvimentoAgil.com.br](http://desenvolvimentoagil.com.br) é um projeto Open Source feito pela comunidade de desenvolvimento ágil do Brasil. Mudanças e adições tanto no conteúdo quando no layout são bem-vindas, desde que sigam o Guideline de contribuição para o projeto.
 
 ## Solicitando mudanças
 
