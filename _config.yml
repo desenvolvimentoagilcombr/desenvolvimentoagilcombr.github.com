@@ -4,3 +4,4 @@ pygments: true
 markdown: rdiscount
 exclude: ['docs', 'README', 'Gemfile', 'Gemfile.lock', 'CNAME']
 permalink:  :pretty
+gems: [bourbon, neat, bitters]
