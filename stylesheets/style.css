@@ -1,0 +1,789 @@
+/*/*====================*/
+/*=== Reset Styles ===*/
+/*====================*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/*/*====================*/
+/*=== Base Styles ===*/
+/*====================*/
+
+html, body, #wrapper {
+  height: 100%;
+}
+
+body > #wrapper {
+  height: auto;
+  min-height: 600px;
+}
+
+blockquote {
+  background: #F1F1F1;
+  border: 1px #ccc solid;
+  width: 70%;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+blockquote ul {
+  width: 75%;
+  list-style: disc;
+  margin: 0 auto;
+}
+
+blockquote.excerpt {
+  float: right;
+  width: 25%;
+  padding: 20px 0;
+  background: none;
+  border: 2px solid #555;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  margin: 0 0 1em 1em;
+}
+
+blockquote.excerpt p {
+  color: #555;
+  font: italic normal normal 130%/1.3em Georgia, Garamond, "Bodoni", "Times New Roman", serif;
+  text-align: right;
+  margin: 0;
+}
+
+article ul, article ol {
+  margin: 0 0 15px 20px;
+  list-style: disc;
+}
+
+article li {
+  margin-bottom: 5px;
+  line-height: 20px;
+}
+
+pre {
+  overflow: auto;
+  border: solid 1px #9AACAE;
+  font: 14px courier,Georgia,Serif;
+  background: #EFEFEF;
+  line-height: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+code {
+  color: #533D2A;
+  background: #f1f1f1;
+  font: normal normal normal 85%/1.2em "Lucida Console", "Monaco", monospace;
+}
+
+a:active {
+  position: relative;
+  top: 1px;
+}
+
+/*/*====================*/
+/*=== Layout Styles ===*/
+/*====================*/
+
+.center {
+  width: 980px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+#header {
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+#masthead {
+  height: 23px;
+  background: #D01A17 url(/images/header-bg.png) repeat-x top left;
+  padding: 13px 0;
+  overflow: hidden;
+  box-shadow: inset 0px -1px 1px rgba(255,255,255,0.2);
+}
+
+#main-navigation {
+  float: right;
+}
+
+#main-navigation li {
+  float: left;
+  margin-left: 20px;
+  padding-bottom: 3px;
+}
+
+#main-navigation .current, #main-navigation li:hover {
+  border-bottom: 2px #fff solid;
+}
+
+#main-navigation a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#logo {
+  float: left;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+}
+
+#content-table-link {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  height: 20px;
+  font-size: 12px;
+  position: absolute;
+  left: 50%;
+  top: 3px;
+  line-height: 14px;
+  margin-left: -80px;
+}
+
+#content-table-link span {
+  text-indent: -999em;
+  background: url("/images/icon-menu.png") no-repeat;
+  width: 20px;
+  height: 18px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  
+}
+
+#header #content-table {
+  background: #1E1E1E;
+  color: #fff;
+  display: none;
+}
+
+#header #content-table .center {
+  padding: 15px;
+}
+
+#header #content-table a {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+#header #content-table a:hover {
+  text-decoration: underline;
+}
+
+#content {
+  font-family: Georgia, "Times New Roman";
+  margin-top: 5px;
+  overflow:auto;
+  padding-bottom: 50px;
+}
+
+#content h1 {
+  padding-top: 30px;
+  padding-bottom: 5px;
+  height: 59px;
+  border-bottom: 1px #333 solid;
+  font-size: 40px;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+#content h2 {
+  font-size: 25px;
+  color: #333;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+}
+
+#content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+#content h4 {
+  line-height: 25px;
+  margin: 0 0 10px 0;
+}
+
+#content p {
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0 0px 15px 0;
+}
+
+#content object {
+  display: block;
+  margin: 0 auto;
+}
+
+#content strong {
+  font-weight: bold;
+}
+
+#content a {
+  color: #d32525;
+}
+
+#content a:hover {
+  color: #8c0202;
+  text-decoration: none;
+}
+
+#content i a, #content i {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+#content .topic {
+  float: left;
+}
+
+#books td {
+  line-height: 20px;
+}
+
+#books i {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#main {
+  background: #f1f1f1;
+}
+
+#main, #contribute {
+  font-family: 'Lato', sans-serif;
+  min-height: 460px;
+  overflow: hidden;
+}
+
+#main hgroup {
+  margin-top: 40px;
+}
+
+#main hgroup h1 {
+  font-size: 45px;
+  line-height: 48px;
+  text-align: center;
+  font-weight: bold;
+  color: #3b3b3b;
+  letter-spacing: -1px;
+}
+
+#main hgroup h2 {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #3b3b3b;
+}
+
+#main hgroup h2 a, #contribute a {
+  color: #d32525;
+}
+
+#main hgroup h2 a:hover, #contribute a:hover {
+  color: #8c0202;
+  text-decoration: none;
+}
+
+#contribute {
+  width: 800px;
+  margin: 0 auto 50px auto;
+  color: #3b3b3b;
+}
+
+#contribute h1, #contribute h2 {
+  font-size: 25px;
+  font-weight: bold;
+  border-left: 8px #d32525 solid;
+  padding-left: 8px;
+  margin: 30px 0;
+}
+
+#contribute p {
+  line-height: 22px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#agile-icon {
+  position: absolute;
+  top: 10px;
+  right: 280px;
+}
+
+footer {
+  background: #e2e2e2;
+  padding: 20px 0;
+  color: #3b3b3b;
+  font:12px Lato, 'sans-serif';
+  position: relative;
+	height: 68px;
+	clear:both;
+}
+
+footer span {
+  padding: 30px 0 0 0;
+  float: left;
+  display: block;
+}
+
+/*/*====================*/
+/*=== Modules Styles ===*/
+/*====================*/
+
+#content-table h2 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+#content-navigation {
+  margin: 10px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#content-navigation .topic {
+  float: left;
+  margin-right: 20px;
+}
+
+#content-navigation h3,
+#header #content-table h3 a {
+  color: #D32525;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#content-navigation h4 {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+#content-navigation .topic.last,
+.main-category ul.last {
+  margin-right: 0;
+}
+
+.main-category ul {
+  margin-right: 15px;
+}
+
+#content-navigation ul {
+  float: left;
+  font-size: 15px;
+  letter-spacing: 0px;
+  max-width: 134px;
+  list-style: none;
+}
+
+#content-navigation li {
+  margin: 9px 0 0 0;
+  line-height: 18px;
+}
+
+#content .book-title {
+  border-bottom: 0;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+h1#scrum {
+  background: url(/images/main_heading/scrum.gif) no-repeat right bottom;
+}
+
+h1#default {
+  background: url(/images/main_heading/default.gif) no-repeat right bottom;
+}
+
+h1#praticas {
+  background: url(/images/main_heading/praticas.gif) no-repeat right bottom;
+}
+
+h1#tdd {
+  background: url(/images/main_heading/tdd.gif) no-repeat right bottom;
+}
+
+h1#comunicacao {
+  background: url(/images/main_heading/comunicacao.gif) no-repeat right bottom;
+}
+
+h1#coragem {
+  background: url(/images/main_heading/coragem.gif) no-repeat right bottom;
+}
+
+h1#feedback {
+  background: url(/images/main_heading/feedback.gif) no-repeat right bottom;
+}
+
+h1#valores {
+  background: url(/images/main_heading/valores.gif) no-repeat right bottom;
+}
+
+h1#respeito {
+  background: url(/images/main_heading/respeito.gif) no-repeat right bottom;
+}
+
+h1#simplicidade {
+  background: url(/images/main_heading/simplicidade.gif) no-repeat right bottom;
+}
+
+h1#integracao_continua {
+  background: url(/images/main_heading/integracao_continua.gif) no-repeat right bottom;
+}
+
+h1#programacao_par {
+  background: url(/images/main_heading/programacao_par.gif) no-repeat right bottom;
+}
+
+h1#raiz_do_problema {
+  background: url(/images/main_heading/raiz_do_problema.gif) no-repeat right bottom;
+}
+
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+
+h1#mock_objects {
+  background: url(/images/main_heading/mock_objects.gif) no-repeat right bottom;
+}
+
+h1#emma {
+  background: url(/images/main_heading/emma.gif) no-repeat right bottom;
+}
+
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+
+#hexagon-navigation {
+  width: 430px;
+  height: 250px;
+  overflow: hidden;
+  margin: 30px auto;
+}
+
+.hexagon {
+  width: 170px;
+  height: 194px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.hexagon * {
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.hexagon:hover .hexagon-top {
+  border-bottom: 50px solid #8c0202;
+  -webkit-transform: translate(0, -10px);
+}
+
+.hexagon:hover .hexagon-bottom {
+  border-top: 50px solid #8c0202;
+  -webkit-transform: translate(0, -10px);
+}
+
+.hexagon:hover .hexagon-middle {
+  background: #8c0202;
+  -webkit-transform: translate(0, -10px);
+}
+
+.hexagon-right {
+  float: right;
+}
+
+.hexagon-left {
+  float: left;
+}
+
+.hexagon-top {
+  width: 0;
+  border-bottom: 50px solid #d32525;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
+}
+
+.hexagon-middle {
+  background: #d32525;
+  width: 170px;
+  height: 90px;
+  padding-top: 10px;
+}
+
+.hexagon-left h3 {
+  font-size: 66px;
+}
+
+.hexagon-right h3 {
+  font-size: 36px;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+
+.hexagon-bottom {
+  width: 0;
+  border-top: 50px solid #d32525;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
+}
+
+h1#grupos_xp {
+  background: url(/images/main_heading/grupos_xp.gif) no-repeat right bottom;
+}
+
+.dp-highlighter
+{
+font-family: "Consolas", "Monaco", "Courier New", Courier, monospace;
+font-size: 12px;
+background-color: #E7E5DC;
+width: 99%;
+overflow: auto;
+margin: 18px 0 18px 0 !important;
+padding-top: 1px; /* adds a little border on top when controls are hidden */
+}
+
+/* clear styles */
+.dp-highlighter ol,
+.dp-highlighter ol li,
+.dp-highlighter ol li span
+{
+margin: 0;
+padding: 0;
+border: none;
+}
+
+.dp-highlighter a,
+.dp-highlighter a:hover
+{
+background: none;
+border: none;
+padding: 0;
+margin: 0;
+}
+
+.dp-highlighter .bar
+{
+padding-left: 45px;
+}
+
+.dp-highlighter.collapsed .bar,
+.dp-highlighter.nogutter .bar
+{
+padding-left: 0px;
+}
+
+.dp-highlighter ol
+{
+list-style: decimal; /* for ie */
+background-color: #fff;
+margin: 0px 0px 1px 45px !important; /* 1px bottom margin seems to fix occasional Firefox scrolling */
+padding: 0px;
+color: #5C5C5C;
+}
+
+.dp-highlighter.nogutter ol,
+.dp-highlighter.nogutter ol li
+{
+list-style: none !important;
+margin-left: 0px !important;
+}
+
+.dp-highlighter ol li,
+.dp-highlighter .columns div
+{
+list-style: decimal-leading-zero; /* better look for others, override cascade from OL */
+list-style-position: outside !important;
+border-left: 3px solid #6CE26C;
+background-color: #F8F8F8;
+color: #5C5C5C;
+padding: 0 3px 0 10px !important;
+margin: 0 !important;
+line-height: 14px;
+}
+
+.dp-highlighter.nogutter ol li,
+.dp-highlighter.nogutter .columns div
+{
+border: 0;
+}
+
+.dp-highlighter .columns
+{
+background-color: #F8F8F8;
+color: gray;
+overflow: hidden;
+width: 100%;
+}
+
+.dp-highlighter .columns div
+{
+padding-bottom: 5px;
+}
+
+.dp-highlighter ol li.alt
+{
+background-color: #FFF;
+color: inherit;
+}
+
+.dp-highlighter ol li span
+{
+color: black;
+background-color: inherit;
+}
+
+/* Adjust some properties when collapsed */
+
+.dp-highlighter.collapsed ol
+{
+margin: 0px;
+}
+
+.dp-highlighter.collapsed ol li
+{
+display: none;
+}
+
+/* Additional modifications when in print-view */
+
+.dp-highlighter.printing
+{
+border: none;
+}
+
+.dp-highlighter.printing .tools
+{
+display: none !important;
+}
+
+.dp-highlighter.printing li
+{
+display: list-item !important;
+}
+
+/* Styles for the tools */
+
+.dp-highlighter .tools
+{
+padding: 3px 8px 3px 10px;
+font: 9px Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: silver;
+background-color: #f8f8f8;
+padding-bottom: 10px;
+border-left: 3px solid #6CE26C;
+}
+
+.dp-highlighter.nogutter .tools
+{
+border-left: 0;
+}
+
+.dp-highlighter.collapsed .tools
+{
+border-bottom: 0;
+}
+
+.dp-highlighter .tools a
+{
+font-size: 9px;
+color: #a0a0a0;
+background-color: inherit;
+text-decoration: none;
+margin-right: 10px;
+}
+
+.dp-highlighter .tools a:hover
+{
+color: red;
+background-color: inherit;
+text-decoration: underline;
+}
+
+/* About dialog styles */
+
+.dp-about { background-color: #fff; color: #333; margin: 0px; padding: 0px; }
+.dp-about table { width: 100%; height: 100%; font-size: 11px; font-family: Tahoma, Verdana, Arial, sans-serif !important; }
+.dp-about td { padding: 10px; vertical-align: top; }
+.dp-about .copy { border-bottom: 1px solid #ACA899; height: 95%; }
+.dp-about .title { color: red; background-color: inherit; font-weight: bold; }
+.dp-about .para { margin: 0 0 4px 0; }
+.dp-about .footer { background-color: #ECEADB; color: #333; border-top: 1px solid #fff; text-align: right; }
+.dp-about .close { font-size: 11px; font-family: Tahoma, Verdana, Arial, sans-serif !important; background-color: #ECEADB; color: #333; width: 60px; height: 22px; }
+
+/* Language specific styles */
+
+.dp-highlighter .comment, .dp-highlighter .comments { color: #008200; background-color: inherit; }
+.dp-highlighter .string { color: blue; background-color: inherit; }
+.dp-highlighter .keyword { color: #069; font-weight: bold; background-color: inherit; }
+.dp-highlighter .preprocessor { color: gray; background-color: inherit; }
+
+.presentation-link {
+  text-align: center;
+}
