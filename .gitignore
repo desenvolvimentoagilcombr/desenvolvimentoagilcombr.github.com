@@ -2,3 +2,6 @@
 _site
 _backup
 .rbenv-version
+bourbon
+neat
+base
