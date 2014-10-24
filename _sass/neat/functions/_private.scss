@@ -1,23 +1,30 @@
 // Checks if a number is even
 @function is-even($int) {
-  @return $int % 2 == 0
+  @if $int%2 == 0   {
+    @return true;
+  }
+
+  @return false;
 }
 
-// Checks if an element belongs to a list or not
+// Checks if an element belongs to a list
 @function belongs-to($tested-item, $list) {
-  @return not not-belongs-to($tested-item, $list);
-}
+  @each $item in $list {
+    @if $item == $tested-item {
+      @return true;
+    }
+  }
 
-@function not-belongs-to($tested-item, $list) {
-  @return not index($list, $tested-item);
+  @return false;
 }
 
 // Contains display value
 @function contains-display-value($query) {
-  @return belongs-to(table, $query)
-       or belongs-to(block, $query)
-       or belongs-to(inline-block, $query)
-       or belongs-to(inline, $query);
+  @if belongs-to(table, $query) or belongs-to(block, $query) or belongs-to(inline-block, $query) or belongs-to(inline, $query) {
+    @return true;
+  }
+
+  @return false;
 }
 
 // Parses the first argument of span-columns()
@@ -25,26 +32,34 @@
   @if length($span) == 3 {
     $container-columns: nth($span, 3);
     @return $container-columns;
-  } @else if length($span) == 2 {
+  }
+
+  @else if length($span) == 2 {
     $container-columns: nth($span, 2);
     @return $container-columns;
   }
 
-  @return $grid-columns;
+  @else {
+    @return $grid-columns;
+  }
 }
 
 @function container-shift($shift: $shift) {
-  $parent-columns: $grid-columns !default !global;
+  $parent-columns: $grid-columns !global !default;
 
   @if length($shift) == 3 {
     $container-columns: nth($shift, 3);
     @return $container-columns;
-  } @else if length($shift) == 2 {
+  }
+
+  @else if length($shift) == 2 {
     $container-columns: nth($shift, 2);
     @return $container-columns;
   }
 
-  @return $parent-columns;
+  @else {
+    @return $parent-columns;
+  }
 }
 
 // Generates a striped background
@@ -62,7 +77,9 @@
       $values: append($values, $transparent $column-offset, comma);
       $values: append($values, $color $column-offset, comma);
       $column-offset: $column-offset + $column-width;
-    } @else {
+    }
+
+    @else {
       $values: append($values, $color $column-offset, comma);
       $values: append($values, $transparent $column-offset, comma);
       $column-offset: $column-offset + $gutter-width;
@@ -74,9 +91,9 @@
 
 // Layout direction
 @function get-direction($layout, $default) {
-  $direction: null;
-
-  @if to-upper-case($layout) == "LTR" or to-upper-case($layout) == "RTL" {
+  $direction: nil;
+  
+  @if $layout == LTR or $layout == RTL {
     $direction: direction-from-layout($layout);
   } @else {
     $direction: direction-from-layout($default);
@@ -86,9 +103,9 @@
 }
 
 @function direction-from-layout($layout) {
-  $direction: null;
+  $direction: nil;
 
-  @if to-upper-case($layout) == "LTR" {
+  @if $layout == LTR {
     $direction: right;
   } @else {
     $direction: left;
@@ -100,7 +117,7 @@
 @function get-opposite-direction($direction) {
   $opposite-direction: left;
 
-  @if $direction == "left" {
+  @if $direction == left {
     $opposite-direction: right;
   }
 
