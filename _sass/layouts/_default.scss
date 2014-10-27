@@ -1,9 +1,12 @@
 .holder {
   @include outer-container;
-  background: red;
 }
 
 #content-table {
   display: none;
+}
+
+#banner {
+  background: green;
 }
 
