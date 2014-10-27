@@ -70,12 +70,6 @@ hr {
   margin: $base-spacing 0;
 }
 
-img,
-picture {
-  margin: 0;
-  max-width: 100%;
-}
-
 blockquote {
   border-left: 2px solid $base-border-color;
   color: lighten($base-font-color, 15);
