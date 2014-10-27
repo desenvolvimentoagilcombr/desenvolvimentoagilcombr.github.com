@@ -7,6 +7,28 @@
 }
 
 #banner {
-  background: green;
+  border-top: 1px solid #da4343;
+  background: $main-red;
+  padding: 60px 0;
+  text-align: center;
+  color: #fff;
+  
+  h2 {
+    font-size: $h1-font-size;
+    margin: 0 0 $gutter 0;
+    line-height: 25px;
+    
+    span {
+      font-weight: 300;
+      display: block;
+      color: $light-red;
+    }
+  } // h2
 }
 
+.banner-description {
+  font-size: $h5-font-size;
+  line-height: 30px;
+  color: $light-red;
+  margin: 0;
+}
