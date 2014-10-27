@@ -13,6 +13,7 @@ $h4-font-size: $base-font-size * 1.5;
 $h5-font-size: $base-font-size * 1.25;
 $h6-font-size: $base-font-size;
 
+$font-small: 14px;
 $font-medium: 16px;
 $font-large: 31px;
 $font-big: 36px;
@@ -28,9 +29,11 @@ $base-z-index: 0;
 
 // Generic Colors
 $blue: #477DCA;
+
 $dark-gray: #333;
 $medium-gray: #999;
-$light-gray: #DDD;
+$light-gray: #ccc;
+
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
