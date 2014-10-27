@@ -6,6 +6,26 @@
   display: none;
 }
 
+#header {
+  height: 60px;
+  background: #b63131;
+  color: #fff;
+  
+  h1 a {
+    font-size: $font-medium;
+    color: #fff;
+    float: left;
+  }
+}
+
+#main-navigation {
+
+  li {
+    margin-left: 20px;
+    float: right;
+  }
+}
+
 #banner {
   border-top: 1px solid #da4343;
   background: $main-red;
