@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang='pt'>
-	{% include head.html %}
-	<body>
-		{% include google_analytics.html %}
-		<section id="wrapper">
-			<header id="header">
-				<div id="masthead">
-					<div class="center">
-						<h1><a href="/" id="logo" title="DesenvolvimentoAgil.com.br">DesenvolvimentoAgil.com.br</a></h1>
 
-						<nav id="main-navigation">
-							<ul>
-								<li><a href="/xp" title="XP">XP</a></li>
-								<li><a href="/scrum" title="Scrum">Scrum</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
+	{% include head.html %}
+
+	<body>
+
+		<section class="holder">
+
+			<header id="header">
+            
+				<h1>
+          <a href="/" id="logo" title="DesenvolvimentoAgil.com.br">
+            DesenvolvimentoAgil.com.br
+          </a>
+        </h1>
+
+				<nav id="main-navigation">
+					<ul>
+						<li><a href="/xp" title="XP">XP</a></li>
+						<li><a href="/scrum" title="Scrum">Scrum</a></li>
+					</ul>
+				</nav>
+
 			</header>
 			
 			<section id="main">
-				<div class="center">
-					{{ content }}
-				</div>
+				{{ content }}
 			</section>
+
 			{% include contribute.html %}
+
 		</section>
+
 		{% include footer.html %}
+		{% include google_analytics.html %}
+
 	</body>
 </html>
