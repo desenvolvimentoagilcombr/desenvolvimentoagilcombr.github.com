@@ -1,0 +1,28 @@
+#header {
+  height: 60px;
+  background: #b63131;
+  color: #fff;
+  
+  h1 a {
+    line-height: 58px;
+    font-size: $font-medium;
+    color: #fff;
+    float: left;
+  }
+}
+
+#main-navigation {
+  float: right;
+
+  li {
+    line-height: 58px;
+    margin-left: 20px;
+    display: inline-block;
+    font-size: $font-medium;
+  }
+
+  a {
+    font-weight: bold;
+    color: #fff;
+  }
+}
