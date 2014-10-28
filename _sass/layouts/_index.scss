@@ -74,7 +74,18 @@
     margin: $gutter 0 10px 0;
   }
   
+  ul {
+    margin-left: 40px;
+  }
+  
   li {
     font-size: $font-small;
+    line-height: 22px;
+    margin-top: 7px;
+    list-style-type: disc;
+  }
+
+  li:first-child {
+    margin-top: 0;
   }
 }
