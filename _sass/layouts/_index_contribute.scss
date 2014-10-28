@@ -1,0 +1,44 @@
+#contribute {
+  padding: 110px 0 70px 20px;
+  @include outer-container;
+
+  .column {
+    @include span-columns(5);
+    margin: 0 40px;
+  }
+
+  h3 {
+    font-weight: normal;
+    border-bottom: 1px solid $light-gray;
+    color: $main-red;
+    padding: 0 0 15px 0;
+    margin: 0 0 $gutter 0;
+    font-size: $font-medium;
+    line-height: 23px;
+
+    strong {
+      font-size: $font-medium;
+      font-weight: bold;
+    }
+  } // h3
+  
+  h5 {
+    font-size: $font-small;
+    margin: $gutter 0 10px 0;
+  }
+  
+  ul {
+    margin-left: 40px;
+  }
+  
+  li {
+    font-size: $font-small;
+    line-height: 22px;
+    margin-top: 7px;
+    list-style-type: disc;
+  }
+
+  li:first-child {
+    margin-top: 0;
+  }
+}
