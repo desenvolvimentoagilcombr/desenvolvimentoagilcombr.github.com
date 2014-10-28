@@ -50,7 +50,6 @@
   @include outer-container;
 
   .column {
-    @include span-columns(6 of 12);
-    background: red;
+    @include span-columns(6);
   }
 }
