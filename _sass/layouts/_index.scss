@@ -46,10 +46,11 @@
 }
 
 #contribute {
-  padding: 100px 0 70px 0;
+  padding: 100px 0 70px 20px;
   @include outer-container;
 
   .column {
-    @include span-columns(6);
+    @include span-columns(5);
+    margin: 0 40px;
   }
 }
