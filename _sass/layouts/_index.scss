@@ -47,4 +47,8 @@
 
 #contribute {
   padding: 100px 0 70px 0;
+
+  .column {
+    @include span-columns(6);
+  }
 }
