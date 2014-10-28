@@ -2,6 +2,29 @@ footer {
   border-top: 5px solid $light-gray;
   background: $dark-gray;
   padding: $gutter 0;
-  font-size: $font-small;
+  text-align: center;
   color: #fff;
+  
+  p {
+    width: 50%;
+    border-bottom: 1px solid #4b4b4b;
+    margin: 20px auto;
+    padding: 0 0 20px 0;
+    color: $light-gray;
+    font-size: $font-medium;
+  }
+}
+
+.ft-support {
+  font-size: $font-small;
+  color: #808080;
+  
+  a img {
+    width: 150px;
+    margin: 15px auto;
+    
+    &:hover {
+      opacity: .9;
+    }
+  } 
 }
