@@ -30,7 +30,7 @@
   background: $dark-gray;
   text-align: center;
   padding: $gutter 0 0 0;
-  
+
   li {
     display: inline-block;
     margin-bottom: -40px;
@@ -47,9 +47,9 @@
 
 #contribute {
   padding: 100px 0 70px 0;
+  @include outer-container;
 
   .column {
     @include span-columns(6);
-    @include omega(2n);
   }
 }
