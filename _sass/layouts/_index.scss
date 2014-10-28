@@ -46,11 +46,25 @@
 }
 
 #contribute {
-  padding: 100px 0 70px 20px;
+  padding: 110px 0 70px 20px;
   @include outer-container;
 
   .column {
     @include span-columns(5);
     margin: 0 40px;
   }
+
+  h3 {
+    font-weight: normal;
+    border-bottom: 1px solid $light-gray;
+    color: $main-red;
+    padding: 0 0 15px 0;
+    margin: 0 0 $gutter 0;
+    font-size: $font-medium;
+    line-height: 23px;
+
+    strong {
+      font-weight: bold;
+    }
+  } // h3
 }
