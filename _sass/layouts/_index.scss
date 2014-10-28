@@ -25,3 +25,22 @@
   color: $light-red;
   margin: 0;
 }
+
+#main-call {
+  background: $dark-gray;
+  text-align: center;
+  padding: $gutter 0 0 0;
+  
+  li {
+    display: inline-block;
+    margin-bottom: -40px;
+
+    a {
+      width: 140px;
+      height: 140px;
+      background: #eee;
+      color: $main-red;
+      display: inline-block;
+    }
+  } // li
+}
