@@ -5,14 +5,20 @@
 
   li {
     display: inline-block;
-    margin-bottom: -40px;
+    margin: 0 15px -43px 0;
 
     a {
-      width: 140px;
-      height: 140px;
-      background: #eee;
+      width: 134px;
+      height: 155px;
+      background: url('/images/call-bg.png') 0 0 no-repeat;
       color: $main-red;
       display: inline-block;
+      font-size: $font-medium;
+      
+      &:hover {
+        background-position: 0 -155px;
+        color: #fff;
+      }
     }
   } // li
 }
