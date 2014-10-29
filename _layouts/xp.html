@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang='pt'>
-  {% include head.html %}
-  <body>
-    {% include google_analytics.html %}
-    <section id="wrapper">
-      <header id="header">
-        <div id="masthead">
-          <div class="center">
-            <h1><a href="/" id="logo" title="DesenvolvimentoAgil.com.br">DesenvolvimentoAgil.com.br</a></h1>
-            <nav id="main-navigation">
-              <ul>
-                <li class="current"><a href="/xp" title="XP">XP</a></li>
-                <li><a href="/scrum" title="Scrum">Scrum</a></li>
-              </ul>
-            </nav>
-            <a href="#" id="content-table-link"><span>≡</span> Tabela de Conteúdo (XP)</a>
-          </div>
-        </div>
-        {% include content_table_xp.html %}
-      </header>
-      <article id="content" class="center article">
-        {% if page.header_id %}
-        <h1 id="{{ page.header_id }}">{{ page.heading }}</h1>
-        {% else %}
-        <h1 id="default">{{ page.heading }}</h1>
-        {% endif %}
-        {{ content }}
-      </article>
-    </section>
-    {% include footer.html %}
-  </body>
+
+	{% include head.html %}
+
+	<body>
+
+		<header id="header">
+      <div class="holder">
+
+        <img src="/images/da-icon.png">
+
+    		<h1>
+          <a href="/" title="DesenvolvimentoAgil.com.br">
+            DesenvolvimentoAgil.com.br
+          </a>
+        </h1>
+        
+        <a href="#" id="content-table-link">
+          <span>≡</span> Tabela de Conteúdo (XP)
+        </a>
+
+    		<nav id="main-navigation">
+    			<ul>
+    				<li><a href="/xp" title="XP">XP</a></li>
+    				<li><a href="/scrum" title="Scrum">Scrum</a></li>
+    				<li><a href="/kanban" title="Kanban">Kanban</a></li>
+    			</ul>
+    		</nav>
+
+      </div>
+		</header>
+    
+    {% include content_table_xp.html %}
+
+    <div class="holder">
+
+      {% if page.header_id %}
+      <h1 id="{{ page.header_id }}">{{ page.heading }}</h1>
+      {% else %}
+      <h1 id="default">{{ page.heading }}</h1>
+      {% endif %}
+      {{ content }}
+
+    </div> <!-- /holder -->
+
+		{% include footer.html %}
+
+	</body>
 </html>
