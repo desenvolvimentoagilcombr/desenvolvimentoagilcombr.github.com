@@ -6,6 +6,11 @@
     @include span-columns(5);
     margin: 0 40px;
   }
+  
+  p {
+    line-height: 28px;
+    font-size: $font-medium;
+  }
 
   h3 {
     font-weight: normal;
