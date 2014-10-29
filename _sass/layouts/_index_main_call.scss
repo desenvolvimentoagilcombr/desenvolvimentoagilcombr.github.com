@@ -6,6 +6,7 @@
   li {
     display: inline-block;
     margin: 0 15px -43px 0;
+    display: inline-block;
 
     a {
       width: 134px;
@@ -14,6 +15,7 @@
       color: $main-red;
       display: inline-block;
       font-size: $font-medium;
+      padding-top: 66px;
       
       &:hover {
         background-position: 0 -155px;
