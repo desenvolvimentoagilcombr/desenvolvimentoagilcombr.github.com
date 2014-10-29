@@ -4,15 +4,14 @@
 
 #content-table {
   @include outer-container;
+  display: none;
 
   .table-column-01 {
     @include span-columns(7 of 12);
-    background: red;
   }
 
   .table-column-02 {
     @include span-columns(5 of 12);
-    background: green;
   }
   
   .topic {
@@ -23,4 +22,9 @@ a {
   font-weight: bold;
 }
 
-
+p object {
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  display: inline-block;
+}
