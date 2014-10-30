@@ -35,7 +35,11 @@
 
   a {
     color: #ffd0d0;
-  }
+    
+    &:hover {
+      color: #fff;
+    }
+  } // a
 }
 
 body.internal-content {
