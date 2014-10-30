@@ -1,0 +1,42 @@
+#entry {
+  padding: 60px 0 60px 0;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+}
+
+a {
+  font-weight: bold;
+}
+
+p object {
+  width: auto;
+  height: auto;
+  padding: 10px 10px 5px 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  display: inline-block;
+}
+
+blockquote {
+  background: #f8f8f8;
+  padding: $gutter;
+  margin: $gutter 0;
+
+  ul {
+    margin-left: 18px;
+  }
+
+  li {
+    font-size: $font-small;
+    line-height: 22px;
+    margin-top: 7px;
+    list-style-type: disc;
+  }
+  
+  h2 {
+    font-size: $font-medium;
+    margin: 0 0 15px 0;
+  }
+}
