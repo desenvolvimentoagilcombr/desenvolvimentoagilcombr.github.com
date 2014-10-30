@@ -13,9 +13,6 @@
   .table-column-02 {
     @include span-columns(5 of 12);
   }
-  
-  .topic {
-  }
 }
 
 a {
@@ -29,4 +26,25 @@ p object {
   background: #fff;
   border: 1px solid #ddd;
   display: inline-block;
+}
+
+blockquote {
+  background: #f8f8f8;
+  padding: $gutter;
+
+  ul {
+    margin-left: 18px;
+  }
+
+  li {
+    font-size: $font-small;
+    line-height: 22px;
+    margin-top: 7px;
+    list-style-type: disc;
+  }
+  
+  h2 {
+    font-size: $font-medium;
+    margin: 0 0 15px 0;
+  }
 }
