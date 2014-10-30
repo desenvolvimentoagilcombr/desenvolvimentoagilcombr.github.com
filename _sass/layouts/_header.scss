@@ -37,12 +37,12 @@
   }
 }
 
-.internal-content {
+body.internal-content {
   #header {
     img {
       width: 60px;
       height: 60px;
       border-bottom: none;
     }
-  }
+  } // #header
 }
