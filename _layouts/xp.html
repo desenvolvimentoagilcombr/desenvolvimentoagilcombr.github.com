@@ -35,11 +35,7 @@
 
         <section id="entry">
 
-          {% if page.header_id %}
-          <h1 id="{{ page.header_id }}">{{ page.heading }}</h1>
-          {% else %}
-          <h1 id="default">{{ page.heading }}</h1>
-          {% endif %}
+          <h1 class="headline">{{ page.heading }}</h1>
           {{ content }}
       
         </section> <!-- /entry -->
