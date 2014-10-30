@@ -1,3 +1,11 @@
 .holder {
   @include outer-container;
 }
+
+h1 {
+  margin: 0 0 20px 0;
+}
+
+a {
+  font-weight: bold;
+}
