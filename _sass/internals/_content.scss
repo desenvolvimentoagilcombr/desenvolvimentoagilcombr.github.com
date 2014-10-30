@@ -1,5 +1,10 @@
 #entry {
   padding: 60px 0 60px 0;
+  
+  p {
+    line-height: 28px;
+    font-size: $font-medium;
+  }
 }
 
 .headline {
