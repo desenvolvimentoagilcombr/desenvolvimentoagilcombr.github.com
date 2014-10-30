@@ -1,10 +1,22 @@
+html {
+  min-height: 100%; /* Fix footer */
+  position: relative; /* Fix footer */
+}
+
+.main {
+  padding-bottom: 260px; /* Fix footer */
+}
+
 footer {
+  width: 100%;
   border-top: 5px solid $light-gray;
   background: $dark-gray;
   padding: $gutter 0;
   text-align: center;
   font-size: $font-small;
   color: #fff;
+  position: absolute;
+  bottom: 0;
   
   p {
     width: 50%;

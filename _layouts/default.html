@@ -4,34 +4,38 @@
 	{% include head.html %}
 
 	<body>
+    
+    <div class="main">
 
-		<header id="header">
-      <div class="holder">
+  		<header id="header">
+        <div class="holder">
 
-        <img src="/images/da-icon.png">
+          <img src="/images/da-icon.png">
 
-    		<div id="logo">
-          <a href="/" title="DesenvolvimentoAgil.com.br">
-            DesenvolvimentoAgil.com.br
-          </a>
+      		<div id="logo">
+            <a href="/" title="DesenvolvimentoAgil.com.br">
+              DesenvolvimentoAgil.com.br
+            </a>
+          </div>
+
+      		<nav id="main-navigation">
+      			<ul>
+      				<li><a href="/xp" title="XP">XP</a></li>
+      				<li><a href="/scrum" title="Scrum">Scrum</a></li>
+      				<li><a href="/kanban" title="Kanban">Kanban</a></li>
+      			</ul>
+      		</nav>
+
         </div>
+  		</header>
 
-    		<nav id="main-navigation">
-    			<ul>
-    				<li><a href="/xp" title="XP">XP</a></li>
-    				<li><a href="/scrum" title="Scrum">Scrum</a></li>
-    				<li><a href="/kanban" title="Kanban">Kanban</a></li>
-    			</ul>
-    		</nav>
+      {{ content }}
 
-      </div>
-		</header>
+  		{% include contribute.html %}
 
-    {{ content }}
+  		{% include footer.html %}
 
-		{% include contribute.html %}
-
-		{% include footer.html %}
+    </div> <!-- /main -->
 
 	</body>
 </html>

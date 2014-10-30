@@ -4,30 +4,34 @@
 	{% include head.html %}
 
 	<body class="internal-content">
+    
+    <div class="main">
 
-		<header id="header">
+  		<header id="header">
+        <div class="holder">
+
+          <img src="/images/da-icon.png">
+
+      		<div id="logo">
+            <a href="/" title="DesenvolvimentoAgil.com.br">
+              DesenvolvimentoAgil.com.br
+            </a>
+          </div>
+
+        </div>
+  		</header>
+
       <div class="holder">
 
-        <img src="/images/da-icon.png">
+        <section id="entry">
+          {{ content }}
+        </section>
 
-    		<div id="logo">
-          <a href="/" title="DesenvolvimentoAgil.com.br">
-            DesenvolvimentoAgil.com.br
-          </a>
-        </div>
+      </div> <!-- /holder -->
 
-      </div>
-		</header>
-
-    <div class="holder">
-
-      <section id="entry">
-        {{ content }}
-      </section>
-
-    </div> <!-- /holder -->
-
-		{% include footer.html %}
+  		{% include footer.html %}
+    
+    </div> <!-- /main -->
 
 	</body>
 </html>

@@ -4,47 +4,51 @@
 	{% include head.html %}
 
 	<body class="internal-content">
+    
+    <div class="main">
 
-		<header id="header">
+  		<header id="header">
+        <div class="holder">
+
+          <img src="/images/da-icon.png">
+
+      		<div id="logo">
+            <a href="/" title="DesenvolvimentoAgil.com.br">
+              DesenvolvimentoAgil.com.br
+            </a>
+          </div>
+
+      		<nav id="main-navigation">
+      			<ul>
+      				<li>XP</li>
+      				<li><a href="/scrum" title="Scrum">Scrum</a></li>
+      				<li><a href="/kanban" title="Kanban">Kanban</a></li>
+      			</ul>
+      		</nav>
+
+        </div>
+  		</header>
+
+      {% include content_table_xp.html %}
+
       <div class="holder">
 
-        <img src="/images/da-icon.png">
+        <section id="entry">
 
-    		<div id="logo">
-          <a href="/" title="DesenvolvimentoAgil.com.br">
-            DesenvolvimentoAgil.com.br
-          </a>
-        </div>
-
-    		<nav id="main-navigation">
-    			<ul>
-    				<li>XP</li>
-    				<li><a href="/scrum" title="Scrum">Scrum</a></li>
-    				<li><a href="/kanban" title="Kanban">Kanban</a></li>
-    			</ul>
-    		</nav>
-
-      </div>
-		</header>
-
-    {% include content_table_xp.html %}
-
-    <div class="holder">
-
-      <section id="entry">
-
-        {% if page.header_id %}
-        <h1 id="{{ page.header_id }}">{{ page.heading }}</h1>
-        {% else %}
-        <h1 id="default">{{ page.heading }}</h1>
-        {% endif %}
-        {{ content }}
+          {% if page.header_id %}
+          <h1 id="{{ page.header_id }}">{{ page.heading }}</h1>
+          {% else %}
+          <h1 id="default">{{ page.heading }}</h1>
+          {% endif %}
+          {{ content }}
       
-      </section> <!-- /entry -->
+        </section> <!-- /entry -->
 
-    </div> <!-- /holder -->
+      </div> <!-- /holder -->
 
-		{% include footer.html %}
+  		{% include footer.html %}
+    
+    </div> <!-- /main -->
 
 	</body>
 </html>
