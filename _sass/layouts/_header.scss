@@ -30,10 +30,11 @@
     margin-left: 20px;
     display: inline-block;
     font-size: $font-medium;
+    font-weight: bold;
   }
 
   a {
-    color: #fff;
+    color: #ffd0d0;
   }
 }
 
@@ -45,4 +46,9 @@ body.internal-content {
       border-bottom: none;
     }
   } // #header
+}
+
+#content-table-link {
+  font-size: $font-small;
+  color: #fff;
 }
