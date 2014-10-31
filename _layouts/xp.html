@@ -4,7 +4,7 @@
 	{% include head.html %}
 
 	<body class="internal-content">
-    
+
     <div class="main">
 
   		<header id="header">
@@ -30,11 +30,13 @@
   		</header>
 
       <div class="holder">
-        
+
+				{% include sliding_menu_xp.html %}
+
         <h1 class="headline">
           {{ page.heading }}
         </h1>
-        
+
         <aside id="content-sidebar">
           {% include content_table_xp.html %}
         </aside>
@@ -46,7 +48,7 @@
       </div> <!-- /holder -->
 
   		{% include footer.html %}
-    
+
     </div> <!-- /main -->
 
 	</body>

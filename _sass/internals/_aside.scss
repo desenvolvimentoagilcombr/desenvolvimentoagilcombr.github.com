@@ -16,18 +16,18 @@
   ul {
     margin-bottom: $gutter;
     display: none;
-    
+
     li {
       list-style-type: circle;
       margin-left: $gutter;
       line-height: 20px;
       margin-top: 5px;
     }
-    
+
     li:first-child {
       margin-top: 0;
     }
-    
+
     a {
       font-size: $font-small;
     }
