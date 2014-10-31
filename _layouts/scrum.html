@@ -29,16 +29,19 @@
         </div>
   		</header>
 
-      {% include content_table_xp.html %}
-
       <div class="holder">
 
-        <section id="entry">
+        <h1 class="headline">
+          {{ page.heading }}
+        </h1>
+        
+        <aside id="content-sidebar">
+          {% include content_table_scrum.html %}
+        </aside>
 
-          <h1 class="headline">{{ page.heading }}</h1>
+        <section id="entry">
           {{ content }}
-      
-        </section> <!-- /entry -->
+        </section>
 
       </div> <!-- /holder -->
 
