@@ -1,5 +1,7 @@
 #entry {
-  padding: 60px 0 60px 0;
+  @include span-columns(9 of 12);
+  padding: 0 0 60px 0;
+  float: right;
   
   p {
     line-height: 28px;
@@ -8,8 +10,10 @@
 }
 
 .headline {
-  text-align: center;
+  border-bottom: 1px solid #eee;
   text-transform: uppercase;
+  margin-top: 60px;
+  padding-bottom: 20px;
 }
 
 p object {

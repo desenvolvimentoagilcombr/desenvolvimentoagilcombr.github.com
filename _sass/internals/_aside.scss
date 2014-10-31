@@ -1,12 +1,4 @@
-#content-table {
-  @include outer-container;
-  display: none;
-
-  .table-column-01 {
-    @include span-columns(7 of 12);
-  }
-
-  .table-column-02 {
-    @include span-columns(5 of 12);
-  }
+#content-sidebar {
+  @include span-columns(2 of 12);
+  margin-bottom: 60px;
 }
