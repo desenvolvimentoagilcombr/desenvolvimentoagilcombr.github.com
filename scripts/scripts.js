@@ -1,7 +1,7 @@
 $(function(){
-  $("#content-table-link").on("click", function(e){
+  $("#content-sidebar h4").on("click", function(e){
     e.preventDefault();
-    $("#content-table").slideToggle();
+    $(this).next(".topic ul").toggle();
   });
 
   dp.SyntaxHighlighter.BloggerMode();
