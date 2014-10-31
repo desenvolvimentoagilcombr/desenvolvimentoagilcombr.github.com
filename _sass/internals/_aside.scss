@@ -1,4 +1,19 @@
 #content-sidebar {
   @include span-columns(2 of 12);
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+
+  h4 {
+    font-size: $font-medium;
+    color: $medium-gray;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  .topic ul {
+    margin-bottom: $gutter;
+  }
 }
