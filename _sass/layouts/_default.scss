@@ -1,5 +1,13 @@
 .holder {
   @include outer-container;
+  @include media($md-devices) {
+    width: 700px;
+  }
+
+  @include media($sm-devices) {
+    padding: 0 5%;
+    width: 90%;
+  }
 }
 
 h1 {
