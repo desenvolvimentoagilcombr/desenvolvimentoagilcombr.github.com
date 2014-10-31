@@ -1,5 +1,5 @@
 #content-sidebar {
-  @include span-columns(2 of 12);
+  @include span-columns(3 of 12);
   margin-bottom: 40px;
 
   h4 {
@@ -15,5 +15,21 @@
 
   .topic ul {
     margin-bottom: $gutter;
+    
+    li {
+      list-style-type: circle;
+      margin-left: $gutter;
+      line-height: 20px;
+      margin-top: 5px;
+    }
+    
+    li:first-child {
+      margin-top: 0;
+    }
+    
+    a {
+      font-weight: normal;
+      font-size: $font-small;
+    }
   }
 }
