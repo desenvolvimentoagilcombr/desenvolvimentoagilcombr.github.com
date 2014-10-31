@@ -1,8 +1,12 @@
 #entry {
   @include span-columns(9 of 12);
+  @include media($md-devices) {
+    @include span-columns(12 of 12);
+    padding:0;
+  }
   padding: 0 0 60px 20px;
   float: right;
-  
+
   p {
     line-height: 28px;
     font-size: $font-medium;
@@ -41,7 +45,7 @@ blockquote {
     margin-top: 7px;
     list-style-type: disc;
   }
-  
+
   h2 {
     font-size: $font-medium;
     margin: 0 0 15px 0;

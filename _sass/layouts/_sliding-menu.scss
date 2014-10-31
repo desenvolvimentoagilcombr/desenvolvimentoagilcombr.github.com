@@ -6,17 +6,19 @@ $sliding-menu-background-hover: $base-accent-color;
 $sliding-menu-color-hover: #fff;
 
 .sliding-menu-button {
-  @include button(simple, $base-background-color);
-  @include inline-block;
+  background: url('../../images/sidemenu-icon.png') 0 0 no-repeat !important;
+  display:none;
   cursor: pointer;
   font-size: $base-font-size;
-  margin-bottom: $base-line-height;
+  margin: 7px 15px 0 0;
+  padding: 1em;
   position: relative;
   outline: none;
 
-  img {
-    height: 1.3em;
+  @include media($md-devices) {
+    display: block;
   }
+
 }
 
 .sliding-menu-content {

@@ -32,4 +32,9 @@
       font-size: $font-small;
     }
   }
+
+  @include media($md-devices) {
+    display:none;
+  }
+
 }
