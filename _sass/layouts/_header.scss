@@ -3,7 +3,7 @@
   background: #b63131;
   color: #fff;
 
-  img {
+  a img {
     width: 61px;
     height: 61px;
     background: $main-red;
@@ -19,7 +19,11 @@
     font-size: $font-medium;
     color: #fff;
     float: left;
-  }
+    
+    @include media($sm-devices) {
+      display: none;
+    }
+  } // #logo a
 }
 
 #main-navigation {
