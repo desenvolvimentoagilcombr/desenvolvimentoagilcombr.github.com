@@ -12,6 +12,10 @@
     border-bottom: 1px solid $main-red;
     margin-right: 20px;
     float: left;
+    
+    &:hover {
+      opacity: .9;
+    }
   }
 
   #logo a {
