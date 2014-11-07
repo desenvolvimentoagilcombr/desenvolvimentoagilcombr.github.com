@@ -18,7 +18,6 @@ $sliding-menu-color-hover: #fff;
   @include media($md-devices) {
     display: block;
   }
-
 }
 
 .sliding-menu-content {
@@ -26,10 +25,23 @@ $sliding-menu-color-hover: #fff;
   @include size(220px 100%);
   @include transform(translateX(-220px));
   @include transition(all .25s linear);
-  background: #fff;
+  background: $sliding-menu-background;
   z-index: 999999;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+
+  li a {
+    border-bottom: $sliding-menu-border;
+    color: $sliding-menu-color;
+    display: block;
+    font-weight: bold;
+    padding: 1em;
+
+    &:hover {
+      background-color: $sliding-menu-background-hover;
+      color: $sliding-menu-color-hover;
+    }
+  }
 
   &.is-visible {
     @include transform(translateX(0));
@@ -37,6 +49,9 @@ $sliding-menu-color-hover: #fff;
 }
 
 .menu-screen {
+  @include position(fixed, 0px 0px 0px 0px);
+  @include transition;
+  background: $sliding-menu-border-color;
   opacity: 0;
   visibility: hidden;
   z-index: 999998;
