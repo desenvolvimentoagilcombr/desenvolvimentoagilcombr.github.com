@@ -17,7 +17,7 @@
     font-size: $font-small;
     color: $medium-gray;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
     &:hover {
       opacity: .8;
@@ -32,7 +32,7 @@
     margin-bottom: $gutter;
 
     li {
-      list-style-type: circle;
+      list-style-type: disc;
       margin-left: $gutter;
       line-height: 20px;
       margin-top: 5px;
