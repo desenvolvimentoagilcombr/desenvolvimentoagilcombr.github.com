@@ -23,6 +23,10 @@
       opacity: .8;
     }
   }
+  
+  ul.first-nav {
+    display: none;
+  }
 
   ul {
     margin-bottom: $gutter;
@@ -35,6 +39,7 @@
       
       ul {
         margin-bottom: 10px;
+        display: none;
         
         li {
           margin-left: 20px;

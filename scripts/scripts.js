@@ -1,8 +1,13 @@
 $(function(){
-  //$("#content-sidebar h4").on("click", function(e){
-    //e.preventDefault();
-    //$(this).next(".topic ul").toggle();
-    //});
+  $("#content-sidebar h4").on("click", function(e){
+    e.preventDefault();
+    $(this).next(".first-nav").toggle();
+  });
+
+  $("#content-sidebar h5").on("click", function(e){
+    e.preventDefault();
+    $(this).next("ul").toggle();
+  });
 
   dp.SyntaxHighlighter.BloggerMode();
   dp.SyntaxHighlighter.HighlightAll('code');
