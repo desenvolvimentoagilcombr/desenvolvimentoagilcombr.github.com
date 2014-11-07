@@ -43,6 +43,14 @@ p object {
   }
 }
 
+p img {
+  margin-top: $gutter;
+
+  @include media($sm-devices) {
+    width: 100%;
+  }
+}
+
 blockquote {
   background: #f8f8f8;
   padding: $gutter;
