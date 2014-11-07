@@ -29,17 +29,31 @@ $sliding-menu-color-hover: #fff;
   z-index: 999999;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  border-right: 7px solid #fff;
+
+  h4 {
+    padding: 10px;
+    background: $main-red;
+    font-size: $font-medium2;
+    color: #fff;
+  }
+  
+  h5 {
+    padding: 10px;
+    background: $medium-gray;
+    font-size: $font-medium;
+    color: #fff;
+  }
 
   li a {
     border-bottom: $sliding-menu-border;
     color: $sliding-menu-color;
     display: block;
     font-weight: bold;
-    padding: 1em;
+    padding: 10px;
 
     &:hover {
-      background-color: $sliding-menu-background-hover;
-      color: $sliding-menu-color-hover;
+      background-color: $dark-gray;
     }
   }
 
