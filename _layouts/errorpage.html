@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='pt'>
+
+	{% include head.html %}
+
+	<body class="internal-content">
+    
+    <div class="main">
+
+  		<header id="header">
+        <div class="holder">
+
+	        {% include logo.html %}
+
+        </div>
+  		</header>
+
+      <div class="holder">
+
+        <section class="error-entry">
+          {{ content }}
+        </section>
+
+      </div> <!-- /holder -->
+
+  		{% include footer.html %}
+    
+    </div> <!-- /main -->
+
+	</body>
+</html>

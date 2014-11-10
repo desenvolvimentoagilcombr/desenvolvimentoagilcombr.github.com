@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang='pt'>
-  {% include head.html %}
-  <body>
-    {% include google_analytics.html %}
-    <section id="wrapper">
-      <header id="header">
-        <div id="masthead">
-          <div class="center">
-            <h1><a href="/" id="logo" title="DesenvolvimentoAgil.com.br">DesenvolvimentoAgil.com.br</a></h1>
-            <nav id="main-navigation">
-              <ul>
-                <li class="current"><a href="/xp" title="XP">XP</a></li>
-                <li><a href="/scrum" title="Scrum">Scrum</a></li>
-              </ul>
-            </nav>
-            <a href="#" id="content-table-link"><span>≡</span> Tabela de Conteúdo (XP)</a>
-          </div>
+
+	{% include head.html %}
+
+	<body class="internal-content">
+
+    <div class="main">
+
+  		<header id="header">
+        <div class="holder">
+
+	        {% include logo.html %}
+
+      		<nav id="main-navigation">
+      			<ul>
+      				<li>XP</li>
+      				<li><a href="/scrum" title="Scrum">Scrum</a></li>
+      			</ul>
+      		</nav>
+
         </div>
-        {% include content_table_xp.html %}
-      </header>
-      <article id="content" class="center article">
-        {% if page.header_id %}
-        <h1 id="{{ page.header_id }}">{{ page.heading }}</h1>
-        {% else %}
-        <h1 id="default">{{ page.heading }}</h1>
-        {% endif %}
-        {{ content }}
-      </article>
-    </section>
-    {% include footer.html %}
-  </body>
+  		</header>
+
+      <div class="holder">
+
+				{% include sliding_menu_xp.html %}
+
+        <h1 class="headline">
+          {{ page.heading }}
+        </h1>
+
+        <aside id="content-sidebar">
+          {% include content_table_xp.html %}
+        </aside>
+
+        <section id="entry">
+          {{ content }}
+        </section>
+
+      </div> <!-- /holder -->
+
+  		{% include footer.html %}
+
+    </div> <!-- /main -->
+
+	</body>
 </html>

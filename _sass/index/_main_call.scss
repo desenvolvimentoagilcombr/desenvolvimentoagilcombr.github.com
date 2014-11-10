@@ -1,0 +1,27 @@
+#main-call {
+  background: $dark-gray;
+  text-align: center;
+  padding: $gutter 0 0 0;
+
+  li {
+    display: inline-block;
+    margin: 0 15px -43px 0;
+    display: inline-block;
+
+    a {
+      width: 134px;
+      height: 155px;
+      background: url('/images/call-bg.png') 0 0 no-repeat;
+      color: $main-red;
+      display: inline-block;
+      font-size: $font-medium;
+      text-transform: uppercase;
+      padding-top: 66px;
+      
+      &:hover {
+        background-position: 0 -155px;
+        color: #fff;
+      }
+    } // a
+  } // li
+}

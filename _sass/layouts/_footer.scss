@@ -1,0 +1,42 @@
+html {
+  min-height: 100%; /* Fix footer */
+  position: relative; /* Fix footer */
+}
+
+.main {
+  padding-bottom: 260px; /* Fix footer */
+}
+
+footer {
+  width: 100%;
+  border-top: 5px solid $light-gray;
+  background: $dark-gray;
+  padding: $gutter 0;
+  text-align: center;
+  font-size: $font-small;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  
+  p {
+    width: 50%;
+    border-bottom: 1px solid #4b4b4b;
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 0 0 20px 0;
+    color: $light-gray;
+  }
+}
+
+.ft-support {
+  color: #808080;
+  
+  a img {
+    width: 150px;
+    margin: 15px auto;
+    
+    &:hover {
+      opacity: .9;
+    }
+  } // a img
+}
