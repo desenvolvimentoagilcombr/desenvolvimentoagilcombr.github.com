@@ -4,7 +4,7 @@ html {
 }
 
 .main {
-  padding-bottom: 260px; /* Fix footer */
+  padding-bottom: 130px; /* Fix footer */
 }
 
 footer {
@@ -20,16 +20,17 @@ footer {
   
   p {
     width: 50%;
-    border-bottom: 1px solid #4b4b4b;
+    //border-bottom: 1px solid #4b4b4b;
     font-weight: bold;
     margin: 20px auto;
-    padding: 0 0 20px 0;
+    // padding: 0 0 20px 0;
     color: $light-gray;
   }
 }
 
 .ft-support {
   color: #808080;
+  display: none;
   
   a img {
     width: 150px;
