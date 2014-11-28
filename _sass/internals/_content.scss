@@ -1,7 +1,14 @@
 #entry {
   @include span-columns(9 of 12);
-  padding: 0 0 60px 20px;
+  padding: 0 0 50px 20px;
   float: right;
+  
+  h2 {
+    font-size: $font-medium2;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin: $gutter 0 20px 0;
+  }
 
   p {
     line-height: 28px;
@@ -56,6 +63,10 @@ blockquote {
   background: #f8f8f8;
   padding: $gutter;
   margin: 0 0 $gutter 0;
+  
+  h2 {
+    margin: 0 0 20px 0 !important;
+  }
 
   ul {
     margin-left: 18px;
@@ -72,4 +83,73 @@ blockquote {
     font-size: $font-medium;
     margin: 0 0 15px 0;
   }
+}
+
+h1#scrum {
+  background: url(/images/main_heading/scrum.gif) no-repeat right bottom;
+}
+
+h1#xp {
+  background: url(/images/main_heading/default.gif) no-repeat right bottom;
+}
+
+h1#praticas {
+  background: url(/images/main_heading/praticas.gif) no-repeat right bottom;
+}
+
+h1#tdd {
+  background: url(/images/main_heading/tdd.gif) no-repeat right bottom;
+}
+
+h1#comunicacao {
+  background: url(/images/main_heading/comunicacao.gif) no-repeat right bottom;
+}
+
+h1#coragem {
+  background: url(/images/main_heading/coragem.gif) no-repeat right bottom;
+}
+
+h1#feedback {
+  background: url(/images/main_heading/feedback.gif) no-repeat right bottom;
+}
+
+h1#valores {
+  background: url(/images/main_heading/valores.gif) no-repeat right bottom;
+}
+
+h1#respeito {
+  background: url(/images/main_heading/respeito.gif) no-repeat right bottom;
+}
+
+h1#simplicidade {
+  background: url(/images/main_heading/simplicidade.gif) no-repeat right bottom;
+}
+
+h1#integracao_continua {
+  background: url(/images/main_heading/integracao_continua.gif) no-repeat right bottom;
+}
+
+h1#programacao_par {
+  background: url(/images/main_heading/programacao_par.gif) no-repeat right bottom;
+}
+
+h1#raiz_do_problema {
+  background: url(/images/main_heading/raiz_do_problema.gif) no-repeat right bottom;
+}
+
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+
+h1#mock_objects {
+  background: url(/images/main_heading/mock_objects.gif) no-repeat right bottom;
+}
+h1#emma {
+  background: url(/images/main_heading/emma.gif) no-repeat right bottom;
+}
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
+}
+h1#contrato_escopo_negociavel {
+  background: url(/images/main_heading/contrato_escopo_negociavel.gif) no-repeat right bottom;
 }
