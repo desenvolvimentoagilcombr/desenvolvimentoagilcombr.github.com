@@ -7,7 +7,7 @@ heading: 'Scrum'
 header_id: 'scrum'
 ---
 
-Scrum é uma [metodologia ágil][ma] para gestão e planejamento de projetos de software. Se você chegou até aqui interessado em fazer uma das certificações disponíveis para Scrum, veja [por que dizemos não à certificação][pn]?
+Scrum é uma [metodologia ágil][ma] para gestão e planejamento de projetos de software.
 
 No Scrum, os projetos são dividos em ciclos (tipicamente mensais) chamados de **Sprints**. O **Sprint** representa um Time Box dentro do qual um conjunto de atividades deve ser executado. [Metodologias ágeis][ma] de desenvolvimento de software são iterativas, ou seja, o trabalho é dividido em iterações, que são chamadas de Sprints no caso do Scrum.
 
@@ -27,4 +27,3 @@ Ao final de um Sprint, a equipe apresenta as funcionalidades implementadas em um
 [sr]:		/scrum/sprint_retrospective
 [spm]:		/scrum/sprint_planning_meeting
 [po]:		/scrum/product_owner
-[pn]:   /scrum/certificacao
