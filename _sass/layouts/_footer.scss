@@ -4,7 +4,7 @@ html {
 }
 
 .main {
-  padding-bottom: 130px; /* Fix footer */
+  padding-bottom: 260px; /* Fix footer */
 }
 
 footer {
@@ -17,7 +17,7 @@ footer {
   color: #fff;
   position: absolute;
   bottom: 0;
-  
+
   p {
     width: 50%;
     //border-bottom: 1px solid #4b4b4b;
@@ -30,12 +30,11 @@ footer {
 
 .ft-support {
   color: #808080;
-  display: none;
-  
+
   a img {
     width: 150px;
     margin: 15px auto;
-    
+
     &:hover {
       opacity: .9;
     }
