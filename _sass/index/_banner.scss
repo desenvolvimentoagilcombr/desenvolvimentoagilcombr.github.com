@@ -5,6 +5,10 @@
   text-align: center;
   color: #fff;
 
+  .holder {
+    position: relative;
+  }
+
   h2 {
     font-size: $font-big;
     margin: 0 0 $gutter 0;
@@ -13,7 +17,7 @@
     span {
       margin-bottom: -45px;
       font-size: $font-large;
-      font-weight: 300; 
+      font-weight: 300;
       display: block;
       color: $light-red;
     }

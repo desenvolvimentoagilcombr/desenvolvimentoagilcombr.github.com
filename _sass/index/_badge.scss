@@ -1,0 +1,21 @@
+#badge {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  width: 150px;
+  height: 150px;
+}
+
+#badge-close {
+  position: absolute;
+  top: 7px;
+  right: 0px;
+}
+
+@media screen and (max-width: 1300px) {
+  #badge { right: 0px; }
+}
+
+@media screen and (max-width: 1100px) {
+  #badge { display: none; }
+}
